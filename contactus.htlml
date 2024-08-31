@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Patel Holdings LLC</title>
+    <link rel="icon" type="image/x-icon" href="favicon.JPG">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #18284e;
+            margin: 0;
+            padding: 0;
+            background-color: #ebe7e5;
+        }
+        header {
+            background-color: #18284e;
+            color: #ebe7e5;
+            text-align: center;
+            padding: 1rem;
+        }
+        nav {
+            background-color: #d9d5d3;
+            padding: 0.5rem;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #18284e;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+        .contact-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .contact-form h2 {
+            margin-top: 0;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #d9d5d3;
+            border-radius: 4px;
+        }
+        .form-group textarea {
+            height: 100px;
+        }
+        .submit-btn {
+            background-color: #18284e;
+            color: #ebe7e5;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #2c3e50;
+        }
+        .location {
+            display: flex;
+            margin-bottom: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .location-info {
+            flex: 1;
+            padding: 20px;
+        }
+        .location-map {
+            flex: 1;
+            min-height: 300px;
+        }
+        footer {
+            background-color: #18284e;
+            color: #ebe7e5;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            .location {
+                flex-direction: column;
+            }
+            .location-map {
+                min-height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Patel Holdings LLC</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="investments.html">Our Investments</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="contact-form">
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </section>
+
+        <section class="locations">
+            <h2>Our Locations</h2>
+            
+            <div class="location">
+                <div class="location-info">
+                    <h3>New York (Americas)</h3>
+                    <p>200 Park Ave, New York, NY, USA 10166</p>
+                    <p>Phone: +1 (212) 682-0309</p>
+                </div>
+                <div class="location-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2826098398325!2d-73.97745868459468!3d40.75479794332881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259022878eeb5%3A0xc7c2621da4e29cbe!2s200%20Park%20Ave%2C%20New%20York%2C%20NY%2010166!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <div class="location">
+                <div class="location-info">
+                    <h3>Toronto (Americas)</h3>
+                    <p>119 Spadina Ave., Toronto, ON M5V 2L1, Canada</p>
+                    <p>Phone: +1 (416) 203-7575</p>
+                </div>
+                <div class="location-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2887.2744577078478!2d-79.39854368451425!3d43.64770897912161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34dc84945e01%3A0x5344cdca7988f0eb!2s119%20Spadina%20Ave%2C%20Toronto%2C%20ON%20M5V%202L1%2C%20Canada!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <div class="location">
+                <div class="location-info">
+                    <h3>London (Europe)</h3>
+                    <p>50 Jermyn St, St. James's, London SW1Y 6LX, UK</p>
+                    <p>Phone: +44 20 7437 1521</p>
+                </div>
+                <div class="location-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.5454830871254!2d-0.13848368423118567!3d51.50845397963502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604d6db28ffe9%3A0x46308d2d7f1d0f4f!2s50%20Jermyn%20St%2C%20St.%20James&#39;s%2C%20London%20SW1Y%206LX%2C%20UK!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <div class="location">
+                <div class="location-info">
+                    <h3>India (Asia-Pacific)</h3>
+                    <p>Anand - Maghrol Rd, Vithal Udyognagar, GIDC, Anand, Gujarat, India 388001</p>
+                    <p>Phone: +91 97284 84865</p>
+                </div>
+                <div class="location-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.332465879523!2d72.92224731496808!3d22.553080685190466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e4e7eaaaaaaab%3A0xe0eafe5fc5ca83ab!2sAnand%20-%20Maghrol%20Rd%2C%20Vithal%20Udyognagar%2C%20Anand%2C%20Gujarat%20388001%2C%20India!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Patel Holdings LLC. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would typically send the form data to a server
+            alert('Thank you for your message. We will get back to you soon!');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
