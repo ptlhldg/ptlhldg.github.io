@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Patel Holdings LLC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patel Holdings LLC - Diversifying Wealth Across Global Ventures</title>
+    <link rel="icon" type="image/x-icon" href="favicon.JPG">
     <script type="application/ld+json">
     {
-      "@context" : "https://patel-holdings.com/",
-      "@type" : "WebSite",
-      "name" : "Patel Holdings",
-      "url" : "https://patel-holdings.com/"
-      "alternateName": ["PH", "Patel Holdings LLC", "PTL-HDLG"],
+      "@context": "https://patel-holdings.com/",
+      "@type": "WebSite",
+      "name": "Patel Holdings",
+      "url": "https://patel-holdings.com/",
+      "alternateName": ["PH", "Patel Holdings LLC", "PTL-HDLG"]
     }
-  </script>
+    </script>
     <meta name="description" content="A private, multigenerational family firm diversifying wealth across investment funds, businesses, and global ventures.">
-    <link rel="icon" type="image/x-icon" href="favicon.JPG">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N3KFG5C1ZL"></script>
@@ -22,37 +22,99 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
       gtag('config', 'G-N3KFG5C1ZL');
     </script>
+    
     <style>
         body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #18284e;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
             background-color: #ebe7e5;
-            display: flex;
-            align-items: center;
-            justify-content: center; 
-            height: 100vh;
-            flex-direction: column;
         }
-        .image-container {
-            background-color: #ebe7e5;
+        header {
+            background-color: #18284e;
+            color: #ebe7e5;
             text-align: center;
+            padding: 1rem;
         }
-        .responsive {
-            width: 100%;
-            height: auto;
-            max-width: 100%
+        nav {
+            background-color: #d9d5d3;
+            padding: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-right: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #18284e;
+        }
+        .sign-in-btn {
+            background-color: #18284e;
+            color: #ebe7e5;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
         .container {
-            background-color: #ebe7e5;
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .main-content {
+            float: left;
+            width: 70%;
+        }
+        .sidebar {
+            float: right;
+            width: 25%;
+            background-color: #d9d5d3;
+            padding: 10px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #ebe7e5;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
             width: 300px;
-            text-align: center;
+            border-radius: 8px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: #18284e;
+            text-decoration: none;
+            cursor: pointer;
         }
         input {
             width: 100%;
@@ -67,112 +129,101 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            margin-top: 10px; /* Add margin-top for spacing between buttons */
+            margin-top: 10px;
         }
-        /* Styles for desktop */
-        @media only screen and (min-width: 768px) {
-            .image-container {
-        padding-top: 450px; /* Adjust padding for desktop */
-            }
-            .mobile-image {
-                display: none;
-            }
-            .desktop-image {
-                display: block;
-            }
+        footer {
+            background-color: #18284e;
+            color: #ebe7e5;
+            text-align: center;
+            padding: 1rem;
+            clear: both;
         }
-        /* Styles for mobile */
-        @media only screen and (max-width: 767px) {
-            .image-container {
-        padding-top: 1070px; /* Adjust padding for mobile */
-            }
-            .desktop-image {
-                display: none;
-            }
-            .mobile-image {
-                display: block;
-            }
-        }
-        /* Additional styles for the contact information */
         .contact-info-container {
             background-color: #18284e;
             color: #ebe7e5;
             text-align: center;
             padding: 20px;
-            width: 100%;
-            display: flex; /* Use flexbox for horizontal alignment */
-            justify-content: center; /* Center align the items */
-            flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         .location-container {
-            margin: 10px; /* Add margin between location containers */
-            width: 250px; /* Set a fixed width for each location container */
+            margin: 10px;
+            width: 250px;
         }
-        /* Styles for address and phone number */
         .location {
             font-weight: bold;
-            margin-bottom: 5px; /* Add margin below location name */
+            margin-bottom: 5px;
         }
         .email {
-            margin-top: 20px; /* Add margin on top of email */
+            margin-top: 20px;
+            text-align: center;
+            color: #18284e;
+        }
+        @media only screen and (max-width: 768px) {
+            .main-content, .sidebar {
+                width: 100%;
+                float: none;
+            }
+            nav {
+                flex-direction: column;
+            }
+            nav ul {
+                margin-bottom: 10px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="image-container">
-        <!-- Desktop Image -->
-        <img src="landing-page.png" alt="Desktop Image" class="responsive desktop-image">
-        <!-- Mobile Image -->
-        <img src="landing-page-mobile.png" alt="Mobile Image" class="responsive mobile-image">
-    </div>
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-        import { getAuth } from "firebase/auth";
-        
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-        apiKey: "AIzaSyBKk0b2-Dr2IkiiSObJdxdKiNaHRCQMmzo",
-        authDomain: "patel-holdings.firebaseapp.com",
-        projectId: "patel-holdings",
-        storageBucket: "patel-holdings.appspot.com",
-        messagingSenderId: "703106012824",
-        appId: "1:703106012824:web:9a51ca849e006fa41fa2ed",
-        measurementId: "G-N3KFG5C1ZL"
-        };
-        
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        
-        const auth = getAuth(app);
-    </script>
+    <header>
+        <h1>Patel Holdings LLC</h1>
+        <p>A private, multigenerational family firm diversifying wealth across investment funds, businesses, and global ventures</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#investments">Our Investments</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="sign-in-btn" id="signInBtn">Sign In</button>
+    </nav>
+
     <div class="container">
-        <h2>Member Authentication</h2>
-        <form action="https://bba.bloomberg.net/" method="post">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">Sign In</button>
-        </form>
-        <!-- Sign Up button -->
-        <a href="mailto:IT@patel-holdings.com?subject=Request%20-%20User%20Sign%20Up&body=%5BFirst%20Name%5D%5BLast%20Name%5D%20requesting%20login%20information%20for%20Patel-Holdings.com%20%26%20BBA.%20ID%20number%3A%20%5BEmployee%20ID%5D%2C%20Phone%20number%20%28for%2FA%29%20%5B%2Bx-xxx-xxx-xxxx%5D.%20RefID%3Ab00e44b3-6ea2-444f-a2c3-c084ea4c96cc" onclick="redirectIfGmail()">Request Login Information</a>
-        <script>
-        function redirectIfGmail() {
-          if (window.location.href.indexOf("gmail.com") !== -1) {
-            window.location.href = "https://mail.google.com/mail/u/0/?view=cm&fs=1&to=IT@patel-holdings.com&su=Request%20-%20User%20Sign%20Up&body=%5BFirst%20Name%5D%5BLast%20Name%5D%20requesting%20login%20information%20for%20Patel-Holdings.com%20%26%20BBA.%20ID%20number%3A%20%5BEmployee%20ID%5D%20C%2C%20Phone%20number%20%28for%2FA%29%20%5B%2Bx-xxx-xxx-xxxx%5D.%20RefID%3Ab00e44b3-6ea2-444f-a2c3-c084ea4c96cc";
-          }
-        }
-        </script>
-        
-        </a>
+        <main class="main-content">
+            <h2>Welcome to Patel Holdings LLC</h2>
+            <p>Patel Holdings LLC is a distinguished private family firm with a rich history of successful investments and business ventures. Our multigenerational approach ensures long-term stability and growth across various sectors and global markets.</p>
+            <h3>Our Vision</h3>
+            <p>To create sustainable wealth through strategic investments and innovative business practices, while upholding our family values and contributing to global economic growth.</p>
+        </main>
+        <aside class="sidebar">
+            <h3>Latest News</h3>
+            <ul>
+                <li>Patel Holdings expands portfolio with new tech investment</li>
+                <li>Quarterly investor meeting scheduled for next month</li>
+                <li>Patel family announces charitable foundation launch</li>
+            </ul>
+        </aside>
     </div>
-<!-- Contact information -->
+
+    <div id="signInModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Member Authentication</h2>
+            <form id="loginForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Sign In</button>
+            </form>
+            <p>
+                <a href="mailto:IT@patel-holdings.com?subject=Request%20-%20User%20Sign%20Up&body=%5BFirst%20Name%5D%5BLast%20Name%5D%20requesting%20login%20information%20for%20Patel-Holdings.com%20%26%20BBA.%20ID%20number%3A%20%5BEmployee%20ID%5D%2C%20Phone%20number%20%28for%2FA%29%20%5B%2Bx-xxx-xxx-xxxx%5D.%20RefID%3Ab00e44b3-6ea2-444f-a2c3-c084ea4c96cc" onclick="redirectIfGmail()">Request Login Information</a>
+            </p>
+        </div>
+    </div>
+
     <div class="contact-info-container">
         <div class="location-container">
             <div class="location">New York (Americas):</div>
@@ -195,33 +246,84 @@
             <p>+91 97284 84865</p>
         </div>
     </div>
-    <!-- Email -->
+
     <div class="email">
         <p>Email: info@patel-holdings.com</p>
     </div>
-    
-<script type="module">
-    import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-    function signIn(event) {
-        event.preventDefault(); // Prevent the default form submission
-        var email = document.getElementById('username').value;
-        var password = document.getElementById('password').value;
-        const auth = getAuth();
-        signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // Signed in 
-                const user = userCredential.user;
-                console.log('User signed in:', user);
-                // Redirect to another page or perform other actions
-                window.location.href = 'https://bba.bloomberg.net/';
-            })
-            .catch((error) => {
-                // Handle errors
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.error('Sign-in error:', errorCode, errorMessage);
-            });
-    }
-</script>
+
+    <footer>
+        <p>&copy; 2024 Patel Holdings LLC. All rights reserved.</p>
+    </footer>
+
+    <script type="module">
+        // Import Firebase SDKs
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBKk0b2-Dr2IkiiSObJdxdKiNaHRCQMmzo",
+            authDomain: "patel-holdings.firebaseapp.com",
+            projectId: "patel-holdings",
+            storageBucket: "patel-holdings.appspot.com",
+            messagingSenderId: "703106012824",
+            appId: "1:703106012824:web:9a51ca849e006fa41fa2ed",
+            measurementId: "G-N3KFG5C1ZL"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth(app);
+
+        // Modal functionality
+        const modal = document.getElementById("signInModal");
+        const btn = document.getElementById("signInBtn");
+        const span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Sign In Function
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var email = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    console.log('User signed in:', user);
+                    window.location.href = 'https://bba.bloomberg.net/';
+                })
+                .catch((error) => {
+                    // Handle errors
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.error('Sign-in error:', errorCode, errorMessage);
+                    alert('Sign-in failed. Please check your credentials and try again.');
+                });
+        });
+
+        // Redirect function for Gmail
+        window.redirectIfGmail = function() {
+            if (window.location.href.indexOf("gmail.com") !== -1) {
+                window.location.href = "https://mail.google.com/mail/u/0/?view=cm&fs=1&to=IT@patel-holdings.com&su=Request%20-%20User%20Sign%20Up&body=%5BFirst%20Name%5D%5BLast%20Name%5D%20requesting%20login%20information%20for%20Patel-Holdings.com%20%26%20BBA.%20ID%20number%3A%20%5BEmployee%20ID%5D%20C%2C%20Phone%20number%20%28for%2FA%29%20%5B%2Bx-xxx-xxx-xxxx%5D.%20RefID%3Ab00e44b3-6ea2-444f-a2c3-c084ea4c96cc";
+            }
+        }
+    </script>
 </body>
 </html>
