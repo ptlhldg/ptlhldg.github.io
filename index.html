@@ -37,8 +37,20 @@
         header {
             background-color: #18284e;
             color: #ebe7e5;
-            text-align: center;
             padding: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 20px;
+        }
+        .header-text {
+            flex-grow: 1;
+        }
+        .header-text h1 {
+            margin: 0;
         }
         nav {
             background-color: #d9d5d3;
@@ -176,8 +188,11 @@
 </head>
 <body>
     <header>
-        <h1>Patel Holdings LLC</h1>
-        <p>A private, multigenerational family firm diversifying wealth across investment funds, businesses, and global ventures</p>
+        <img src="favicon.JPG" alt="Patel Holdings Logo" class="logo">
+        <div class="header-text">
+            <h1>Patel Holdings LLC</h1>
+            <p>A private, multigenerational family firm diversifying wealth across investment funds, businesses, and global ventures</p>
+        </div>
     </header>
 
     <nav>
