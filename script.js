@@ -33,3 +33,7 @@ function signIn(event) {
 
             // Redirect to another page or perform other actions
             window.location.href = 'https://bba
+
+document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+    document.querySelector('.nav-list').classList.toggle('active');
+});
