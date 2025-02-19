@@ -1,103 +1,95 @@
-body {
+:root {
+    --primary-dark: #0f2442;
+    --primary: #13274f;
+    --primary-light: #2a4270;
+    --secondary: #e2b957;
+    --secondary-light: #f3d8a0;
+    --neutral-dark: #303741;
+    --neutral-light: #f5f5f5;
+    --font-heading: 'Merriweather', serif;
+    --font-body: 'Inter', sans-serif;
+    --transition: all 0.3s ease;
+}
+
+[data-theme="dark"] {
+    --primary-dark: #0a1525;
+    --primary: #162f5a;
+    --primary-light: #23406f;
+    --secondary: #d4aa48;
+    --secondary-light: #e6c988;
+    --neutral-dark: #f0f0f0;
+    --neutral-light: #1e2327;
+}
+
+* {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #ebe7e5;
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-    height: 100vh;
-    flex-direction: column;
-}
-
-.image-container {
-    background-color: #ebe7e5;
-    text-align: center;
-}
-
-.responsive {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-}
-
-.container {
-    background-color: #ebe7e5;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
     box-sizing: border-box;
 }
 
-button {
-    background-color: #18284e;
-    color: #ebe7e5;
-    padding: 10px 15px;
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--neutral-dark);
+    background-color: var(--neutral-light);
+    transition: var(--transition);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+header {
+    background-color: var(--primary);
+    color: var(--neutral-light);
+    padding: 1.5rem 0;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    transition: var(--transition);
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+}
+
+.sign-in-btn {
+    background-color: var(--secondary);
+    color: var(--primary-dark);
+    padding: 0.6rem 1.25rem;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-top: 10px; /* Add margin-top for spacing between buttons */
+    font-weight: 600;
+    transition: var(--transition);
 }
 
-/* Styles for desktop */
-@media only screen and (min-width: 768px) {
-    .image-container {
-        padding-top: 450px; /* Adjust padding for desktop */
-    }
-    .mobile-image {
-        display: none;
-    }
-
-    .desktop-image {
-        display: block;
-    }
-}
-
-/* Styles for mobile */
-@media only screen and (max-width: 767px) {
-    .image-container {
-        padding-top: 1000px; /* Adjust padding for mobile */
-    }
-    .desktop-image {
-        display: none;
-    }
-
-    .mobile-image {
-        display: block;
-    }
-}
-
-/* Additional styles for the contact information */
-.contact-info-container {
-    background-color: #18284e;
-    color: #ebe7e5;
-    text-align: center;
-    padding: 20px;
-    width: 100%;
-    display: flex; /* Use flexbox for horizontal alignment */
-    justify-content: center; /* Center align the items */
-    flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
-}
-
-.location-container {
-    margin: 10px; /* Add margin between location containers */
-    width: 250px; /* Set a fixed width for each location container */
-}
-
-/* Styles for address and phone number */
-.location {
-    font-weight: bold;
-    margin-bottom: 5px; /* Add margin below location name */
-}
-
-.email {
-    margin-top: 20px; /* Add margin on top of email */
+.sign-in-btn:hover {
+    background-color: var(--secondary-light);
+    transform: translateY(-2px);
 }
