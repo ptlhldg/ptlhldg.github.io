@@ -19,3 +19,9 @@ const signInBtn = document.getElementById('signInBtn');
 signInBtn.addEventListener('click', () => {
     alert('Family Portal sign-in feature is coming soon!');
 });
+
+
+document.querySelector(".portal-btn").addEventListener("click", function(event) {
+    event.preventDefault();
+    alert("Redirecting to the secure Family Portal...");
+});
