@@ -3,174 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patel Holdings</title>
-    <link rel="icon" type="image/x-icon" href="favicon.JPG">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">  <style>
-        /* Basic reset and box-sizing */
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            line-height: 1.6;
-            color: #333; /* Darker, more readable text */
-            background-color: #f4f4f4; /* Light, modern background */
-        }
-
-        header {
-            background-color: #29435a; /* Deeper, more professional blue */
-            color: #fff;
-            padding: 2rem 0; /* More padding */
-            text-align: center; /* Center header content */
-        }
-
-        .header-content {
-            width: 80%;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center; /* Center horizontally */
-        }
-
-        .logo {
-            width: 150px;
-            height: auto; /* Maintain aspect ratio */
-            margin-right: 2rem;
-        }
-
-        h1, h2, h3 {
-            font-weight: 700;
-        }
-
-        nav {
-            background-color: #fff;
-            padding: 1rem 0;
-            border-bottom: 1px solid #ddd;
-        }
-
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center; /* Center the nav items */
-            width: 80%;
-            margin: 0 auto;
-        }
-
-        nav li {
-            margin: 0 1.5rem;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #29435a;
-            font-weight: 500;
-            transition: color 0.3s ease; /* Smooth hover effect */
-        }
-
-        nav a:hover {
-            color: #007bff; /* Example hover color */
-        }
-
-        .container {
-            width: 80%;
-            margin: 2rem auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr; /* Modern grid layout */
-            gap: 2rem;
-        }
-
-        .main-content {
-            padding: 2rem;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-        }
-
-        .sidebar {
-            padding: 2rem;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        footer {
-            background-color: #29435a;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-        }
-
-        /* Responsive Design (adjust breakpoints as needed) */
-        @media (max-width: 768px) {
-            .container {
-                grid-template-columns: 1fr; /* Stack on smaller screens */
-            }
-
-            nav ul {
-                flex-direction: column; /* Vertical nav on small screens */
-            }
-
-            nav li {
-                margin: 0.5rem 0; /* Adjust margins */
-            }
-
-            .header-content {
-                flex-direction: column; /* Stack header on small screens */
-                align-items: flex-start;
-            }
-
-            .logo {
-                margin-right: 0; /* Remove margin */
-                margin-bottom: 1rem;
-            }
-        }
-    </style>
+    <title>Patel Holdings LLC</title>
+    <meta name="description" content="A private, multigenerational family firm managing wealth across generations.">
+    <link rel="icon" type="image/jpeg" href="favicon.JPG">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include necessary fonts here -->
 </head>
-<body>
-
-    <header>
-        <div class="header-content">
-            <img src="favicon.JPG" alt="Patel Holdings Logo" class="logo">
-            <div>
-                <h1>Patel Holdings LLC</h1>
-                <p>A private, multigenerational family firm diversifying wealth across investment funds, businesses, and global ventures</p>
+<body class="x">
+    <div class="page-inner">
+        <header>
+            <div class="logo-container">
+                <a href="/">
+                    <img src="favicon.JPG" alt="Patel Holdings Logo" class="logo">
+                </a>
             </div>
-        </div>
-    </header>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#investments">Our Investments</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-
-    <div class="container">
-        <main class="main-content">
-            <h2>Welcome to Patel Holdings</h2>
-            <p>Patel Holdings is a distinguished private family firm...</p>
-            <h3>Our Vision</h3>
-            <p>To create sustainable wealth...</p>
+        <main>
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>Patel Holdings LLC</h1>
+                    <p>Private Wealth Management for Generations</p>
+                </div>
+            </section>
+            
+            <section class="main-content">
+                <h2>Welcome to Patel Holdings</h2>
+                <p>Patel Holdings is committed to the stewardship of family wealth...</p>
+            </section>
         </main>
-        <aside class="sidebar">
-            <h3>Latest News</h3>
-            <ul>
-                <li>PH Board Proposes...</li>
-                <li>Patel Family Annual...</li>
-                <li>Patel Holdings' Q4...</li>
-                <li>Hospitality Portfolio...</li>
-            </ul>
-            <button class="news-btn" onclick="document.getElementById('signInBtn').click()">More News</button>
-        </aside>
+
+        <footer>
+            <p>&copy; 2025 Patel Holdings LLC. All rights reserved.</p>
+        </footer>
     </div>
 
-    <footer>
-        <p>&copy; 2024 Patel Holdings LLC. All rights reserved.</p>
-    </footer>
-
+    <script src="script.js"></script>
 </body>
 </html>
