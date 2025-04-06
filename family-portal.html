@@ -8,6 +8,28 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Firebase App (Core SDK) -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <!-- Firebase Authentication -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBKk0b2-Dr2IkiiSObJdxdKiNaHRCQMmzo",
+      authDomain: "patel-holdings.firebaseapp.com",
+      projectId: "patel-holdings",
+      storageBucket: "patel-holdings.firebasestorage.app",
+      messagingSenderId: "703106012824",
+      appId: "1:703106012824:web:9a51ca849e006fa41fa2ed",
+      measurementId: "G-N3KFG5C1ZL"
+    };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  </script>
+
+  
   <style>
     :root {
       --primary-dark: #0f2442;
