@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Family Portal Login | Patel Holdings</title>
-  <link rel="icon" type="image/jpeg" href="favicon.JPG">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/jpeg" href="favicon.JPG" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
 
   <!-- Firebase App (Core SDK) -->
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
@@ -25,11 +25,9 @@
       measurementId: "G-N3KFG5C1ZL"
     };
 
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+    firebase.initializeApp(firebaseConfig);
   </script>
 
-  
   <style>
     :root {
       --primary-dark: #0f2442;
@@ -93,7 +91,7 @@
       font-weight: 500;
     }
 
-    input[type="text"],
+    input[type="email"],
     input[type="password"] {
       width: 100%;
       padding: 0.75rem;
@@ -103,7 +101,7 @@
       transition: var(--transition);
     }
 
-    input[type="text"]:focus,
+    input[type="email"]:focus,
     input[type="password"]:focus {
       outline: none;
       border-color: var(--primary);
@@ -138,13 +136,13 @@
 </head>
 <body>
   <div class="login-box">
-    <img src="favicon.JPG" alt="Patel Holdings Logo" style="width: 70px; height: 70px; margin-bottom: 1rem; border-radius: 8px;">
+    <img src="favicon.JPG" alt="Patel Holdings Logo" style="width: 70px; height: 70px; margin-bottom: 1rem; border-radius: 8px;" />
     <h2>Family Portal</h2>
     <p>Secure access for Patel family members and authorized users</p>
-    <form>
+    <form id="loginForm">
       <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" placeholder="Enter your username" required />
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required />
       </div>
       <div class="form-group">
         <label for="password">Password</label>
@@ -154,5 +152,23 @@
     </form>
     <p class="note">Need access? Contact Patel Holdings administrator.</p>
   </div>
+
+  <script>
+    const loginForm = document.getElementById('loginForm');
+
+    loginForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          window.location.href = "fund-performance.html";
+        })
+        .catch((error) => {
+          alert("Login failed: " + error.message);
+        });
+    });
+  </script>
 </body>
 </html>
