@@ -163,7 +163,7 @@
 
       firebase.auth().signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
-          window.location.href = "fund-performance.html";
+          window.location.href = "dashboard.html";
         })
         .catch((error) => {
           alert("Login failed: " + error.message);
