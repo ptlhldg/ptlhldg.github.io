@@ -8,6 +8,7 @@
 
   <!-- Firebase App (Core SDK) -->
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  
   <!-- Firebase Authentication -->
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
 
@@ -22,8 +23,15 @@
       measurementId: "G-N3KFG5C1ZL"
     };
 
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  
+    // Auth gate
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (!user) {
+        window.location.href = "family-portal.html";
+      }
+    });
 </script>
 
   <style>
