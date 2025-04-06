@@ -1,61 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Family Dashboard | Patel Holdings</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patel Holdings Dashboard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
       background-color: #f5f5f5;
-      color: #303741;
+      color: #13274f;
     }
 
     header {
       background-color: #13274f;
-      color: white;
-      padding: 1.25rem 2rem;
+      color: #fff;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo img {
+      width: 50px;
+      height: 50px;
+      border-radius: 8px;
+    }
+
+    .logo h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.5rem;
+    }
+
     .logout-btn {
       background-color: #e2b957;
+      color: #0f2442;
       border: none;
       padding: 0.5rem 1rem;
+      font-weight: 600;
       border-radius: 5px;
       cursor: pointer;
-      font-weight: 600;
-      color: #13274f;
     }
 
     .logout-btn:hover {
       background-color: #f3d8a0;
     }
 
-    h2 {
-      margin: 2rem 0 1rem 2rem;
-      font-size: 1.5rem;
+    main {
+      padding: 2rem;
     }
 
-    .section {
+    h2 {
+      font-family: 'Merriweather', serif;
+      margin-bottom: 1rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
       background: white;
-      margin: 1rem 2rem;
-      padding: 1.5rem;
+      padding: 2rem;
       border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
     }
   </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="favicon.JPG" alt="Patel Holdings Logo" />
+      <h1>Welcome, <span id="userName">User</span></h1>
+    </div>
+    <button class="logout-btn" id="logoutBtn">Log Out</button>
+  </header>
 
-  <!-- Firebase SDKs -->
+  <main>
+    <h2>Dashboard</h2>
+    <div class="card-grid">
+      <a href="fund-performance.html" class="card">
+        <h3>Fund Performance</h3>
+        <p>View interactive performance charts</p>
+      </a>
+      <a href="#" class="card">
+        <h3>Your Equity</h3>
+        <p>Coming soon...</p>
+      </a>
+      <a href="#" class="card">
+        <h3>Current Holdings</h3>
+        <p>Coming soon...</p>
+      </a>
+    </div>
+  </main>
+
+  <!-- Firebase App (Core SDK) -->
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <!-- Firebase Authentication -->
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
-
   <script>
     const firebaseConfig = {
       apiKey: "AIzaSyBKk0b2-Dr2IkiiSObJdxdKiNaHRCQMmzo",
@@ -69,42 +131,19 @@
 
     firebase.initializeApp(firebaseConfig);
 
-    firebase.auth().onAuthStateChanged(user => {
+    firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
-        document.getElementById("welcomeUser").innerText = `Welcome, ${user.email}`;
+        document.getElementById("userName").textContent = user.email;
       } else {
         window.location.href = "family-portal.html";
       }
     });
 
-    function logout() {
+    document.getElementById("logoutBtn").addEventListener("click", function() {
       firebase.auth().signOut().then(() => {
         window.location.href = "family-portal.html";
       });
-    }
+    });
   </script>
-</head>
-<body>
-  <header>
-    <div id="welcomeUser">Welcome</div>
-    <button class="logout-btn" onclick="logout()">Logout</button>
-  </header>
-
-  <h2>Dashboard</h2>
-
-  <div class="section">
-    <h3>Fund Performance</h3>
-    <p>Chart and data for Core and Kids Funds. (Coming soon)</p>
-  </div>
-
-  <div class="section">
-    <h3>Current Holdings</h3>
-    <p>List of current portfolio allocations and assets. (Coming soon)</p>
-  </div>
-
-  <div class="section">
-    <h3>Your Equity</h3>
-    <p>Ownership breakdown and investment share. (Coming soon)</p>
-  </div>
 </body>
 </html>
