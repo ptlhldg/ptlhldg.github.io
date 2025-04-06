@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Current Holdings | Patel Holdings</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 2rem;
+      background-color: #f5f5f5;
+      color: #13274f;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      text-align: left;
+    }
+    th {
+      background-color: #13274f;
+      color: white;
+    }
+    .tabs {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .tab-button {
+      padding: 0.5rem 1rem;
+      border: none;
+      background-color: #e2b957;
+      color: #0f2442;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .tab-button.active {
+      background-color: #2a4270;
+      color: white;
+    }
+    .tab-content {
+      display: none;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 1rem;
+    }
+    .tab-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <h1>Current Holdings Overview</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Asset</th>
+        <th>AUM</th>
+        <th>Allocation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Patel Holdings LLC</td><td>$348,039,396</td><td>100.00%</td></tr>
+      <tr><td>Growing Family Investment Fund</td><td>$83,272,721</td><td>23.93%</td></tr>
+      <tr><td>Operating Businesses</td><td>$97,501,513</td><td>28.01%</td></tr>
+      <tr><td>Real Estate Holdings</td><td>$67,637,425</td><td>19.43%</td></tr>
+      <tr><td>Bright Future Investment Fund</td><td>$40,000,155</td><td>11.49%</td></tr>
+      <tr><td>International Holdings</td><td>$59,627,583</td><td>17.13%</td></tr>
+    </tbody>
+  </table>
+
+  <div class="tabs">
+    <button class="tab-button active" data-tab="growing">Growing Family Fund</button>
+    <button class="tab-button" data-tab="operating">Operating Businesses</button>
+    <button class="tab-button" data-tab="realestate">Real Estate</button>
+    <button class="tab-button" data-tab="bright">Bright Future Fund</button>
+    <button class="tab-button" data-tab="international">International Holdings</button>
+  </div>
+
+  <div class="tab-content active" id="growing">
+    <h2>Growing Family Investment Fund</h2>
+    <p>The primary focus of the family's investments, offering the greatest potential for long-term growth. Diversified across various asset classes and investment strategies to balance risk and return. A higher allocation here reflects the family's strategic intent to grow core wealth.</p>
+  </div>
+
+  <div class="tab-content" id="operating">
+    <h2>Operating Businesses</h2>
+    <p>Provides a stable source of income and value creation. Includes active family-run ventures across sectors. We ensure diversification by both industry and geography to reduce concentration risk and enhance sustainability.</p>
+  </div>
+
+  <div class="tab-content" id="realestate">
+    <h2>Real Estate Holdings</h2>
+    <p>Focused on wealth preservation and income generation through tangible assets. Our holdings include residential, commercial, and mixed-use properties in high-performing markets. Allocated for consistent cash flow and long-term appreciation.</p>
+  </div>
+
+  <div class="tab-content" id="bright">
+    <h2>Bright Future Investment Fund</h2>
+    <p>A next-generation focused allocation designed for liquidity, flexibility, and innovation. The fund supports new ideas, venture capital, and alpha-generating strategies, ensuring that younger family members have resources to grow and innovate.</p>
+  </div>
+
+  <div class="tab-content" id="international">
+    <h2>International Holdings</h2>
+    <p>Maintained for global diversification and to capture emerging market opportunities. This allocation supports the family’s vision for global impact and expands exposure to different economies and currencies.</p>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('.tab-button');
+    const tabs = document.querySelectorAll('.tab-content');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        tabs.forEach(tab => tab.classList.remove('active'));
+
+        btn.classList.add('active');
+        document.getElementById(btn.getAttribute('data-tab')).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
