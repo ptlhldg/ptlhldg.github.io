@@ -1,79 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Our Investments | Patel Holdings</title>
-<style>
-  body {
-    font-family: 'Inter', sans-serif;
-    background-color: #f5f5f5;
-    padding: 2rem;
-    color: #13274f;
-  }
-
-  .tree-container {
-    position: relative;
-    margin-left: 2rem;
-    padding-left: 2rem;
-    border-left: 3px solid #13274f;
-  }
-
-  .node {
-    position: relative;
-    margin-bottom: 2rem;
-    padding: 1.25rem;
-    border-radius: 8px;
-    background-color: #ffffff;
-    border: 1px solid #d8d8d8;
-    max-width: 600px;
-    transition: transform 0.2s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  }
-
-  .node:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-  }
-
-  .node::before {
-    content: "";
-    position: absolute;
-    left: -2rem;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 2rem;
-    height: 2px;
-    background-color: #13274f;
-  }
-
-  .node:first-child::before {
-    display: none;
-  }
-
-  .node-title {
-    font-weight: 700;
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .node-description {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: #444;
-  }
-</style>
-</head>
-<body>
-  <h1>Our Investments</h1>
-  <div class="tree-container">
-    <div class="node">
-      <div class="node-title">Patel Holdings LLC</div>
-      <div class="node-description">
-        The parent entity that governs all subdivisions under the family’s multigenerational investment firm.
-      </div>
+<div class="tree-container">
+  <div class="node">
+    <div class="node-title">Patel Holdings LLC</div>
+    <div class="node-description">
+      The parent entity that governs all subdivisions under the family’s multigenerational investment firm.
     </div>
+  </div>
 
+  <div style="margin-left: 2rem;">
     <div class="node">
       <div class="node-title">Growing Family Investment Fund</div>
       <div class="node-description">
@@ -109,5 +42,4 @@
       </div>
     </div>
   </div>
-</body>
-</html>
+</div>
