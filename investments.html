@@ -1,115 +1,126 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Our Investments | Patel Holdings</title>
-<style>
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: #f5f5f5;
-    padding: 2rem;
-    color: #13274f;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Investments | Patel Holdings</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f5f5f5;
+      color: #13274f;
+      margin: 0;
+      padding: 2rem;
+    }
 
-  .tree-container {
-    position: relative;
-    margin-left: 2rem;
-    padding-left: 2rem;
-    border-left: 3px solid #13274f;
-}
+    .tree-wrapper {
+      max-width: 900px;
+      margin: 4rem auto;
+      padding-left: 2rem;
+      position: relative;
+    }
 
-  .node {
-    position: relative;
-    margin-bottom: 2rem;
-    padding: 1.25rem;
-    border-radius: 8px;
-    background-color: #ffffff;
-    border: 1px solid #d8d8d8;
-    max-width: 600px;
-    transition: transform 0.2s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
+    .tree-root {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      color: #13274f;
+      position: relative;
+    }
 
-  .node:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-}
+    .tree-branches {
+      position: relative;
+      margin-left: 2rem;
+      padding-left: 2rem;
+      border-left: 3px solid #13274f;
+      animation: grow-line 2s ease-out forwards;
+    }
 
-  .node::before {
-    content: "";
-    position: absolute;
-    left: -2rem;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 2rem;
-    height: 2px;
-    background-color: #13274f;
-}
+    .tree-branch {
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
 
-  .node:first-child::before {
-    display: none;
-}
+    .branch-line {
+      position: absolute;
+      left: -2rem;
+      top: 1.2rem;
+      width: 2rem;
+      height: 0;
+      border-top: 3px solid #13274f;
+    }
 
-  .node-title {
-    font-weight: 700;
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-}
+    .branch-box {
+      background: white;
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease;
+    }
 
-  .node-description {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: #444;
-}
-</style>
+    .branch-box:hover {
+      transform: scale(1.03);
+    }
+
+    .branch-box h3 {
+      margin: 0 0 0.5rem;
+      color: #2a4270;
+    }
+
+    .branch-box p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #303741;
+    }
+
+    @keyframes grow-line {
+      from { height: 0; }
+      to { height: 100%; }
+    }
+  </style>
 </head>
 <body>
-<h1>Our Investments</h1>
-<div class="tree-container">
-    <div class="node">
-        <div class="node-title">Patel Holdings LLC</div>
-        <div class="node-description">
-            The parent entity that governs all subdivisions under the family’s multigenerational investment firm.
+  <div class="tree-wrapper">
+    <div class="tree-root">Patel Holdings LLC</div>
+    <div class="tree-branches">
+      <div class="tree-branch">
+        <div class="branch-line"></div>
+        <div class="branch-box">
+          <h3>Operating Businesses</h3>
+          <p>Includes motels, gas stations, liquor stores, franchise chains, and entertainment ventures. Diversified by geography and industry for stable income.</p>
         </div>
+      </div>
+      <div class="tree-branch">
+        <div class="branch-line"></div>
+        <div class="branch-box">
+          <h3>Growing Family Investment Fund</h3>
+          <p>Primary equity fund with diversified exposure across asset classes, managed in-house with a long-term growth focus.</p>
+        </div>
+      </div>
+      <div class="tree-branch">
+        <div class="branch-line"></div>
+        <div class="branch-box">
+          <h3>Real Estate Holdings</h3>
+          <p>Includes developed properties by our affiliate real estate firm, focused on residential, multifamily, and hospitality assets.</p>
+        </div>
+      </div>
+      <div class="tree-branch">
+        <div class="branch-line"></div>
+        <div class="branch-box">
+          <h3>Bright Future Investment Fund</h3>
+          <p>Next-gen focused investment vehicle with diversified holdings designed for flexibility, liquidity, and innovation.</p>
+        </div>
+      </div>
+      <div class="tree-branch">
+        <div class="branch-line"></div>
+        <div class="branch-box">
+          <h3>International Holdings</h3>
+          <p>Overseas assets across Canada, UK, India, France, Australia, and more. Includes land, real estate, and private businesses.</p>
+        </div>
+      </div>
     </div>
-
-    <div style="margin-left: 2rem;">
-        <div class="node">
-            <div class="node-title">Growing Family Investment Fund</div>
-            <div class="node-description">
-                One of our two in-house equity funds. Diversified across asset classes such as equities, bonds, real assets, and hedging strategies, with a long-term growth focus.
-            </div>
-        </div>
-
-        <div class="node">
-            <div class="node-title">Operating Businesses</div>
-            <div class="node-description">
-                The firm owns and operates a wide range of family-run ventures including gas stations, c-stores, motels, liquor stores, restaurants, entertainment centers, and more, generating stable cash flow.
-            </div>
-        </div>
-
-        <div class="node">
-            <div class="node-title">Real Estate Holdings</div>
-            <div class="node-description">
-                Managed separately by an affiliated development arm. Includes residential, hospitality, and mixed-use properties across select markets.
-            </div>
-        </div>
-
-        <div class="node">
-            <div class="node-title">Bright Future Investment Fund</div>
-            <div class="node-description">
-                A next-gen oriented internal fund focused on flexibility, liquidity, and alpha generation through investments in high-potential sectors and diversified assets.
-            </div>
-        </div>
-
-        <div class="node">
-            <div class="node-title">International Holdings</div>
-            <div class="node-description">
-                Strategically positioned land, property, and business investments across Canada, UK, India, UAE, Australia, France, and other global markets.
-            </div>
-        </div>
-    </div>
-</div>
+  </div>
 </body>
 </html>
