@@ -10,65 +10,113 @@
       font-family: 'Inter', sans-serif;
       background-color: #f5f5f5;
       color: #13274f;
-      margin: 2rem;
+      margin: 0;
+      padding: 2rem;
     }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
     h1 {
       font-size: 2.25rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
       color: #13274f;
+      text-align: center;
     }
+
     .section {
       background: white;
-      border-radius: 8px;
-      padding: 1.5rem;
+      border-radius: 10px;
+      padding: 1.75rem 2rem;
       margin-bottom: 2rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
+    .section:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
     .section h2 {
       color: #2a4270;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
+      font-size: 1.5rem;
     }
+
     .section p {
       margin-bottom: 0.5rem;
-      line-height: 1.6;
+      line-height: 1.7;
+      font-size: 1.02rem;
+    }
+
+    .portal-note {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #666;
+      margin-top: 2rem;
+    }
+
+    .portal-note a {
+      color: #2a4270;
+      text-decoration: underline;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: 1.5rem;
+      }
+
+      h1 {
+        font-size: 1.85rem;
+      }
+
+      .section h2 {
+        font-size: 1.3rem;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Our Investment Divisions</h1>
+  <div class="container">
+    <h1>Our Investment Divisions</h1>
 
-  <div class="section">
-    <h2>Patel Holdings LLC</h2>
-    <p>Patel Holdings is a private, multigenerational family firm committed to long-term capital growth and preservation. Our diversified investment platform spans across a mix of managed funds, operating companies, real estate, and international ventures.</p>
-  </div>
+    <div class="section">
+      <h2>Patel Holdings LLC</h2>
+      <p>A private, multigenerational family firm committed to long-term capital growth and preservation. Our diversified investment platform spans across in-house funds, direct ownership of businesses, real estate development, and international ventures.</p>
+    </div>
 
-  <div class="section">
-    <h2>Growing Family Investment Fund</h2>
-    <p>Our flagship investment fund, focused on diversified, long-term growth. The fund is managed in-house and allocated across public markets, real assets, and fixed income vehicles to support capital expansion across generations.</p>
-  </div>
+    <div class="section">
+      <h2>Growing Family Investment Fund</h2>
+      <p>Our core in-house managed equity fund, broadly diversified across equities, fixed income, real assets, and cash equivalents. Structured for disciplined growth and intergenerational wealth transfer.</p>
+    </div>
 
-  <div class="section">
-    <h2>Operating Businesses</h2>
-    <p>We maintain direct ownership of a portfolio of operating businesses across various sectors. These companies provide consistent cash flow and are strategically selected for geographic and industry diversification.</p>
-  </div>
+    <div class="section">
+      <h2>Operating Businesses</h2>
+      <p>We maintain active ownership in a range of operating businesses that generate stable income, including retail, hospitality, and entertainment assets across North America. Our portfolio is strategically balanced by geography and sector.</p>
+    </div>
 
-  <div class="section">
-    <h2>Real Estate Holdings</h2>
-    <p>Our real estate division encompasses both development and ownership of residential, commercial, and hospitality assets. This portfolio supports both income generation and long-term asset value preservation.</p>
-  </div>
+    <div class="section">
+      <h2>Real Estate Holdings</h2>
+      <p>Our real estate division oversees development and ownership of residential, commercial, and hospitality projects. Development is handled through a sister entity, with long-term ownership retained by Patel Holdings.</p>
+    </div>
 
-  <div class="section">
-    <h2>Bright Future Investment Fund</h2>
-    <p>A next-generation fund designed to maintain liquidity, encourage innovation, and support entrepreneurial ventures. Managed by Patel Holdings, this fund seeks to cultivate growth opportunities aligned with the family’s evolving values.</p>
-  </div>
+    <div class="section">
+      <h2>Bright Future Investment Fund</h2>
+      <p>A flexible, next-generation-focused fund that supports innovation, liquidity, and entrepreneurship. Designed to empower younger family members through strategic exposure across multiple asset classes.</p>
+    </div>
 
-  <div class="section">
-    <h2>International Holdings</h2>
-    <p>Global exposure is a core part of our strategy. We hold a presence across multiple countries through a blend of private investments, land development, and international partnerships.</p>
-  </div>
+    <div class="section">
+      <h2>International Holdings</h2>
+      <p>We maintain a global investment footprint with land, real estate, and business holdings in over 8 countries, including Canada, UK, India, Australia, France, and South Africa. These holdings support diversification and global market access.</p>
+    </div>
 
-  <div class="section">
-    <p style="font-size: 0.95rem; color: #666;">Detailed asset allocation and fund performance are available to verified members through our <a href="https://patel-holdings.com/family-portal.html" style="color:#2a4270; text-decoration:underline;">Family Portal</a>.</p>
+    <div class="portal-note">
+      More detailed portfolio information is available to family members through the <a href="https://patel-holdings.com/family-portal">Family Portal</a>.
+    </div>
   </div>
 </body>
 </html>
