@@ -1,126 +1,672 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Our Investments | Patel Holdings</title>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Investments — Patel Holdings</title>
+  <link rel="icon" type="image/jpeg" href="favicon.JPG" />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N3KFG5C1ZL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-N3KFG5C1ZL');
+  </script>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script>
+    firebase.initializeApp({
+      apiKey: "AIzaSyBKk0b2-Dr2IkiiSObJdxdKiNaHRCQMmzo",
+      authDomain: "patel-holdings.firebaseapp.com",
+      projectId: "patel-holdings",
+      storageBucket: "patel-holdings.firebasestorage.app",
+      messagingSenderId: "703106012824",
+      appId: "1:703106012824:web:9a51ca849e006fa41fa2ed",
+      measurementId: "G-N3KFG5C1ZL"
+    });
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
   <style>
+    :root {
+      --navy-deepest: #070e1c;
+      --navy-deep:    #0d1b2e;
+      --navy-mid:     #13274f;
+      --navy-light:   #1e3a6e;
+      --gold:         #e2b957;
+      --gold-muted:   #c9a23e;
+      --cream:        #ede8e0;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f5f5f5;
-      color: #13274f;
-      margin: 0;
-      padding: 2rem;
+      font-family: 'DM Sans', sans-serif;
+      background: var(--navy-deepest);
+      color: var(--cream);
+      min-height: 100vh;
+      overflow-x: hidden;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    body.ready { opacity: 1; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── BACKGROUND ── */
+    .bg-canvas {
+      position: fixed; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 10% 15%, rgba(19,39,79,0.9) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 80% at 90% 80%, rgba(13,27,46,0.95) 0%, transparent 65%),
+        linear-gradient(135deg, #070e1c 0%, #0d1b2e 50%, #070e1c 100%);
+      animation: bgShift 20s ease-in-out infinite alternate;
+    }
+    @keyframes bgShift {
+      0%   { filter: brightness(1); }
+      100% { filter: brightness(1.04) hue-rotate(3deg); }
+    }
+    .orb {
+      position: fixed; border-radius: 50%;
+      filter: blur(90px); pointer-events: none; z-index: 0;
+    }
+    .orb-1 { width: 500px; height: 500px; background: var(--gold);  opacity: 0.08; top: -150px; right: -100px; animation: orbDrift 24s ease-in-out infinite alternate; }
+    .orb-2 { width: 350px; height: 350px; background: #2244aa;       opacity: 0.10; bottom: 50px; left: -80px;   animation: orbDrift 19s ease-in-out infinite alternate-reverse; }
+    @keyframes orbDrift {
+      from { transform: translate(0,0); }
+      to   { transform: translate(28px, 20px); }
+    }
+    .grain {
+      position: fixed; inset: 0; z-index: 1; opacity: 0.02; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
-    .tree-wrapper {
-      max-width: 900px;
-      margin: 4rem auto;
-      padding-left: 2rem;
+    /* ── TOP NAV ── */
+    .topnav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 64px; padding: 0 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(7,14,28,0.7);
+      backdrop-filter: blur(32px) saturate(1.5);
+      -webkit-backdrop-filter: blur(32px) saturate(1.5);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+    }
+    .topnav-left { display: flex; align-items: center; gap: 0.85rem; }
+    .brand-mark {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-muted));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.72rem; font-weight: 600;
+      color: var(--navy-deepest); flex-shrink: 0;
+      box-shadow: 0 2px 10px rgba(226,185,87,0.35);
+    }
+    .brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; font-weight: 600;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream);
+    }
+    .nav-sep { color: rgba(237,232,224,0.2); font-size: 0.9rem; margin: 0 0.1rem; }
+    .nav-page { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(237,232,224,0.35); }
+
+    .topnav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-back {
+      display: flex; align-items: center; gap: 0.45rem;
+      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(237,232,224,0.4); transition: color 0.25s ease;
+    }
+    .nav-back:hover { color: var(--cream); }
+    .nav-back svg { transition: transform 0.25s ease; }
+    .nav-back:hover svg { transform: translateX(-3px); }
+
+    .logout-btn {
+      display: flex; align-items: center; gap: 0.4rem;
+      background: rgba(224,92,122,0.1); border: 1px solid rgba(224,92,122,0.2);
+      color: rgba(224,92,122,0.75); padding: 0.38rem 0.85rem; border-radius: 40px;
+      font-size: 0.72rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase;
+      cursor: pointer; transition: all 0.25s ease;
+    }
+    .logout-btn:hover { background: rgba(224,92,122,0.18); border-color: rgba(224,92,122,0.4); color: #f09090; }
+
+    /* ── MAIN ── */
+    main {
+      position: relative; z-index: 2;
+      padding: 5.5rem 2.5rem 5rem;
+      max-width: 1280px; margin: 0 auto;
+    }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      padding: 3rem 0 3.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 3.5rem;
+      display: flex; align-items: flex-end; justify-content: space-between;
+      flex-wrap: wrap; gap: 1.5rem;
+    }
+    .page-header-left {}
+    .page-eyebrow {
+      font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.75rem;
+      opacity: 0; animation: fadeUp 0.6s ease forwards 0.1s;
+    }
+    .page-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 300; color: var(--cream); line-height: 1.12;
+      opacity: 0; animation: fadeUp 0.6s ease forwards 0.25s;
+    }
+    .page-title em { font-style: italic; color: rgba(237,232,224,0.45); }
+    .page-subtitle {
+      font-size: 0.88rem; font-weight: 300;
+      color: rgba(237,232,224,0.4); margin-top: 0.75rem;
+      opacity: 0; animation: fadeUp 0.6s ease forwards 0.4s;
+    }
+    .total-aum-badge {
+      opacity: 0; animation: fadeUp 0.6s ease forwards 0.5s;
+      background: rgba(226,185,87,0.08);
+      border: 1px solid rgba(226,185,87,0.2);
+      border-radius: 14px; padding: 1.25rem 1.75rem;
+      text-align: right; flex-shrink: 0;
+    }
+    .aum-label { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(226,185,87,0.6); margin-bottom: 0.4rem; }
+    .aum-value { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 300; color: var(--gold); line-height: 1; }
+
+    /* ── ALLOCATION BAR ── */
+    .alloc-bar-section {
+      margin-bottom: 3.5rem;
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.55s;
+    }
+    .alloc-bar-label {
+      font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(237,232,224,0.3); margin-bottom: 0.75rem;
+    }
+    .alloc-bar {
+      height: 8px; border-radius: 8px; overflow: hidden;
+      display: flex; gap: 2px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .alloc-segment {
+      height: 100%; border-radius: 4px;
+      transition: width 1.2s ease;
+    }
+    .alloc-legend {
+      display: flex; flex-wrap: wrap; gap: 1.25rem; margin-top: 0.85rem;
+    }
+    .legend-item {
+      display: flex; align-items: center; gap: 0.45rem;
+      font-size: 0.72rem; color: rgba(237,232,224,0.5);
+    }
+    .legend-dot {
+      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+    }
+
+    /* ── PILLAR CARDS ── */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .pillar-card {
+      background: rgba(255,255,255,0.028);
+      backdrop-filter: blur(24px) saturate(1.4);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px; padding: 2rem;
+      position: relative; overflow: hidden;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.07);
+      opacity: 0;
+      cursor: default;
+    }
+    .pillar-card.visible { opacity: 1; }
+
+    .pillar-card::before {
+      content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.025), transparent);
+      transition: left 0.6s ease;
+    }
+    .pillar-card:hover::before { left: 100%; }
+    .pillar-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(226,185,87,0.2);
+      box-shadow: 0 28px 64px rgba(0,0,0,0.45), 0 0 0 1px rgba(226,185,87,0.08), inset 0 1px 0 rgba(255,255,255,0.12);
+    }
+
+    /* Colored top accent per pillar */
+    .pillar-card::after {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      border-radius: 18px 18px 0 0;
+      background: var(--card-accent, var(--gold));
+      opacity: 0.5;
+    }
+
+    .pillar-top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; margin-bottom: 1.5rem;
+    }
+    .pillar-icon {
+      width: 48px; height: 48px; border-radius: 13px;
+      background: linear-gradient(135deg, rgba(226,185,87,0.13), rgba(226,185,87,0.04));
+      border: 1px solid rgba(226,185,87,0.16);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .pillar-alloc {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem; font-weight: 300; color: var(--gold);
+      line-height: 1;
+    }
+    .pillar-alloc-label {
+      font-size: 0.6rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(237,232,224,0.28);
+      text-align: right; margin-top: 0.2rem;
+    }
+
+    .pillar-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem; font-weight: 400;
+      color: var(--cream); margin-bottom: 0.6rem;
+    }
+    .pillar-aum {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; font-weight: 300;
+      color: rgba(237,232,224,0.55); margin-bottom: 1rem;
+    }
+    .pillar-desc {
+      font-size: 0.82rem; font-weight: 300;
+      color: rgba(237,232,224,0.45); line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Sub-items inside pillar */
+    .pillar-sub-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .pillar-sub-item {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.78rem; font-weight: 300;
+      color: rgba(237,232,224,0.4);
+    }
+    .sub-dot {
+      width: 4px; height: 4px; border-radius: 50%;
+      background: var(--gold); opacity: 0.45; flex-shrink: 0;
+    }
+
+    /* ── STRUCTURE DIAGRAM ── */
+    .structure-section {
+      margin-top: 1rem;
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.9s;
+    }
+    .structure-label {
+      font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 2rem;
+    }
+    .structure-tree {
+      display: flex; flex-direction: column; align-items: center; gap: 0;
+    }
+    .tree-root-node {
+      background: linear-gradient(135deg, rgba(226,185,87,0.15), rgba(226,185,87,0.06));
+      border: 1px solid rgba(226,185,87,0.3);
+      border-radius: 14px; padding: 1.1rem 2.5rem;
+      text-align: center;
+      box-shadow: 0 8px 28px rgba(226,185,87,0.1), inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .tree-root-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; font-weight: 600;
+      letter-spacing: 0.12em; color: var(--gold);
+    }
+    .tree-root-sub {
+      font-size: 0.68rem; letter-spacing: 0.1em;
+      color: rgba(226,185,87,0.5); margin-top: 0.2rem;
+    }
+
+    /* Connector lines */
+    .tree-connector-down {
+      width: 1px; height: 32px;
+      background: linear-gradient(to bottom, rgba(226,185,87,0.4), rgba(226,185,87,0.1));
+    }
+    .tree-h-line {
+      width: 85%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(226,185,87,0.25), transparent);
       position: relative;
     }
+    .tree-h-line::before,
+    .tree-h-line::after {
+      content: ''; position: absolute;
+      top: -3px; width: 7px; height: 7px;
+      border-radius: 50%; background: rgba(226,185,87,0.4);
+    }
+    .tree-h-line::before { left: 0; }
+    .tree-h-line::after  { right: 0; }
 
-    .tree-root {
-      font-size: 2rem;
-      font-weight: bold;
-      margin-bottom: 2rem;
-      color: #13274f;
-      position: relative;
+    .tree-branches-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.25rem; width: 100%;
+      margin-top: 0;
+    }
+    .tree-connector-up {
+      height: 28px; display: flex; justify-content: center;
+    }
+    .tree-connector-up::before {
+      content: ''; width: 1px;
+      background: linear-gradient(to top, rgba(226,185,87,0.4), rgba(226,185,87,0.1));
     }
 
-    .tree-branches {
-      position: relative;
-      margin-left: 2rem;
-      padding-left: 2rem;
-      border-left: 3px solid #13274f;
-      animation: grow-line 2s ease-out forwards;
+    .tree-leaf {
+      background: rgba(255,255,255,0.025);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px; padding: 1.1rem;
+      text-align: center; transition: all 0.3s ease;
+    }
+    .tree-leaf:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(226,185,87,0.18);
+      transform: translateY(-3px);
+    }
+    .leaf-icon { font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .leaf-name {
+      font-size: 0.75rem; font-weight: 400;
+      color: rgba(237,232,224,0.65); line-height: 1.4;
+    }
+    .leaf-pct {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; color: var(--gold);
+      margin-top: 0.35rem;
     }
 
-    .tree-branch {
-      position: relative;
-      margin-bottom: 2.5rem;
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
-    .branch-line {
-      position: absolute;
-      left: -2rem;
-      top: 1.2rem;
-      width: 2rem;
-      height: 0;
-      border-top: 3px solid #13274f;
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+      .tree-branches-row { grid-template-columns: repeat(3, 1fr); }
     }
-
-    .branch-box {
-      background: white;
-      border-radius: 6px;
-      padding: 1rem 1.25rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-      transition: transform 0.2s ease;
-    }
-
-    .branch-box:hover {
-      transform: scale(1.03);
-    }
-
-    .branch-box h3 {
-      margin: 0 0 0.5rem;
-      color: #2a4270;
-    }
-
-    .branch-box p {
-      margin: 0;
-      font-size: 0.95rem;
-      color: #303741;
-    }
-
-    @keyframes grow-line {
-      from { height: 0; }
-      to { height: 100%; }
+    @media (max-width: 640px) {
+      main { padding: 5rem 1.25rem 3rem; }
+      .topnav { padding: 0 1.25rem; }
+      .brand-name, .nav-sep, .nav-page { display: none; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .page-header { flex-direction: column; align-items: flex-start; }
+      .tree-branches-row { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
-  <div class="tree-wrapper">
-    <div class="tree-root">Patel Holdings LLC</div>
-    <div class="tree-branches">
-      <div class="tree-branch">
-        <div class="branch-line"></div>
-        <div class="branch-box">
-          <h3>Operating Businesses</h3>
-          <p>Includes motels, gas stations, liquor stores, franchise chains, and entertainment ventures. Diversified by geography and industry for stable income.</p>
+
+  <div class="bg-canvas"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="grain"></div>
+
+  <!-- ── TOP NAV ── -->
+  <nav class="topnav">
+    <div class="topnav-left">
+      <div class="brand-mark">PH</div>
+      <span class="brand-name">Patel Holdings</span>
+      <span class="nav-sep">/</span>
+      <span class="nav-page">Investments</span>
+    </div>
+    <div class="topnav-right">
+      <a href="dashboard.html" class="nav-back">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        Dashboard
+      </a>
+      <button class="logout-btn" id="logoutBtn">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Sign Out
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── MAIN ── -->
+  <main>
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="page-header-left">
+        <div class="page-eyebrow">Internal · Confidential</div>
+        <h1 class="page-title">Investment<br><em>Portfolio Overview</em></h1>
+        <p class="page-subtitle">Complete breakdown of Patel Holdings LLC across all five pillars.</p>
+      </div>
+      <div class="total-aum-badge">
+        <div class="aum-label">Total Assets Under Management</div>
+        <div class="aum-value">$348.0M</div>
+      </div>
+    </div>
+
+    <!-- Allocation Bar -->
+    <div class="alloc-bar-section">
+      <div class="alloc-bar-label">Portfolio Allocation</div>
+      <div class="alloc-bar">
+        <div class="alloc-segment" style="width:28.0%; background: linear-gradient(90deg,#e2b957,#c9a23e);"></div>
+        <div class="alloc-segment" style="width:23.9%; background: linear-gradient(90deg,#5ce0a0,#3cb87a);"></div>
+        <div class="alloc-segment" style="width:19.4%; background: linear-gradient(90deg,#5c9ee0,#3a7ac9);"></div>
+        <div class="alloc-segment" style="width:17.1%; background: linear-gradient(90deg,#c05ce0,#9a3ab8);"></div>
+        <div class="alloc-segment" style="width:11.5%; background: linear-gradient(90deg,#e07a5c,#c9573e);"></div>
+      </div>
+      <div class="alloc-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#e2b957;"></div>Operating Businesses 28.0%</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#5ce0a0;"></div>Growing Family Fund 23.9%</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#5c9ee0;"></div>Real Estate 19.4%</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#c05ce0;"></div>International 17.1%</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#e07a5c;"></div>Bright Future Fund 11.5%</div>
+      </div>
+    </div>
+
+    <!-- Pillar Cards -->
+    <div class="pillars-grid" id="pillarsGrid">
+
+      <div class="pillar-card" style="--card-accent: #e2b957;">
+        <div class="pillar-top">
+          <div class="pillar-icon">🏢</div>
+          <div style="text-align:right;">
+            <div class="pillar-alloc">28.0%</div>
+            <div class="pillar-alloc-label">Allocation</div>
+          </div>
+        </div>
+        <div class="pillar-title">Operating Businesses</div>
+        <div class="pillar-aum">$97,501,513</div>
+        <div class="pillar-desc">Stable income and value creation through active family-run ventures. Diversified by both industry and geography to reduce concentration risk.</div>
+        <div class="pillar-sub-list">
+          <div class="pillar-sub-item"><div class="sub-dot"></div>Motels & Hospitality</div>
+          <div class="pillar-sub-item"><div class="sub-dot"></div>Gas Stations & Convenience</div>
+          <div class="pillar-sub-item"><div class="sub-dot"></div>Liquor Retail</div>
+          <div class="pillar-sub-item"><div class="sub-dot"></div>Franchise Chains</div>
+          <div class="pillar-sub-item"><div class="sub-dot"></div>Entertainment Ventures</div>
         </div>
       </div>
-      <div class="tree-branch">
-        <div class="branch-line"></div>
-        <div class="branch-box">
-          <h3>Growing Family Investment Fund</h3>
-          <p>Primary equity fund with diversified exposure across asset classes, managed in-house with a long-term growth focus.</p>
+
+      <div class="pillar-card" style="--card-accent: #5ce0a0;">
+        <div class="pillar-top">
+          <div class="pillar-icon">📈</div>
+          <div style="text-align:right;">
+            <div class="pillar-alloc">23.9%</div>
+            <div class="pillar-alloc-label">Allocation</div>
+          </div>
+        </div>
+        <div class="pillar-title">Growing Family Fund</div>
+        <div class="pillar-aum">$83,272,721</div>
+        <div class="pillar-desc">Primary equity fund with diversified exposure across asset classes, managed in-house with a long-term growth and income focus.</div>
+        <div class="pillar-sub-list">
+          <div class="pillar-sub-item"><div class="sub-dot"></div>Large Cap Equities w/ Dividends — 25%</div>
+          <div class="pillar-sub-item"><div class="sub-dot"></div>Blue Chip Tech — 25%</div>
+          <div class="pillar-sub-item"><div class="sub-dot"></div>Fixed Income — 19%</div>
+          <div class="pillar-sub-item"><div class="sub-dot"></div>REITs — 15%</div>
+          <div class="pillar-sub-item"><div class="sub-dot"></div>Cash & Alternatives — 16%</div>
         </div>
       </div>
-      <div class="tree-branch">
-        <div class="branch-line"></div>
-        <div class="branch-box">
-          <h3>Real Estate Holdings</h3>
-          <p>Includes developed properties by our affiliate real estate firm, focused on residential, multifamily, and hospitality assets.</p>
+
+      <div class="pillar-card" style="--card-accent: #5c9ee0;">
+        <div class="pillar-top">
+          <div class="pillar-icon">🏗️</div>
+          <div style="text-align:right;">
+            <div class="pillar-alloc">19.4%</div>
+            <div class="pillar-alloc-label">Allocation</div>
+          </div>
+        </div>
+        <div class="pillar-title">Real Estate Holdings</div>
+        <div class="pillar-aum">$67,637,425</div>
+        <div class="pillar-desc">Focused on wealth preservation and income generation through tangible assets in high-performing markets across the US and Canada.</div>
+        <div class="pillar-sub-list">
+          <div class="pillar-sub-item"><div class="sub-dot"></div>Residential Properties</div>
+          <div class="pillar-sub-item"><div class="sub-dot"></div>Multifamily Assets</div>
+          <div class="pillar-sub-item"><div class="sub-dot"></div>Commercial Real Estate</div>
+          <div class="pillar-sub-item"><div class="sub-dot"></div>Hospitality Properties</div>
+          <div class="pillar-sub-item"><div class="sub-dot"></div>Mixed-Use Developments</div>
         </div>
       </div>
-      <div class="tree-branch">
-        <div class="branch-line"></div>
-        <div class="branch-box">
-          <h3>Bright Future Investment Fund</h3>
-          <p>Next-gen focused investment vehicle with diversified holdings designed for flexibility, liquidity, and innovation.</p>
+
+      <div class="pillar-card" style="--card-accent: #c05ce0;">
+        <div class="pillar-top">
+          <div class="pillar-icon">🌐</div>
+          <div style="text-align:right;">
+            <div class="pillar-alloc">17.1%</div>
+            <div class="pillar-alloc-label">Allocation</div>
+          </div>
+        </div>
+        <div class="pillar-title">International Holdings</div>
+        <div class="pillar-aum">$59,627,583</div>
+        <div class="pillar-desc">Maintained for global diversification and to capture emerging market opportunities across multiple geographies and currencies.</div>
+        <div class="pillar-sub-list">
+          <div class="pillar-sub-item"><div class="sub-dot"></div>Canada — Land & Real Estate</div>
+          <div class="pillar-sub-item"><div class="sub-dot"></div>United Kingdom — Private Business</div>
+          <div class="pillar-sub-item"><div class="sub-dot"></div>India — Operating Ventures</div>
+          <div class="pillar-sub-item"><div class="sub-dot"></div>France & Australia — Land</div>
         </div>
       </div>
-      <div class="tree-branch">
-        <div class="branch-line"></div>
-        <div class="branch-box">
-          <h3>International Holdings</h3>
-          <p>Overseas assets across Canada, UK, India, France, Australia, and more. Includes land, real estate, and private businesses.</p>
+
+      <div class="pillar-card" style="--card-accent: #e07a5c;">
+        <div class="pillar-top">
+          <div class="pillar-icon">✨</div>
+          <div style="text-align:right;">
+            <div class="pillar-alloc">11.5%</div>
+            <div class="pillar-alloc-label">Allocation</div>
+          </div>
+        </div>
+        <div class="pillar-title">Bright Future Fund</div>
+        <div class="pillar-aum">$40,000,155</div>
+        <div class="pillar-desc">Next-generation investment vehicle designed for the family's third generation, with a focus on flexibility, liquidity, and innovation.</div>
+        <div class="pillar-sub-list">
+          <div class="pillar-sub-item"><div class="sub-dot"></div>Large Cap Equities — 50%</div>
+          <div class="pillar-sub-item"><div class="sub-dot"></div>Fixed Income — 19%</div>
+          <div class="pillar-sub-item"><div class="sub-dot"></div>REITs — 15%</div>
+          <div class="pillar-sub-item"><div class="sub-dot"></div>Cash & Equivalents — 11%</div>
+          <div class="pillar-sub-item"><div class="sub-dot"></div>Risk Management — 5%</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Org Tree Diagram -->
+    <div class="structure-section">
+      <div class="structure-label">Organizational Structure</div>
+      <div class="structure-tree">
+        <div class="tree-root-node">
+          <div class="tree-root-label">Patel Holdings LLC</div>
+          <div class="tree-root-sub">$348,039,396 Total AUM</div>
+        </div>
+        <div class="tree-connector-down"></div>
+        <div class="tree-h-line"></div>
+        <div class="tree-branches-row">
+          <div>
+            <div class="tree-connector-up"><div></div></div>
+            <div class="tree-leaf">
+              <div class="leaf-icon">🏢</div>
+              <div class="leaf-name">Operating<br>Businesses</div>
+              <div class="leaf-pct">28.0%</div>
+            </div>
+          </div>
+          <div>
+            <div class="tree-connector-up"><div></div></div>
+            <div class="tree-leaf">
+              <div class="leaf-icon">📈</div>
+              <div class="leaf-name">Growing<br>Family Fund</div>
+              <div class="leaf-pct">23.9%</div>
+            </div>
+          </div>
+          <div>
+            <div class="tree-connector-up"><div></div></div>
+            <div class="tree-leaf">
+              <div class="leaf-icon">🏗️</div>
+              <div class="leaf-name">Real Estate<br>Holdings</div>
+              <div class="leaf-pct">19.4%</div>
+            </div>
+          </div>
+          <div>
+            <div class="tree-connector-up"><div></div></div>
+            <div class="tree-leaf">
+              <div class="leaf-icon">🌐</div>
+              <div class="leaf-name">International<br>Holdings</div>
+              <div class="leaf-pct">17.1%</div>
+            </div>
+          </div>
+          <div>
+            <div class="tree-connector-up"><div></div></div>
+            <div class="tree-leaf">
+              <div class="leaf-icon">✨</div>
+              <div class="leaf-name">Bright Future<br>Fund</div>
+              <div class="leaf-pct">11.5%</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+
+  </main>
+
+  <script>
+    // ── Auth gate
+    firebase.auth().onAuthStateChanged(user => {
+      if (!user) {
+        window.location.href = 'family-portal.html';
+        return;
+      }
+      document.body.classList.add('ready');
+
+      // Staggered card reveal
+      const cards = document.querySelectorAll('.pillar-card');
+      cards.forEach((card, i) => {
+        setTimeout(() => {
+          card.style.transition = 'opacity 0.6s ease, transform 0.6s ease, box-shadow 0.35s ease, border-color 0.35s ease';
+          card.style.transform = 'translateY(0)';
+          card.classList.add('visible');
+        }, 600 + i * 120);
+      });
+    });
+
+    // ── Logout
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      firebase.auth().signOut().then(() => {
+        window.location.href = 'family-portal.html';
+      });
+    });
+
+    // ── Orb parallax
+    if (window.innerWidth > 900) {
+      document.addEventListener('mousemove', e => {
+        const x = (e.clientX / window.innerWidth  - 0.5) * 16;
+        const y = (e.clientY / window.innerHeight - 0.5) * 16;
+        document.querySelector('.orb-1').style.transform = `translate(${x * 0.6}px,${y * 0.6}px)`;
+        document.querySelector('.orb-2').style.transform = `translate(${-x * 0.4}px,${-y * 0.4}px)`;
+      });
+    }
+  </script>
 </body>
 </html>
