@@ -1,126 +1,26 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Patel Holdings Dashboard</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #f5f5f5;
-      color: #13274f;
-    }
+  <title>Dashboard — Patel Holdings</title>
+  <link rel="icon" type="image/jpeg" href="favicon.JPG" />
+  <meta name="robots" content="noindex, nofollow" />
 
-    header {
-      background-color: #13274f;
-      color: #fff;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N3KFG5C1ZL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-N3KFG5C1ZL');
+  </script>
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .logo img {
-      width: 50px;
-      height: 50px;
-      border-radius: 8px;
-    }
-
-    .logo h1 {
-      font-family: 'Merriweather', serif;
-      font-size: 1.5rem;
-    }
-
-    .logout-btn {
-      background-color: #e2b957;
-      color: #0f2442;
-      border: none;
-      padding: 0.5rem 1rem;
-      font-weight: 600;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .logout-btn:hover {
-      background-color: #f3d8a0;
-    }
-
-    main {
-      padding: 2rem;
-    }
-
-    h2 {
-      font-family: 'Merriweather', serif;
-      margin-bottom: 1rem;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .card {
-      background: white;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      transition: transform 0.2s ease;
-      text-align: center;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="logo">
-      <img src="favicon.JPG" alt="Patel Holdings Logo" />
-      <h1>Welcome, <span id="userName">User</span></h1>
-    </div>
-    <button class="logout-btn" id="logoutBtn">Log Out</button>
-  </header>
-
-  <main>
-    <h2>Dashboard</h2>
-    <div class="card-grid">
-      <a href="fund-performance.html" class="card">
-        <h3>Fund Performance</h3>
-        <p>View interactive performance charts</p>
-      </a>
-      <a href="equity.html" class="card">
-        <h3>Your Equity</h3>
-        <p>Coming soon...</p>
-      </a>
-      <a href="current-holdings.html" class="card">
-        <h3>Current Holdings</h3>
-        <p>View live AUM numbers, and breakdown per division</p>
-      </a>
-    </div>
-  </main>
-
-  <!-- Firebase App (Core SDK) -->
+  <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-  <!-- Firebase Authentication -->
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
   <script>
-    const firebaseConfig = {
+    firebase.initializeApp({
       apiKey: "AIzaSyBKk0b2-Dr2IkiiSObJdxdKiNaHRCQMmzo",
       authDomain: "patel-holdings.firebaseapp.com",
       projectId: "patel-holdings",
@@ -128,23 +28,616 @@
       messagingSenderId: "703106012824",
       appId: "1:703106012824:web:9a51ca849e006fa41fa2ed",
       measurementId: "G-N3KFG5C1ZL"
-    };
+    });
+  </script>
 
-    firebase.initializeApp(firebaseConfig);
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        document.getElementById("userName").textContent = user.email;
-      } else {
-        window.location.href = "family-portal.html";
+  <style>
+    :root {
+      --navy-deepest: #070e1c;
+      --navy-deep:    #0d1b2e;
+      --navy-mid:     #13274f;
+      --navy-light:   #1e3a6e;
+      --gold:         #e2b957;
+      --gold-muted:   #c9a23e;
+      --gold-pale:    #f5e4b3;
+      --cream:        #ede8e0;
+      --green:        #5ce0a0;
+      --red:          #e05c7a;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    /* Hide until auth confirmed */
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--navy-deepest);
+      color: var(--cream);
+      min-height: 100vh;
+      overflow-x: hidden;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    body.ready { opacity: 1; }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ── BACKGROUND ── */
+    .bg-canvas {
+      position: fixed; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 10% 15%, rgba(19,39,79,0.9) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 80% at 90% 80%, rgba(13,27,46,0.95) 0%, transparent 65%),
+        linear-gradient(135deg, #070e1c 0%, #0d1b2e 50%, #070e1c 100%);
+      animation: bgShift 20s ease-in-out infinite alternate;
+    }
+    @keyframes bgShift {
+      0%   { filter: brightness(1); }
+      100% { filter: brightness(1.04) hue-rotate(3deg); }
+    }
+    .orb {
+      position: fixed; border-radius: 50%;
+      filter: blur(90px); pointer-events: none; z-index: 0;
+    }
+    .orb-1 { width: 500px; height: 500px; background: var(--gold);  opacity: 0.08; top: -150px; right: -100px; animation: orbDrift 24s ease-in-out infinite alternate; }
+    .orb-2 { width: 350px; height: 350px; background: #2244aa;       opacity: 0.10; bottom: 50px; left: -80px;   animation: orbDrift 19s ease-in-out infinite alternate-reverse; }
+    @keyframes orbDrift {
+      from { transform: translate(0,0); }
+      to   { transform: translate(28px, 20px); }
+    }
+    .grain {
+      position: fixed; inset: 0; z-index: 1; opacity: 0.02; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* ── TOP NAV ── */
+    .topnav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 64px; padding: 0 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(7,14,28,0.7);
+      backdrop-filter: blur(32px) saturate(1.5);
+      -webkit-backdrop-filter: blur(32px) saturate(1.5);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+    }
+
+    .topnav-left {
+      display: flex; align-items: center; gap: 0.85rem;
+    }
+    .brand-mark {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-muted));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.72rem; font-weight: 600;
+      color: var(--navy-deepest); flex-shrink: 0;
+      box-shadow: 0 2px 10px rgba(226,185,87,0.35);
+    }
+    .brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; font-weight: 600;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--cream);
+    }
+
+    /* Breadcrumb separator */
+    .nav-sep {
+      color: rgba(237,232,224,0.2); font-size: 0.9rem; margin: 0 0.1rem;
+    }
+    .nav-page {
+      font-size: 0.75rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(237,232,224,0.35);
+    }
+
+    .topnav-right {
+      display: flex; align-items: center; gap: 1.25rem;
+    }
+
+    .user-chip {
+      display: flex; align-items: center; gap: 0.6rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 40px; padding: 0.35rem 0.85rem 0.35rem 0.5rem;
+    }
+    .user-avatar {
+      width: 26px; height: 26px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-muted));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem; font-weight: 600;
+      color: var(--navy-deepest); flex-shrink: 0;
+    }
+    .user-email {
+      font-size: 0.75rem; font-weight: 300;
+      color: rgba(237,232,224,0.55);
+      max-width: 180px; overflow: hidden;
+      text-overflow: ellipsis; white-space: nowrap;
+    }
+
+    .logout-btn {
+      display: flex; align-items: center; gap: 0.4rem;
+      background: rgba(224,92,122,0.1);
+      border: 1px solid rgba(224,92,122,0.2);
+      color: rgba(224,92,122,0.75);
+      padding: 0.38rem 0.85rem; border-radius: 40px;
+      font-size: 0.72rem; font-weight: 400;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      cursor: pointer; transition: all 0.25s ease;
+    }
+    .logout-btn:hover {
+      background: rgba(224,92,122,0.18);
+      border-color: rgba(224,92,122,0.4);
+      color: #f09090;
+    }
+
+    /* ── MAIN LAYOUT ── */
+    main {
+      position: relative; z-index: 2;
+      padding: 5.5rem 2.5rem 4rem;
+      max-width: 1280px; margin: 0 auto;
+    }
+
+    /* ── WELCOME BAND ── */
+    .welcome-band {
+      padding: 3rem 0 3.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 3rem;
+    }
+    .welcome-eyebrow {
+      font-size: 0.68rem; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 0.75rem; opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.15s;
+    }
+    .welcome-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300; color: var(--cream);
+      line-height: 1.15; margin-bottom: 0.75rem;
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.3s;
+    }
+    .welcome-heading span { color: var(--gold); font-style: italic; }
+    .welcome-sub {
+      font-size: 0.88rem; font-weight: 300;
+      color: rgba(237,232,224,0.4);
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.45s;
+    }
+    #lastLogin {
+      font-size: 0.75rem; color: rgba(237,232,224,0.28);
+      margin-top: 0.35rem;
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.55s;
+    }
+
+    /* ── QUICK STATS ROW ── */
+    .quick-stats {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; border-radius: 14px; overflow: hidden;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 3rem;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08);
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.6s;
+    }
+    .qs-cell {
+      background: rgba(7,14,28,0.6);
+      backdrop-filter: blur(20px); padding: 1.6rem 1.5rem;
+      text-align: center; transition: background 0.3s ease;
+    }
+    .qs-cell:hover { background: rgba(255,255,255,0.04); }
+    .qs-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem; font-weight: 300;
+      color: var(--cream); line-height: 1; margin-bottom: 0.4rem;
+    }
+    .qs-value .accent { color: var(--gold); }
+    .qs-value .up   { color: var(--green); }
+    .qs-value .down { color: var(--red); }
+    .qs-label {
+      font-size: 0.64rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: rgba(237,232,224,0.35);
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-label {
+      font-size: 0.68rem; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem;
+    }
+
+    /* ── DASHBOARD CARDS ── */
+    .cards-primary {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; margin-bottom: 3rem;
+      opacity: 0; animation: fadeUp 0.75s ease forwards 0.75s;
+    }
+
+    .dash-card {
+      background: rgba(255,255,255,0.028);
+      backdrop-filter: blur(24px) saturate(1.4);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px; padding: 2rem;
+      position: relative; overflow: hidden;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.07);
+      display: flex; flex-direction: column;
+    }
+    .dash-card::before {
+      content: ''; position: absolute;
+      top: 0; left: -100%; width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.025), transparent);
+      transition: left 0.6s ease;
+    }
+    .dash-card:hover::before { left: 100%; }
+    .dash-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(226,185,87,0.18);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.45), 0 0 0 1px rgba(226,185,87,0.08), inset 0 1px 0 rgba(255,255,255,0.12);
+    }
+    .dash-card.locked {
+      cursor: default;
+      opacity: 0.55;
+    }
+    .dash-card.locked:hover { transform: none; border-color: rgba(255,255,255,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+
+    .card-header {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; margin-bottom: 1.5rem;
+    }
+    .card-icon {
+      width: 46px; height: 46px; border-radius: 13px;
+      background: linear-gradient(135deg, rgba(226,185,87,0.14), rgba(226,185,87,0.05));
+      border: 1px solid rgba(226,185,87,0.18);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.15rem; flex-shrink: 0;
+    }
+    .card-badge {
+      font-size: 0.6rem; letter-spacing: 0.14em;
+      text-transform: uppercase; padding: 0.25rem 0.6rem;
+      border-radius: 20px;
+    }
+    .badge-live {
+      background: rgba(92,224,160,0.12);
+      border: 1px solid rgba(92,224,160,0.25);
+      color: var(--green);
+    }
+    .badge-soon {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(237,232,224,0.3);
+    }
+
+    .card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 400;
+      color: var(--cream); margin-bottom: 0.6rem;
+    }
+    .card-desc {
+      font-size: 0.83rem; font-weight: 300;
+      color: rgba(237,232,224,0.48); line-height: 1.65;
+      flex: 1; margin-bottom: 1.75rem;
+    }
+
+    .card-link {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      font-size: 0.75rem; font-weight: 400;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold); transition: gap 0.25s ease;
+      margin-top: auto;
+    }
+    .card-link:hover { gap: 0.7rem; }
+    .card-link svg { transition: transform 0.25s ease; }
+    .card-link:hover svg { transform: translateX(3px); }
+
+    /* ── ACTIVITY / NEWS BAND ── */
+    .lower-grid {
+      display: grid; grid-template-columns: 2fr 1fr;
+      gap: 1.5rem;
+      opacity: 0; animation: fadeUp 0.75s ease forwards 0.9s;
+    }
+
+    .glass-panel {
+      background: rgba(255,255,255,0.025);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 18px; padding: 1.75rem;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.07);
+    }
+
+    .panel-title {
+      font-size: 0.68rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: rgba(237,232,224,0.35);
+      margin-bottom: 1.25rem; padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    /* Holdings summary table */
+    .holdings-table { width: 100%; border-collapse: collapse; }
+    .holdings-table tr { border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .holdings-table tr:last-child { border-bottom: none; }
+    .holdings-table td { padding: 0.85rem 0; font-size: 0.84rem; }
+    .holdings-table td:first-child { color: rgba(237,232,224,0.7); font-weight: 300; }
+    .holdings-table td:nth-child(2) {
+      text-align: right;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; color: var(--cream);
+    }
+    .holdings-table td:last-child {
+      text-align: right; font-size: 0.75rem;
+      color: rgba(237,232,224,0.35); padding-left: 1rem;
+    }
+    .holdings-bar-wrap { margin-top: 0.3rem; height: 2px; background: rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden; }
+    .holdings-bar { height: 100%; border-radius: 2px; background: linear-gradient(90deg, var(--gold), var(--gold-muted)); transition: width 1.2s ease; }
+
+    /* Quick links */
+    .quick-links { display: flex; flex-direction: column; gap: 0.75rem; }
+    .quick-link-item {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.85rem 1rem; border-radius: 10px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: all 0.25s ease; cursor: pointer;
+    }
+    .quick-link-item:hover {
+      background: rgba(255,255,255,0.055);
+      border-color: rgba(226,185,87,0.18);
+      transform: translateX(3px);
+    }
+    .ql-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: rgba(226,185,87,0.1); border: 1px solid rgba(226,185,87,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; flex-shrink: 0;
+    }
+    .ql-text { font-size: 0.82rem; font-weight: 300; color: rgba(237,232,224,0.65); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .cards-primary { grid-template-columns: repeat(2, 1fr); }
+      .lower-grid    { grid-template-columns: 1fr; }
+      .quick-stats   { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      main { padding: 5rem 1.25rem 3rem; }
+      .topnav { padding: 0 1.25rem; }
+      .user-email { display: none; }
+      .cards-primary { grid-template-columns: 1fr; }
+      .quick-stats { grid-template-columns: repeat(2, 1fr); }
+      .brand-name { display: none; }
+      .nav-sep, .nav-page { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-canvas"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="grain"></div>
+
+  <!-- ── TOP NAV ── -->
+  <nav class="topnav">
+    <div class="topnav-left">
+      <div class="brand-mark">PH</div>
+      <span class="brand-name">Patel Holdings</span>
+      <span class="nav-sep">/</span>
+      <span class="nav-page">Dashboard</span>
+    </div>
+    <div class="topnav-right">
+      <div class="user-chip">
+        <div class="user-avatar" id="userAvatar">?</div>
+        <div class="user-email" id="userEmail">Loading...</div>
+      </div>
+      <button class="logout-btn" id="logoutBtn">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Sign Out
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── MAIN ── -->
+  <main>
+
+    <!-- Welcome -->
+    <div class="welcome-band">
+      <div class="welcome-eyebrow">Family Portal</div>
+      <h1 class="welcome-heading">Welcome back, <span id="displayName">—</span></h1>
+      <p class="welcome-sub">Your private overview of Patel Holdings financial data.</p>
+      <p id="lastLogin"></p>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="quick-stats">
+      <div class="qs-cell">
+        <div class="qs-value"><span class="accent">$</span>348M</div>
+        <div class="qs-label">Total AUM</div>
+      </div>
+      <div class="qs-cell">
+        <div class="qs-value"><span class="up">+25%</span></div>
+        <div class="qs-label">YoY Growth</div>
+      </div>
+      <div class="qs-cell">
+        <div class="qs-value">5</div>
+        <div class="qs-label">Active Portfolios</div>
+      </div>
+      <div class="qs-cell">
+        <div class="qs-value">4</div>
+        <div class="qs-label">Global Offices</div>
+      </div>
+    </div>
+
+    <!-- Primary Cards -->
+    <div class="section-label">Quick Access</div>
+    <div class="cards-primary">
+
+      <a href="fund-performance.html" class="dash-card" style="text-decoration:none;">
+        <div class="card-header">
+          <div class="card-icon">📊</div>
+          <span class="card-badge badge-live">Live</span>
+        </div>
+        <div class="card-title">Fund Performance</div>
+        <div class="card-desc">Interactive benchmark comparisons for the Core Fund and Kids Fund against S&P 500 and NASDAQ 100. Includes 1M, 3M, 6M, YTD, and 1Y views.</div>
+        <div class="card-link">
+          View Charts
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </a>
+
+      <div class="dash-card locked">
+        <div class="card-header">
+          <div class="card-icon">💎</div>
+          <span class="card-badge badge-soon">Coming Soon</span>
+        </div>
+        <div class="card-title">Your Equity</div>
+        <div class="card-desc">Individual equity position tracking, ownership percentages, and personal allocation summaries across all Patel Holdings entities.</div>
+        <div class="card-link" style="color: rgba(237,232,224,0.25); pointer-events:none;">
+          In Development
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+      </div>
+
+      <a href="current-holdings.html" class="dash-card" style="text-decoration:none;">
+        <div class="card-header">
+          <div class="card-icon">🏛️</div>
+          <span class="card-badge badge-live">Live</span>
+        </div>
+        <div class="card-title">Current Holdings</div>
+        <div class="card-desc">Complete AUM breakdown across all five pillars — Operating Businesses, Investment Funds, Real Estate, International Holdings, and Bright Future Fund.</div>
+        <div class="card-link">
+          View Holdings
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Lower Grid -->
+    <div class="lower-grid">
+
+      <!-- Holdings Summary -->
+      <div class="glass-panel">
+        <div class="panel-title">Portfolio Allocation Overview</div>
+        <table class="holdings-table">
+          <tbody id="holdingsBody">
+            <tr>
+              <td>Operating Businesses</td>
+              <td>$97.5M</td>
+              <td>28.0%</td>
+            </tr>
+            <tr>
+              <td>Growing Family Fund</td>
+              <td>$83.3M</td>
+              <td>23.9%</td>
+            </tr>
+            <tr>
+              <td>Real Estate Holdings</td>
+              <td>$67.6M</td>
+              <td>19.4%</td>
+            </tr>
+            <tr>
+              <td>International Holdings</td>
+              <td>$59.6M</td>
+              <td>17.1%</td>
+            </tr>
+            <tr>
+              <td>Bright Future Fund</td>
+              <td>$40.0M</td>
+              <td>11.5%</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.05); display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(237,232,224,0.3);">Total AUM</span>
+          <span style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:300; color:var(--gold);">$348.0M</span>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="glass-panel">
+        <div class="panel-title">Quick Links</div>
+        <div class="quick-links">
+          <a href="fund-performance.html" class="quick-link-item" style="text-decoration:none;">
+            <div class="ql-icon">📊</div>
+            <div class="ql-text">Fund Performance Charts</div>
+          </a>
+          <a href="current-holdings.html" class="quick-link-item" style="text-decoration:none;">
+            <div class="ql-icon">🏛️</div>
+            <div class="ql-text">Current Holdings</div>
+          </a>
+          <a href="investments.html" class="quick-link-item" style="text-decoration:none;">
+            <div class="ql-icon">🌐</div>
+            <div class="ql-text">Investment Overview</div>
+          </a>
+          <a href="contact.html" class="quick-link-item" style="text-decoration:none;">
+            <div class="ql-icon">✉️</div>
+            <div class="ql-text">Contact & Offices</div>
+          </a>
+          <a href="index.html" class="quick-link-item" style="text-decoration:none;">
+            <div class="ql-icon">🏠</div>
+            <div class="ql-text">Public Site</div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    // ── Auth gate — redirect to login if not authenticated
+    firebase.auth().onAuthStateChanged(user => {
+      if (!user) {
+        window.location.href = 'family-portal.html';
+        return;
       }
+
+      // Populate user info
+      const email = user.email || '';
+      const initials = email.substring(0, 2).toUpperCase();
+
+      document.getElementById('userEmail').textContent  = email;
+      document.getElementById('userAvatar').textContent = initials;
+
+      // Friendly display name: use email prefix, capitalize first letter
+      const namePart = email.split('@')[0];
+      const friendly = namePart.charAt(0).toUpperCase() + namePart.slice(1);
+      document.getElementById('displayName').textContent = friendly;
+
+      // Last login time
+      const lastSignIn = user.metadata.lastSignInTime;
+      if (lastSignIn) {
+        const d = new Date(lastSignIn);
+        document.getElementById('lastLogin').textContent =
+          'Last sign-in: ' + d.toLocaleDateString('en-US', { weekday:'long', year:'numeric', month:'long', day:'numeric', hour:'2-digit', minute:'2-digit' });
+      }
+
+      // Show page
+      document.body.classList.add('ready');
     });
 
-    document.getElementById("logoutBtn").addEventListener("click", function() {
+    // ── Logout
+    document.getElementById('logoutBtn').addEventListener('click', () => {
       firebase.auth().signOut().then(() => {
-        window.location.href = "family-portal.html";
+        window.location.href = 'family-portal.html';
       });
     });
+
+    // ── Orb parallax
+    if (window.innerWidth > 900) {
+      document.addEventListener('mousemove', e => {
+        const x = (e.clientX / window.innerWidth  - 0.5) * 16;
+        const y = (e.clientY / window.innerHeight - 0.5) * 16;
+        document.querySelector('.orb-1').style.transform = `translate(${x * 0.6}px,${y * 0.6}px)`;
+        document.querySelector('.orb-2').style.transform = `translate(${-x * 0.4}px,${-y * 0.4}px)`;
+      });
+    }
   </script>
 </body>
 </html>
