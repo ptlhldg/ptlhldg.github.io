@@ -1,217 +1,720 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Patel Holdings LLC</title>
-    <link rel="icon" type="image/x-icon" href="favicon.JPG">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.60;
-            color: #18284e;
-            margin: 0;
-            padding: 0;
-            background-color: #ebe7e5;
-        }
-        header {
-            background-color: #18284e;
-            color: #ebe7e5;
-            text-align: center;
-            padding: 1rem;
-        }
-        nav {
-            background-color: #d9d5d3;
-            padding: 0.5rem;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-        }
-        nav ul li {
-            margin: 0 15px;
-        }
-        nav ul li a {
-            text-decoration: none;
-            color: #18284e;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 20px;
-        }
-        .contact-form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
-        .contact-form h2 {
-            margin-top: 0;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #d9d5d3;
-            border-radius: 4px;
-        }
-        .form-group textarea {
-            height: 100px;
-        }
-        .submit-btn {
-            background-color: #18284e;
-            color: #ebe7e5;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .submit-btn:hover {
-            background-color: #2c3e50;
-        }
-        .location {
-            display: flex;
-            margin-bottom: 30px;
-            background-color: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .location-info {
-            flex: 1;
-            padding: 20px;
-        }
-        .location-map {
-            flex: 1;
-            min-height: 300px;
-        }
-        footer {
-            background-color: #18284e;
-            color: #ebe7e5;
-            text-align: center;
-            padding: 1rem;
-            margin-top: 20px;
-        }
-        @media (max-width: 768px) {
-            .location {
-                flex-direction: column;
-            }
-            .location-map {
-                min-height: 200px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Patel Holdings</title>
+  <link rel="icon" type="image/jpeg" href="favicon.JPG" />
+  <meta name="description" content="Contact Patel Holdings LLC — offices in New York, Toronto, London, and Anand." />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N3KFG5C1ZL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-N3KFG5C1ZL');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --navy-deepest: #070e1c;
+      --navy-deep:    #0d1b2e;
+      --gold:         #e2b957;
+      --gold-muted:   #c9a23e;
+      --cream:        #ede8e0;
+      --success:      #5ce0a0;
+      --error:        #e05c7a;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--navy-deepest);
+      color: var(--cream);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── BACKGROUND ── */
+    .bg-canvas {
+      position: fixed; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 10% 15%, rgba(19,39,79,0.9) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 80% at 90% 80%, rgba(13,27,46,0.95) 0%, transparent 65%),
+        linear-gradient(135deg, #070e1c 0%, #0d1b2e 50%, #070e1c 100%);
+      animation: bgShift 20s ease-in-out infinite alternate;
+    }
+    @keyframes bgShift {
+      0%   { filter: brightness(1); }
+      100% { filter: brightness(1.04) hue-rotate(3deg); }
+    }
+    .orb {
+      position: fixed; border-radius: 50%;
+      filter: blur(90px); pointer-events: none; z-index: 0;
+    }
+    .orb-1 { width: 500px; height: 500px; background: var(--gold);  opacity: 0.08; top: -150px; right: -100px; animation: orbDrift 24s ease-in-out infinite alternate; }
+    .orb-2 { width: 350px; height: 350px; background: #2244aa;       opacity: 0.10; bottom: 50px; left: -80px;   animation: orbDrift 19s ease-in-out infinite alternate-reverse; }
+    @keyframes orbDrift { from { transform:translate(0,0); } to { transform:translate(28px,20px); } }
+    .grain {
+      position: fixed; inset: 0; z-index: 1; opacity: 0.02; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 68px; padding: 0 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(7,14,28,0.55);
+      backdrop-filter: blur(32px) saturate(1.6);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      box-shadow: 0 4px 28px rgba(0,0,0,0.4);
+      transition: background 0.4s ease;
+    }
+    nav.scrolled { background: rgba(7,14,28,0.82); }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.75rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600; font-size: 1.1rem;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream);
+    }
+    .nav-logo-mark {
+      width: 30px; height: 30px; border-radius: 7px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-muted));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.68rem; font-weight: 700; color: var(--navy-deepest);
+      box-shadow: 0 2px 14px rgba(226,185,87,0.4); flex-shrink: 0;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.78rem; font-weight: 400;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(237,232,224,0.65); transition: color 0.3s ease;
+      position: relative; padding-bottom: 2px;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -2px; left: 0;
+      width: 0; height: 1px; background: var(--gold); transition: width 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-portal-btn {
+      background: linear-gradient(135deg, rgba(226,185,87,0.14), rgba(226,185,87,0.07));
+      border: 1px solid rgba(226,185,87,0.32); color: var(--gold);
+      padding: 0.45rem 1.15rem; border-radius: 40px;
+      font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+    .nav-portal-btn:hover {
+      background: linear-gradient(135deg, rgba(226,185,87,0.26), rgba(226,185,87,0.14));
+      box-shadow: 0 0 22px rgba(226,185,87,0.22); transform: translateY(-1px);
+    }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 4px; background: none; border: none;
+    }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--cream); border-radius: 2px; transition: all 0.3s ease; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+    .mobile-menu {
+      display: none; position: fixed; top: 68px; left: 0; right: 0; z-index: 99;
+      background: rgba(7,14,28,0.97); backdrop-filter: blur(32px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 1.5rem 2rem; flex-direction: column; gap: 1.25rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(237,232,224,0.7); padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .mobile-menu a:last-child { border-bottom: none; color: var(--gold); }
+
+    /* ── MAIN ── */
+    main {
+      position: relative; z-index: 2;
+      padding: 7rem 2.5rem 5rem;
+      max-width: 1280px; margin: 0 auto;
+    }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      padding: 2rem 0 3.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 4rem;
+      opacity: 0; animation: fadeUp 0.6s ease forwards 0.1s;
+    }
+    .page-eyebrow {
+      font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.75rem;
+    }
+    .page-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 300; color: var(--cream); line-height: 1.1;
+    }
+    .page-title em { font-style: italic; color: rgba(237,232,224,0.4); }
+    .page-subtitle {
+      font-size: 0.9rem; font-weight: 300;
+      color: rgba(237,232,224,0.45); margin-top: 1rem;
+      max-width: 500px; line-height: 1.7;
+    }
+
+    /* ── TWO COL ── */
+    .two-col {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: start;
+      margin-bottom: 5rem;
+    }
+
+    /* ── CONTACT FORM ── */
+    .form-card {
+      background: rgba(255,255,255,0.025);
+      backdrop-filter: blur(24px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px; padding: 2.5rem;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.07);
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.25s;
+    }
+    .form-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem; font-weight: 400; color: var(--cream);
+      margin-bottom: 0.4rem;
+    }
+    .form-card-sub {
+      font-size: 0.8rem; font-weight: 300;
+      color: rgba(237,232,224,0.38); margin-bottom: 2rem;
+      padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .form-group { margin-bottom: 1.25rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    label {
+      display: block; font-size: 0.68rem; letter-spacing: 0.16em;
+      text-transform: uppercase; color: rgba(237,232,224,0.4);
+      margin-bottom: 0.55rem;
+    }
+    .input-wrap { position: relative; }
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 10px;
+      padding: 0.8rem 1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem; font-weight: 300;
+      color: var(--cream); outline: none;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      appearance: none;
+    }
+    input::placeholder, textarea::placeholder { color: rgba(237,232,224,0.18); }
+    input:focus, select:focus, textarea:focus {
+      border-color: rgba(226,185,87,0.4);
+      background: rgba(255,255,255,0.07);
+      box-shadow: 0 0 0 3px rgba(226,185,87,0.07);
+    }
+    select option { background: #0d1b2e; color: var(--cream); }
+    textarea { resize: vertical; min-height: 130px; line-height: 1.6; }
+
+    /* Custom select arrow */
+    .select-wrap { position: relative; }
+    .select-wrap::after {
+      content: ''; position: absolute; right: 1rem; top: 50%;
+      transform: translateY(-50%);
+      width: 0; height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid rgba(237,232,224,0.3);
+      pointer-events: none;
+    }
+
+    /* Submit */
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-muted));
+      color: var(--navy-deepest);
+      padding: 0.9rem; border: none; border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      cursor: pointer; transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(226,185,87,0.28);
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      position: relative; overflow: hidden; margin-top: 0.5rem;
+    }
+    .submit-btn::before {
+      content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      transition: left 0.5s ease;
+    }
+    .submit-btn:hover::before { left: 100%; }
+    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(226,185,87,0.42); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .spinner {
+      width: 15px; height: 15px;
+      border: 2px solid rgba(15,36,66,0.3); border-top-color: var(--navy-deepest);
+      border-radius: 50%; animation: spin 0.7s linear infinite; display: none;
+    }
+    .submit-btn.loading .btn-label { display: none; }
+    .submit-btn.loading .spinner { display: block; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Success / error messages */
+    .form-msg {
+      display: none; border-radius: 10px; padding: 0.9rem 1rem;
+      font-size: 0.8rem; font-weight: 300; line-height: 1.5;
+      margin-bottom: 1.25rem; align-items: center; gap: 0.6rem;
+    }
+    .form-msg.show { display: flex; }
+    .form-msg.success {
+      background: rgba(92,224,160,0.08); border: 1px solid rgba(92,224,160,0.22);
+      color: #80f0b8;
+    }
+    .form-msg.error {
+      background: rgba(224,92,122,0.08); border: 1px solid rgba(224,92,122,0.22);
+      color: #f09090;
+    }
+
+    /* ── INFO PANEL ── */
+    .info-panel {
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.4s;
+    }
+    .info-section { margin-bottom: 2.5rem; }
+    .info-label {
+      font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1rem;
+    }
+    .info-body {
+      font-size: 0.88rem; font-weight: 300;
+      color: rgba(237,232,224,0.5); line-height: 1.8;
+    }
+
+    /* Direct contact rows */
+    .contact-rows { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem; }
+    .contact-row {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.1rem; border-radius: 12px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.07);
+      transition: all 0.25s ease;
+    }
+    .contact-row:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(226,185,87,0.18); transform: translateX(3px);
+    }
+    .contact-icon {
+      width: 34px; height: 34px; border-radius: 9px; flex-shrink: 0;
+      background: rgba(226,185,87,0.1); border: 1px solid rgba(226,185,87,0.15);
+      display: flex; align-items: center; justify-content: center; font-size: 0.9rem;
+    }
+    .contact-row-info {}
+    .contact-row-label {
+      font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(237,232,224,0.35); margin-bottom: 0.15rem;
+    }
+    .contact-row-value {
+      font-size: 0.84rem; font-weight: 300; color: rgba(237,232,224,0.7);
+    }
+    .contact-row-value a { color: rgba(237,232,224,0.7); transition: color 0.2s ease; }
+    .contact-row-value a:hover { color: var(--gold); }
+
+    /* ── LOCATIONS GRID ── */
+    .locations-section {
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.55s;
+      margin-bottom: 2rem;
+    }
+    .section-label {
+      font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.5rem;
+    }
+    .locations-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem;
+    }
+    .location-card {
+      background: rgba(255,255,255,0.025);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px; overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+    .location-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(226,185,87,0.2);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.4);
+    }
+    .location-map-wrap { width: 100%; height: 160px; overflow: hidden; }
+    .location-map-wrap iframe { width: 100%; height: 100%; border: 0; display: block; filter: grayscale(0.3) invert(0.85) hue-rotate(180deg) brightness(0.85) contrast(0.9); }
+    .location-body { padding: 1.25rem; }
+    .location-region {
+      font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.35rem; opacity: 0.85;
+    }
+    .location-city {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem; font-weight: 400; color: var(--cream); margin-bottom: 0.5rem;
+    }
+    .location-addr {
+      font-size: 0.76rem; font-weight: 300;
+      color: rgba(237,232,224,0.38); line-height: 1.55; margin-bottom: 0.6rem;
+    }
+    .location-phone a {
+      font-size: 0.78rem; font-weight: 300;
+      color: rgba(237,232,224,0.45); transition: color 0.2s ease;
+    }
+    .location-phone a:hover { color: var(--gold); }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative; z-index: 2;
+      background: rgba(0,0,0,0.45);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 3rem 2.5rem;
+      display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem; font-weight: 400;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(237,232,224,0.35);
+    }
+    .gold-rule { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+    .footer-links { display: flex; gap: 2rem; list-style: none; }
+    .footer-links a {
+      font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(237,232,224,0.28); transition: color 0.2s ease;
+    }
+    .footer-links a:hover { color: rgba(237,232,224,0.6); }
+    .footer-copy { font-size: 0.68rem; letter-spacing: 0.08em; color: rgba(237,232,224,0.2); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0; transform: translateY(18px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) { .locations-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 860px) {
+      .two-col { grid-template-columns: 1fr; gap: 2.5rem; }
+      .locations-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      main { padding: 5.5rem 1.25rem 3rem; }
+      nav { padding: 0 1.25rem; }
+      .nav-links, .nav-portal-btn { display: none; }
+      .hamburger { display: flex; }
+      .form-row { grid-template-columns: 1fr; }
+      .locations-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Patel Holdings LLC</h1>
-    </header>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="investments.html">Our Investments</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+  <div class="bg-canvas"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="grain"></div>
 
-    <div class="container">
-        <section class="contact-form">
-            <h2>Contact Us</h2>
-            <form id="contactForm">
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="subject">Subject:</label>
-                    <input type="text" id="subject" name="subject" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
-        </section>
+  <!-- ── NAV ── -->
+  <nav id="mainNav">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">PH</div>
+      Patel Holdings
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="family-portal.html" class="nav-portal-btn">Family Portal</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-        <section class="locations">
-            <h2>Locations</h2>
-            
-            <div class="location">
-                <div class="location-info">
-                    <h3>New York (Americas)</h3>
-                    <p>200 Park Ave, New York, NY, USA 10166</p>
-                    <p>Phone: +1 (212) 682-0309</p>
-                </div>
-                <div class="location-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2826098398325!2d-73.97745868459468!3d40.75479794332881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259022878eeb5%3A0xc7c2621da4e29cbe!2s200%20Park%20Ave%2C%20New%20York%2C%20NY%2010166!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="family-portal.html">Family Portal →</a>
+  </div>
 
-            <div class="location">
-                <div class="location-info">
-                    <h3>Toronto (Americas)</h3>
-                    <p>119 Spadina Ave., Toronto, ON M5V 2L1, Canada</p>
-                    <p>Phone: +1 (416) 203-7575</p>
-                </div>
-                <div class="location-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2887.2744577078478!2d-79.39854368451425!3d43.64770897912161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34dc84945e01%3A0x5344cdca7988f0eb!2s119%20Spadina%20Ave%2C%20Toronto%2C%20ON%20M5V%202L1%2C%20Canada!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
+  <main>
 
-            <div class="location">
-                <div class="location-info">
-                    <h3>London (Europe)</h3>
-                    <p>50 Jermyn St, St. James's, London SW1Y 6LX, UK</p>
-                    <p>Phone: +44 20 7437 1521</p>
-                </div>
-                <div class="location-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.5454830871254!2d-0.13848368423118567!3d51.50845397963502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604d6db28ffe9%3A0x46308d2d7f1d0f4f!2s50%20Jermyn%20St%2C%20St.%20James&#39;s%2C%20London%20SW1Y%206LX%2C%20UK!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
-
-            <div class="location">
-                <div class="location-info">
-                    <h3>India (Asia-Pacific)</h3>
-                    <p>Anand - Maghrol Rd, Vithal Udyognagar, GIDC, Anand, Gujarat, India 388001</p>
-                    <p>Phone: +91 97284 84865</p>
-                </div>
-                <div class="location-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.332465879523!2d72.92224731496808!3d22.553080685190466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e4e7eaaaaaaab%3A0xe0eafe5fc5ca83ab!2sAnand%20-%20Maghrol%20Rd%2C%20Vithal%20Udyognagar%2C%20Anand%2C%20Gujarat%20388001%2C%20India!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
-        </section>
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="page-eyebrow">Get In Touch</div>
+      <h1 class="page-title">Contact <em>Us</em></h1>
+      <p class="page-subtitle">We welcome inquiries from prospective partners, business contacts, and stakeholders. All correspondence is handled with strict confidentiality.</p>
     </div>
 
-    <footer>
-        <p>&copy; 2024 Patel Holdings LLC. All rights reserved.</p>
-    </footer>
+    <!-- Two Col: Form + Info -->
+    <div class="two-col">
 
-    <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Here you would typically send the form data to a server
-            alert('Thank you for your message. We will get back to you soon!');
-            this.reset();
-        });
-    </script>
+      <!-- Contact Form -->
+      <div class="form-card">
+        <div class="form-card-title">Send a Message</div>
+        <div class="form-card-sub">We'll respond within two business days.</div>
+
+        <div class="form-msg success" id="successMsg">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 12 4 9"/><polyline points="4 9 9 18 20 6"/></svg>
+          Your message has been sent. We'll be in touch shortly.
+        </div>
+        <div class="form-msg error" id="errorMsg">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span id="errorText">Something went wrong. Please try again.</span>
+        </div>
+
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" name="firstName" placeholder="John" required />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" name="lastName" placeholder="Smith" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="john@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="organization">Organization</label>
+            <input type="text" id="organization" name="organization" placeholder="Company or firm name (optional)" />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <div class="select-wrap">
+              <select id="subject" name="subject" required>
+                <option value="" disabled selected>Select a subject</option>
+                <option value="business">Business Partnership</option>
+                <option value="investment">Investment Inquiry</option>
+                <option value="realestate">Real Estate</option>
+                <option value="family">Family Office Services</option>
+                <option value="media">Media & Press</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Please describe your inquiry in detail..." required></textarea>
+          </div>
+          <button type="submit" class="submit-btn" id="submitBtn">
+            <span class="btn-label">Send Message</span>
+            <div class="spinner"></div>
+          </button>
+        </form>
+      </div>
+
+      <!-- Info Panel -->
+      <div class="info-panel">
+        <div class="info-section">
+          <div class="info-label">About Inquiries</div>
+          <p class="info-body">Patel Holdings welcomes inquiries from qualified business partners, real estate professionals, and investment counterparties. We maintain strict confidentiality on all correspondence and respond to every substantive inquiry.</p>
+        </div>
+
+        <div class="info-section">
+          <div class="info-label">Direct Contact</div>
+          <div class="contact-rows">
+            <div class="contact-row">
+              <div class="contact-icon">📞</div>
+              <div class="contact-row-info">
+                <div class="contact-row-label">Americas HQ</div>
+                <div class="contact-row-value"><a href="tel:+16469925815">+1 (646) 992-5815</a></div>
+              </div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-icon">📞</div>
+              <div class="contact-row-info">
+                <div class="contact-row-label">Toronto</div>
+                <div class="contact-row-value"><a href="tel:+14162037575">+1 (416) 203-7575</a></div>
+              </div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-icon">📞</div>
+              <div class="contact-row-info">
+                <div class="contact-row-label">London</div>
+                <div class="contact-row-value"><a href="tel:+442074371521">+44 20 7437 1521</a></div>
+              </div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-icon">📞</div>
+              <div class="contact-row-info">
+                <div class="contact-row-label">Anand, India</div>
+                <div class="contact-row-value"><a href="tel:+919728484865">+91 97284 84865</a></div>
+              </div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-icon">🔐</div>
+              <div class="contact-row-info">
+                <div class="contact-row-label">Family Portal Access</div>
+                <div class="contact-row-value"><a href="family-portal.html">Sign in to the portal →</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Locations -->
+    <div class="locations-section">
+      <div class="section-label">Our Global Offices</div>
+      <div class="locations-grid">
+        <div class="location-card reveal">
+          <div class="location-map-wrap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2826098398325!2d-73.97745868459468!3d40.75479794332881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259022878eeb5%3A0xc7c2621da4e29cbe!2s200%20Park%20Ave%2C%20New%20York%2C%20NY%2010166!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" loading="lazy" allowfullscreen title="New York Office"></iframe>
+          </div>
+          <div class="location-body">
+            <div class="location-region">Americas</div>
+            <div class="location-city">New York</div>
+            <div class="location-addr">200 Park Ave, New York, NY 10166</div>
+            <div class="location-phone"><a href="tel:+16469925815">+1 (646) 992-5815</a></div>
+          </div>
+        </div>
+        <div class="location-card reveal">
+          <div class="location-map-wrap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2887.2744577078478!2d-79.39854368451425!3d43.64770897912161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34dc84945e01%3A0x5344cdca7988f0eb!2s119%20Spadina%20Ave%2C%20Toronto%2C%20ON%20M5V%202L1%2C%20Canada!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" loading="lazy" allowfullscreen title="Toronto Office"></iframe>
+          </div>
+          <div class="location-body">
+            <div class="location-region">Americas</div>
+            <div class="location-city">Toronto</div>
+            <div class="location-addr">119 Spadina Ave, ON M5V 2L1, Canada</div>
+            <div class="location-phone"><a href="tel:+14162037575">+1 (416) 203-7575</a></div>
+          </div>
+        </div>
+        <div class="location-card reveal">
+          <div class="location-map-wrap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.5454830871254!2d-0.13848368423118567!3d51.50845397963502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604d6db28ffe9%3A0x46308d2d7f1d0f4f!2s50%20Jermyn%20St%2C%20St.%20James&#39;s%2C%20London%20SW1Y%206LX%2C%20UK!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" loading="lazy" allowfullscreen title="London Office"></iframe>
+          </div>
+          <div class="location-body">
+            <div class="location-region">Europe</div>
+            <div class="location-city">London</div>
+            <div class="location-addr">50 Jermyn St, St. James's, SW1Y 6LX</div>
+            <div class="location-phone"><a href="tel:+442074371521">+44 20 7437 1521</a></div>
+          </div>
+        </div>
+        <div class="location-card reveal">
+          <div class="location-map-wrap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.332465879523!2d72.92224731496808!3d22.553080685190466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e4e7eaaaaaaab%3A0xe0eafe5fc5ca83ab!2sVithal%20Udyognagar%2C%20Anand%2C%20Gujarat%20388001!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" loading="lazy" allowfullscreen title="Anand Office"></iframe>
+          </div>
+          <div class="location-body">
+            <div class="location-region">Asia-Pacific</div>
+            <div class="location-city">Anand</div>
+            <div class="location-addr">Vithal Udyognagar, GIDC, Gujarat 388001</div>
+            <div class="location-phone"><a href="tel:+919728484865">+91 97284 84865</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-logo">Patel Holdings LLC</div>
+    <div class="gold-rule"></div>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="family-portal.html">Portal</a></li>
+    </ul>
+    <p class="footer-copy">© 2025 Patel Holdings LLC. All rights reserved. Private & Confidential.</p>
+  </footer>
+
+  <script>
+    // ── Nav scroll
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+
+    // ── Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    }));
+
+    // ── Form submit
+    const form      = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const successMsg = document.getElementById('successMsg');
+    const errorMsg   = document.getElementById('errorMsg');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      successMsg.classList.remove('show');
+      errorMsg.classList.remove('show');
+
+      const firstName = document.getElementById('firstName').value.trim();
+      const email     = document.getElementById('email').value.trim();
+      const subject   = document.getElementById('subject').value;
+      const message   = document.getElementById('message').value.trim();
+
+      if (!firstName || !email || !subject || !message) {
+        document.getElementById('errorText').textContent = 'Please fill in all required fields.';
+        errorMsg.classList.add('show');
+        return;
+      }
+
+      submitBtn.classList.add('loading');
+      submitBtn.disabled = true;
+
+      // Simulate async send — replace with your backend/EmailJS/Formspree endpoint
+      setTimeout(() => {
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
+        successMsg.classList.add('show');
+        form.reset();
+        successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 1400);
+    });
+
+    // ── Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((el, i) => {
+        if (el.isIntersecting) {
+          setTimeout(() => el.target.classList.add('visible'), i * 100);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── Orb parallax
+    if (window.innerWidth > 900) {
+      document.addEventListener('mousemove', e => {
+        const x = (e.clientX / window.innerWidth  - 0.5) * 16;
+        const y = (e.clientY / window.innerHeight - 0.5) * 16;
+        document.querySelector('.orb-1').style.transform = `translate(${x*0.6}px,${y*0.6}px)`;
+        document.querySelector('.orb-2').style.transform = `translate(${-x*0.4}px,${-y*0.4}px)`;
+      });
+    }
+  </script>
 </body>
 </html>
