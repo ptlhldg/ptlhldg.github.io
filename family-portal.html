@@ -3,19 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Family Portal Login | Patel Holdings</title>
+  <title>Family Portal — Patel Holdings</title>
   <link rel="icon" type="image/jpeg" href="favicon.JPG" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <meta name="robots" content="noindex, nofollow" />
 
-  <!-- Firebase App (Core SDK) -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-  <!-- Firebase Authentication -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
-
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N3KFG5C1ZL"></script>
   <script>
-    const firebaseConfig = {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-N3KFG5C1ZL');
+  </script>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script>
+    firebase.initializeApp({
       apiKey: "AIzaSyBKk0b2-Dr2IkiiSObJdxdKiNaHRCQMmzo",
       authDomain: "patel-holdings.firebaseapp.com",
       projectId: "patel-holdings",
@@ -23,151 +28,512 @@
       messagingSenderId: "703106012824",
       appId: "1:703106012824:web:9a51ca849e006fa41fa2ed",
       measurementId: "G-N3KFG5C1ZL"
-    };
+    });
 
-    firebase.initializeApp(firebaseConfig);
+    // If already signed in, go straight to dashboard
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) window.location.href = 'dashboard.html';
+    });
   </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --primary-dark: #0f2442;
-      --primary: #13274f;
-      --primary-light: #2a4270;
-      --secondary: #e2b957;
-      --secondary-light: #f3d8a0;
-      --neutral-dark: #303741;
-      --neutral-light: #f5f5f5;
-      --font-heading: 'Merriweather', serif;
-      --font-body: 'Inter', sans-serif;
-      --transition: all 0.3s ease;
+      --navy-deepest: #070e1c;
+      --navy-deep:    #0d1b2e;
+      --navy-mid:     #13274f;
+      --gold:         #e2b957;
+      --gold-muted:   #c9a23e;
+      --cream:        #ede8e0;
+      --error:        #e05c5c;
+      --success:      #5ce0a0;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      background-color: var(--neutral-light);
-      font-family: var(--font-body);
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      font-family: 'DM Sans', sans-serif;
+      background: var(--navy-deepest);
+      color: var(--cream);
       min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
 
-    .login-box {
-      background-color: white;
-      padding: 2.5rem;
-      border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      max-width: 420px;
-      text-align: center;
+    /* ── BACKGROUND ── */
+    .bg-canvas {
+      position: fixed; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 70% 70% at 20% 30%, rgba(19,39,79,0.95) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 60% at 80% 70%, rgba(13,27,46,0.9) 0%, transparent 60%),
+        linear-gradient(145deg, #070e1c 0%, #0a1525 50%, #070e1c 100%);
+      animation: bgShift 18s ease-in-out infinite alternate;
+    }
+    @keyframes bgShift {
+      0%   { filter: brightness(1) hue-rotate(0deg); }
+      100% { filter: brightness(1.04) hue-rotate(4deg); }
     }
 
-    .login-box h2 {
-      font-family: var(--font-heading);
-      color: var(--primary);
-      margin-bottom: 1rem;
+    .orb {
+      position: fixed; border-radius: 50%;
+      filter: blur(100px); pointer-events: none; z-index: 0;
+    }
+    .orb-1 { width: 600px; height: 600px; background: var(--gold);   opacity: 0.07; top: -200px; right: -150px; animation: orbDrift 24s ease-in-out infinite alternate; }
+    .orb-2 { width: 400px; height: 400px; background: #2244aa;        opacity: 0.10; bottom: -100px; left: -100px; animation: orbDrift 19s ease-in-out infinite alternate-reverse; }
+    @keyframes orbDrift {
+      from { transform: translate(0, 0); }
+      to   { transform: translate(30px, 20px); }
     }
 
-    .login-box p {
-      color: var(--neutral-dark);
-      font-size: 0.95rem;
-      margin-bottom: 2rem;
+    .grain {
+      position: fixed; inset: 0; z-index: 1; opacity: 0.02; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
-    .form-group {
-      margin-bottom: 1.5rem;
-      text-align: left;
+    /* ── LAYOUT ── */
+    .page {
+      position: relative; z-index: 2;
+      width: 100%; min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
     }
+
+    /* ── LEFT PANEL ── */
+    .left-panel {
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: flex-start;
+      padding: 4rem 4rem 4rem 5rem;
+      border-right: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .back-link {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.72rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(237,232,224,0.35);
+      text-decoration: none; margin-bottom: 4rem;
+      transition: color 0.25s ease;
+    }
+    .back-link:hover { color: rgba(237,232,224,0.7); }
+    .back-link svg { transition: transform 0.25s ease; }
+    .back-link:hover svg { transform: translateX(-3px); }
+
+    .brand-mark {
+      width: 52px; height: 52px; border-radius: 14px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-muted));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; font-weight: 600;
+      color: var(--navy-deepest); letter-spacing: 0.05em;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 4px 24px rgba(226,185,87,0.35);
+    }
+
+    .left-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 3.5vw, 3.8rem);
+      font-weight: 300; line-height: 1.12;
+      color: var(--cream); margin-bottom: 1.5rem;
+    }
+    .left-headline em {
+      font-style: italic; color: transparent;
+      -webkit-text-stroke: 1px rgba(237,232,224,0.4);
+    }
+
+    .left-body {
+      font-size: 0.9rem; font-weight: 300;
+      color: rgba(237,232,224,0.45); line-height: 1.8;
+      max-width: 380px; margin-bottom: 3rem;
+    }
+
+    .left-features {
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .feature-row {
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .feature-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--gold); opacity: 0.7; flex-shrink: 0;
+    }
+    .feature-text {
+      font-size: 0.82rem; font-weight: 300;
+      color: rgba(237,232,224,0.5);
+    }
+
+    /* ── RIGHT PANEL (login) ── */
+    .right-panel {
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      padding: 4rem 5rem 4rem 4rem;
+    }
+
+    .login-card {
+      width: 100%; max-width: 400px;
+    }
+
+    .login-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem; font-weight: 400;
+      color: var(--cream); margin-bottom: 0.5rem;
+    }
+    .login-subtitle {
+      font-size: 0.83rem; font-weight: 300;
+      color: rgba(237,232,224,0.4); margin-bottom: 2.5rem;
+      line-height: 1.6;
+    }
+
+    /* ── FORM ── */
+    .form-group { margin-bottom: 1.4rem; position: relative; }
 
     label {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: var(--primary);
-      font-weight: 500;
+      display: block; font-size: 0.7rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(237,232,224,0.45); margin-bottom: 0.6rem;
+    }
+
+    .input-wrap { position: relative; }
+    .input-icon {
+      position: absolute; left: 1rem; top: 50%;
+      transform: translateY(-50%);
+      color: rgba(237,232,224,0.25); pointer-events: none;
+      transition: color 0.3s ease;
     }
 
     input[type="email"],
     input[type="password"] {
       width: 100%;
-      padding: 0.75rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-      transition: var(--transition);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 10px;
+      padding: 0.85rem 1rem 0.85rem 2.75rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem; font-weight: 300;
+      color: var(--cream);
+      transition: all 0.3s ease;
+      outline: none;
+      backdrop-filter: blur(10px);
     }
-
+    input[type="email"]::placeholder,
+    input[type="password"]::placeholder {
+      color: rgba(237,232,224,0.2);
+    }
     input[type="email"]:focus,
     input[type="password"]:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(19, 39, 79, 0.1);
+      border-color: rgba(226,185,87,0.45);
+      background: rgba(255,255,255,0.07);
+      box-shadow: 0 0 0 3px rgba(226,185,87,0.08), 0 4px 16px rgba(0,0,0,0.2);
+    }
+    input[type="email"]:focus ~ .input-icon,
+    input[type="password"]:focus ~ .input-icon {
+      color: rgba(226,185,87,0.6);
     }
 
+    /* Password toggle */
+    .pw-toggle {
+      position: absolute; right: 1rem; top: 50%;
+      transform: translateY(-50%);
+      background: none; border: none; cursor: pointer;
+      color: rgba(237,232,224,0.25);
+      transition: color 0.2s ease; padding: 0;
+    }
+    .pw-toggle:hover { color: rgba(237,232,224,0.6); }
+
+    /* Error message */
+    .error-msg {
+      display: none;
+      background: rgba(224,92,92,0.1);
+      border: 1px solid rgba(224,92,92,0.25);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-size: 0.8rem; font-weight: 300;
+      color: #f09090; margin-bottom: 1.25rem;
+      line-height: 1.5;
+    }
+    .error-msg.show { display: flex; align-items: center; gap: 0.5rem; }
+
+    /* Submit button */
     .submit-btn {
-      background-color: var(--secondary);
-      color: var(--primary-dark);
-      padding: 0.75rem 2rem;
-      font-weight: 600;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: var(--transition);
       width: 100%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-muted));
+      color: var(--navy-deepest);
+      padding: 0.9rem;
+      border: none; border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(226,185,87,0.28);
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      position: relative; overflow: hidden;
     }
-
+    .submit-btn::before {
+      content: ''; position: absolute;
+      top: 0; left: -100%; width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      transition: left 0.5s ease;
+    }
+    .submit-btn:hover::before { left: 100%; }
     .submit-btn:hover {
-      background-color: var(--secondary-light);
       transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 8px 30px rgba(226,185,87,0.42);
+    }
+    .submit-btn:active { transform: translateY(0); }
+    .submit-btn:disabled {
+      opacity: 0.6; cursor: not-allowed; transform: none;
     }
 
-    .note {
-      margin-top: 1.25rem;
-      font-size: 0.85rem;
-      color: #666;
+    /* Spinner */
+    .spinner {
+      width: 16px; height: 16px;
+      border: 2px solid rgba(15,36,66,0.3);
+      border-top-color: var(--navy-deepest);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      display: none;
+    }
+    .submit-btn.loading .btn-text { display: none; }
+    .submit-btn.loading .spinner { display: block; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .login-note {
+      text-align: center; margin-top: 1.75rem;
+      font-size: 0.75rem; font-weight: 300;
+      color: rgba(237,232,224,0.25); line-height: 1.6;
+    }
+    .login-note a {
+      color: rgba(226,185,87,0.6); text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .login-note a:hover { color: var(--gold); }
+
+    /* ── DIVIDER ── */
+    .gold-rule {
+      width: 40px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 2rem 0;
+    }
+
+    /* ── SECURITY BADGE ── */
+    .security-badge {
+      display: flex; align-items: center; gap: 0.5rem;
+      margin-top: 2rem;
+      padding: 0.6rem 0.9rem;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 8px;
+      font-size: 0.7rem; font-weight: 300;
+      color: rgba(237,232,224,0.3);
+    }
+    .security-badge svg { color: rgba(226,185,87,0.5); flex-shrink: 0; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .left-panel > * {
+      opacity: 0; animation: fadeUp 0.7s ease forwards;
+    }
+    .left-panel > *:nth-child(1) { animation-delay: 0.1s; }
+    .left-panel > *:nth-child(2) { animation-delay: 0.25s; }
+    .left-panel > *:nth-child(3) { animation-delay: 0.4s; }
+    .left-panel > *:nth-child(4) { animation-delay: 0.5s; }
+    .left-panel > *:nth-child(5) { animation-delay: 0.6s; }
+
+    .login-card {
+      opacity: 0; animation: fadeUp 0.8s ease forwards 0.35s;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .page { grid-template-columns: 1fr; }
+      .left-panel {
+        display: none;
+      }
+      .right-panel {
+        padding: 3rem 2rem;
+        min-height: 100vh;
+      }
+    }
+    @media (max-width: 480px) {
+      .right-panel { padding: 2.5rem 1.5rem; }
     }
   </style>
 </head>
 <body>
-  <div class="login-box">
-    <img src="favicon.JPG" alt="Patel Holdings Logo" style="width: 70px; height: 70px; margin-bottom: 1rem; border-radius: 8px;" />
-    <h2>Family Portal</h2>
-    <p>Secure access for Patel family members and authorized users</p>
-    <form id="loginForm">
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required />
+
+  <div class="bg-canvas"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="grain"></div>
+
+  <div class="page">
+
+    <!-- ── LEFT PANEL ── -->
+    <div class="left-panel">
+      <a href="index.html" class="back-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        Back to Site
+      </a>
+
+      <div class="brand-mark">PH</div>
+
+      <h1 class="left-headline">Your Family<br><em>Portal</em></h1>
+
+      <p class="left-body">
+        Secure, private access to Patel Holdings financial data, fund performance, equity positions, and family reports — exclusively for authorized members.
+      </p>
+
+      <div class="left-features">
+        <div class="feature-row">
+          <div class="feature-dot"></div>
+          <div class="feature-text">Live fund performance & benchmark comparisons</div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-dot"></div>
+          <div class="feature-text">Real-time AUM and holdings breakdown</div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-dot"></div>
+          <div class="feature-text">Private family news and board updates</div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-dot"></div>
+          <div class="feature-text">Individual equity position tracking</div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="Enter your password" required />
+    </div>
+
+    <!-- ── RIGHT PANEL ── -->
+    <div class="right-panel">
+      <div class="login-card">
+
+        <div class="login-title">Sign In</div>
+        <p class="login-subtitle">
+          Authorized family members and stakeholders only.<br>
+          All access is logged and monitored.
+        </p>
+
+        <div class="error-msg" id="errorMsg">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span id="errorText">Invalid email or password.</span>
+        </div>
+
+        <form id="loginForm" novalidate>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <div class="input-wrap">
+              <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required />
+              <svg class="input-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-wrap">
+              <input type="password" id="password" name="password" placeholder="••••••••••" autocomplete="current-password" required />
+              <svg class="input-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <button type="button" class="pw-toggle" id="pwToggle" aria-label="Show password">
+                <svg id="eyeIcon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submitBtn">
+            <span class="btn-text">Access Portal</span>
+            <div class="spinner"></div>
+          </button>
+        </form>
+
+        <div class="gold-rule"></div>
+
+        <p class="login-note">
+          Don't have access?
+          <a href="contact.html">Contact the administrator</a>
+          to request authorization.
+        </p>
+
+        <div class="security-badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          256-bit encrypted · Firebase Authentication · Access logged
+        </div>
+
       </div>
-      <button type="submit" class="submit-btn">Sign In</button>
-    </form>
-    <p class="note">Need access? Contact Patel Holdings administrator.</p>
+    </div>
+
   </div>
 
   <script>
-    const loginForm = document.getElementById('loginForm');
+    // ── Password visibility toggle
+    const pwToggle = document.getElementById('pwToggle');
+    const pwInput  = document.getElementById('password');
+    const eyeIcon  = document.getElementById('eyeIcon');
 
-    loginForm.addEventListener('submit', function (e) {
+    const eyeOpen   = `<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>`;
+    const eyeClosed = `<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/>`;
+
+    pwToggle.addEventListener('click', () => {
+      const isHidden = pwInput.type === 'password';
+      pwInput.type = isHidden ? 'text' : 'password';
+      eyeIcon.innerHTML = isHidden ? eyeClosed : eyeOpen;
+    });
+
+    // ── Form submit
+    const loginForm = document.getElementById('loginForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const errorMsg  = document.getElementById('errorMsg');
+    const errorText = document.getElementById('errorText');
+
+    function showError(msg) {
+      errorText.textContent = msg;
+      errorMsg.classList.add('show');
+      submitBtn.classList.remove('loading');
+      submitBtn.disabled = false;
+    }
+
+    loginForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const email = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value.trim();
+      errorMsg.classList.remove('show');
+
+      const email    = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+
+      if (!email || !password) {
+        showError('Please enter your email and password.');
+        return;
+      }
+
+      submitBtn.classList.add('loading');
+      submitBtn.disabled = true;
 
       firebase.auth().signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-          window.location.href = "dashboard.html";
+        .then(() => {
+          window.location.href = 'dashboard.html';
         })
-        .catch((error) => {
-          alert("Login failed: " + error.message);
+        .catch((err) => {
+          const msgs = {
+            'auth/user-not-found':   'No account found with that email address.',
+            'auth/wrong-password':   'Incorrect password. Please try again.',
+            'auth/invalid-email':    'Please enter a valid email address.',
+            'auth/too-many-requests':'Too many attempts. Please try again later.',
+            'auth/user-disabled':    'This account has been disabled. Contact the administrator.',
+          };
+          showError(msgs[err.code] || 'Sign-in failed. Please try again.');
         });
+    });
+
+    // ── Orb parallax
+    document.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 15;
+      const y = (e.clientY / window.innerHeight - 0.5) * 15;
+      document.querySelector('.orb-1').style.transform = `translate(${x * 0.6}px, ${y * 0.6}px)`;
+      document.querySelector('.orb-2').style.transform = `translate(${-x * 0.4}px, ${-y * 0.4}px)`;
     });
   </script>
 </body>
