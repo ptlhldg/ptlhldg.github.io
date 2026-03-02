@@ -600,14 +600,22 @@
 
       // Populate user info
       const email = user.email || '';
-      const initials = email.substring(0, 2).toUpperCase();
+      const namePart = email.split('@')[0];           // e.g. "vasu.patel"
+      const parts = namePart.split('.');               // ["vasu", "patel"]
+      const firstName = parts[0] || '';
+      const lastName  = parts[1] || '';
+
+      // Initials: first letter of first + first letter of last
+      const initials = (firstName.charAt(0) + lastName.charAt(0)).toUpperCase();
+
+      // Display name: "Vasu Patel" (no dot, both capitalized)
+      const friendly = [firstName, lastName]
+        .filter(Boolean)
+        .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+        .join(' ');
 
       document.getElementById('userEmail').textContent  = email;
       document.getElementById('userAvatar').textContent = initials;
-
-      // Friendly display name: use email prefix, capitalize first letter
-      const namePart = email.split('@')[0];
-      const friendly = namePart.charAt(0).toUpperCase() + namePart.slice(1);
       document.getElementById('displayName').textContent = friendly;
 
       // Last login time
