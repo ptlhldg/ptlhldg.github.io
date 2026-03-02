@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /$
+Allow: /contact
+
+Disallow: /dashboard
+Disallow: /family-portal
+Disallow: /investments
+Disallow: /current-holdings
+Disallow: /fund-performance
+Disallow: /404.html
+Disallow: /BFH.html
+Disallow: /GFH.html
+
+Sitemap: https://patel-holdings.com/sitemap.xml
