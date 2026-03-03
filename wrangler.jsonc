@@ -1,13 +1,13 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "patel-holdings-website",
-  "compatibility_date": "2025-09-27",
+  "compatibility_date": "2026-03-01",
   "observability": {
     "enabled": true
   },
   "assets": {
     "directory": "."
-    "not_found_handling": "404"
+    "not_found_handling": "404.html"
   },
   "compatibility_flags": [
     "nodejs_compat"
