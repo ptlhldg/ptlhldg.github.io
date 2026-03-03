@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Family Portal — Patel Holdings</title>
-  <link rel="icon" type="image/jpeg" href="/favicon.jpg" />
+  <link rel="icon" type="image/jpeg" href="/favicon.JPG" />
   <meta name="robots" content="noindex, nofollow" />
 
   <!-- Google Analytics -->
@@ -16,25 +16,7 @@
     gtag('config', 'G-N3KFG5C1ZL');
   </script>
 
-  <!-- Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
-  <script>
-    firebase.initializeApp({
-      apiKey: "AIzaSyBKk0b2-Dr2IkiiSObJdxdKiNaHRCQMmzo",
-      authDomain: "patel-holdings.firebaseapp.com",
-      projectId: "patel-holdings",
-      storageBucket: "patel-holdings.firebasestorage.app",
-      messagingSenderId: "703106012824",
-      appId: "1:703106012824:web:9a51ca849e006fa41fa2ed",
-      measurementId: "G-N3KFG5C1ZL"
-    });
 
-    // If already signed in, go straight to dashboard
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) window.location.href = '/dashboard';
-    });
-  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -382,9 +364,9 @@
         Back to Site
       </a>
 
-      <img src="/favicon.jpg" alt="Patel Holdings" style="width:32px;height:32px;border-radius:8px;object-fit:cover;box-shadow:0 2px 14px rgba(226,185,87,0.45),0 0 0 1px rgba(226,185,87,0.18);flex-shrink:0;" />
+      <img src="/favicon.JPG" alt="Patel Holdings" style="width:32px;height:32px;border-radius:8px;object-fit:cover;box-shadow:0 2px 14px rgba(226,185,87,0.45),0 0 0 1px rgba(226,185,87,0.18);flex-shrink:0;" />
 
-      <h1 class="left-headline">Family<br><em>Portal</em></h1>
+      <h1 class="left-headline">Your Family<br><em>Portal</em></h1>
 
       <p class="left-body">
         Secure, private access to Patel Holdings financial data, fund performance, equity positions, and family reports — exclusively for authorized members.
@@ -412,56 +394,35 @@
 
     <!-- ── RIGHT PANEL ── -->
     <div class="right-panel">
-      <div class="login-card">
+      <div class="login-card" style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:0;">
 
-        <div class="login-title">Sign In</div>
-        <p class="login-subtitle">
-          Authorized family members and stakeholders only.<br>
-          All access is logged and monitored.
-        </p>
-
-        <div class="error-msg" id="errorMsg">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          <span id="errorText">Invalid email or password.</span>
+        <div style="width:64px; height:64px; border-radius:18px; background:linear-gradient(135deg,rgba(226,185,87,0.15),rgba(226,185,87,0.05)); border:1px solid rgba(226,185,87,0.25); display:flex; align-items:center; justify-content:center; margin-bottom:1.75rem; box-shadow:0 0 28px rgba(226,185,87,0.12);">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(226,185,87,0.9)" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
 
-        <form id="loginForm" novalidate>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <div class="input-wrap">
-              <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required />
-              <svg class="input-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-          </div>
+        <div class="login-title" style="margin-bottom:0.75rem;">Secure Access</div>
 
-          <div class="form-group">
-            <label for="password">Password</label>
-            <div class="input-wrap">
-              <input type="password" id="password" name="password" placeholder="••••••••••" autocomplete="current-password" required />
-              <svg class="input-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              <button type="button" class="pw-toggle" id="pwToggle" aria-label="Show password">
-                <svg id="eyeIcon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-              </button>
-            </div>
-          </div>
+        <p class="login-subtitle" style="margin-bottom:2.5rem;">
+          Authorized family members only.<br>
+          A one-time code will be sent to your<br>registered email address.
+        </p>
 
-          <button type="submit" class="submit-btn" id="submitBtn">
-            <span class="btn-text">Access Portal</span>
-            <div class="spinner"></div>
-          </button>
-        </form>
+        <a href="/dashboard" class="submit-btn" style="text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.6rem; width:100%; padding:0.9rem; margin-bottom:2rem;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+          Access Family Portal
+        </a>
 
         <div class="gold-rule"></div>
 
-        <p class="login-note">
+        <p class="login-note" style="margin-top:1.5rem;">
           Don't have access?
           <a href="/contact">Contact the administrator</a>
           to request authorization.
         </p>
 
-        <div class="security-badge">
+        <div class="security-badge" style="margin-top:1.5rem;">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          256-bit encrypted · Firebase Authentication · Access logged
+          Zero Trust · Cloudflare Access · All sessions logged
         </div>
 
       </div>
@@ -470,64 +431,6 @@
   </div>
 
   <script>
-    // ── Password visibility toggle
-    const pwToggle = document.getElementById('pwToggle');
-    const pwInput  = document.getElementById('password');
-    const eyeIcon  = document.getElementById('eyeIcon');
-
-    const eyeOpen   = `<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>`;
-    const eyeClosed = `<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/>`;
-
-    pwToggle.addEventListener('click', () => {
-      const isHidden = pwInput.type === 'password';
-      pwInput.type = isHidden ? 'text' : 'password';
-      eyeIcon.innerHTML = isHidden ? eyeClosed : eyeOpen;
-    });
-
-    // ── Form submit
-    const loginForm = document.getElementById('loginForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const errorMsg  = document.getElementById('errorMsg');
-    const errorText = document.getElementById('errorText');
-
-    function showError(msg) {
-      errorText.textContent = msg;
-      errorMsg.classList.add('show');
-      submitBtn.classList.remove('loading');
-      submitBtn.disabled = false;
-    }
-
-    loginForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      errorMsg.classList.remove('show');
-
-      const email    = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value;
-
-      if (!email || !password) {
-        showError('Please enter your email and password.');
-        return;
-      }
-
-      submitBtn.classList.add('loading');
-      submitBtn.disabled = true;
-
-      firebase.auth().signInWithEmailAndPassword(email, password)
-        .then(() => {
-          window.location.href = '/dashboard';
-        })
-        .catch((err) => {
-          const msgs = {
-            'auth/user-not-found':   'No account found with that email address.',
-            'auth/wrong-password':   'Incorrect password. Please try again.',
-            'auth/invalid-email':    'Please enter a valid email address.',
-            'auth/too-many-requests':'Too many attempts. Please try again later.',
-            'auth/user-disabled':    'This account has been disabled. Contact the administrator.',
-          };
-          showError(msgs[err.code] || 'Sign-in failed. Please try again.');
-        });
-    });
-
     // ── Orb parallax
     document.addEventListener('mousemove', (e) => {
       const x = (e.clientX / window.innerWidth - 0.5) * 15;
