@@ -16,21 +16,6 @@
     gtag('config', 'G-N3KFG5C1ZL');
   </script>
 
-  <!-- Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
-  <script>
-    firebase.initializeApp({
-      apiKey: "AIzaSyBKk0b2-Dr2IkiiSObJdxdKiNaHRCQMmzo",
-      authDomain: "patel-holdings.firebaseapp.com",
-      projectId: "patel-holdings",
-      storageBucket: "patel-holdings.firebasestorage.app",
-      messagingSenderId: "703106012824",
-      appId: "1:703106012824:web:9a51ca849e006fa41fa2ed",
-      measurementId: "G-N3KFG5C1ZL"
-    });
-  </script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -55,10 +40,7 @@
       color: var(--cream);
       min-height: 100vh;
       overflow-x: hidden;
-      opacity: 0;
-      transition: opacity 0.4s ease;
     }
-    body.ready { opacity: 1; }
     a { text-decoration: none; color: inherit; }
 
     /* ── BACKGROUND ── */
@@ -101,15 +83,6 @@
       box-shadow: 0 4px 24px rgba(0,0,0,0.4);
     }
     .topnav-left { display: flex; align-items: center; gap: 0.85rem; }
-    .brand-mark {
-      width: 32px; height: 32px; border-radius: 8px;
-      background: linear-gradient(135deg, var(--gold), var(--gold-muted));
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.72rem; font-weight: 600;
-      color: var(--navy-deepest); flex-shrink: 0;
-      box-shadow: 0 2px 10px rgba(226,185,87,0.35);
-    }
     .brand-name {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1rem; font-weight: 600;
@@ -128,15 +101,6 @@
     .nav-back svg { transition: transform 0.25s ease; }
     .nav-back:hover svg { transform: translateX(-3px); }
 
-    .logout-btn {
-      display: flex; align-items: center; gap: 0.4rem;
-      background: rgba(224,92,122,0.1); border: 1px solid rgba(224,92,122,0.2);
-      color: rgba(224,92,122,0.75); padding: 0.38rem 0.85rem; border-radius: 40px;
-      font-size: 0.72rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase;
-      cursor: pointer; transition: all 0.25s ease;
-    }
-    .logout-btn:hover { background: rgba(224,92,122,0.18); border-color: rgba(224,92,122,0.4); color: #f09090; }
-
     /* ── MAIN ── */
     main {
       position: relative; z-index: 2;
@@ -152,7 +116,6 @@
       display: flex; align-items: flex-end; justify-content: space-between;
       flex-wrap: wrap; gap: 1.5rem;
     }
-    .page-header-left {}
     .page-eyebrow {
       font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase;
       color: var(--gold); margin-bottom: 0.75rem;
@@ -224,7 +187,7 @@
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 18px; padding: 2rem;
       position: relative; overflow: hidden;
-      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, opacity 0.6s ease;
       box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.07);
       opacity: 0;
       cursor: default;
@@ -243,7 +206,6 @@
       box-shadow: 0 28px 64px rgba(0,0,0,0.45), 0 0 0 1px rgba(226,185,87,0.08), inset 0 1px 0 rgba(255,255,255,0.12);
     }
 
-    /* Colored top accent per pillar */
     .pillar-card::after {
       content: ''; position: absolute;
       top: 0; left: 0; right: 0; height: 2px;
@@ -290,7 +252,6 @@
       margin-bottom: 1.5rem;
     }
 
-    /* Sub-items inside pillar */
     .pillar-sub-list { display: flex; flex-direction: column; gap: 0.5rem; }
     .pillar-sub-item {
       display: flex; align-items: center; gap: 0.5rem;
@@ -330,8 +291,6 @@
       font-size: 0.68rem; letter-spacing: 0.1em;
       color: rgba(226,185,87,0.5); margin-top: 0.2rem;
     }
-
-    /* Connector lines */
     .tree-connector-down {
       width: 1px; height: 32px;
       background: linear-gradient(to bottom, rgba(226,185,87,0.4), rgba(226,185,87,0.1));
@@ -354,7 +313,6 @@
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 1.25rem; width: 100%;
-      margin-top: 0;
     }
     .tree-connector-up {
       height: 28px; display: flex; justify-content: center;
@@ -418,8 +376,10 @@
   <!-- ── TOP NAV ── -->
   <nav class="topnav">
     <div class="topnav-left">
-      <img src="/favicon.jpg" alt="Patel Holdings" style="width:32px;height:32px;border-radius:8px;object-fit:cover;box-shadow:0 2px 14px rgba(226,185,87,0.45),0 0 0 1px rgba(226,185,87,0.18);flex-shrink:0;" />
-      <span class="brand-name">Patel Holdings</span>
+      <a href="/" style="display:flex;align-items:center;gap:0.85rem;text-decoration:none;">
+        <img src="/favicon.jpg" alt="Patel Holdings" style="width:32px;height:32px;border-radius:8px;object-fit:cover;box-shadow:0 2px 14px rgba(226,185,87,0.45),0 0 0 1px rgba(226,185,87,0.18);flex-shrink:0;" />
+        <span class="brand-name">Patel Holdings</span>
+      </a>
       <span class="nav-sep">/</span>
       <span class="nav-page">Investments</span>
     </div>
@@ -428,10 +388,6 @@
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         Dashboard
       </a>
-      <button class="logout-btn" id="logoutBtn">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-        Sign Out
-      </button>
     </div>
   </nav>
 
@@ -440,8 +396,8 @@
 
     <!-- Page Header -->
     <div class="page-header">
-      <div class="page-header-left">
-        <div class="page-eyebrow">Internal · Confidential</div>
+      <div>
+        <div class="page-eyebrow">Confidential · Family Portal</div>
         <h1 class="page-title">Investment<br><em>Portfolio Overview</em></h1>
         <p class="page-subtitle">Complete breakdown of Patel Holdings LLC across all five pillars.</p>
       </div>
@@ -632,33 +588,15 @@
   </main>
 
   <script>
-    // ── Auth gate
-    firebase.auth().onAuthStateChanged(user => {
-      if (!user) {
-        window.location.href = '/family-portal';
-        return;
-      }
-      document.body.classList.add('ready');
-
-      // Staggered card reveal
+    // Staggered card reveal on load
+    document.addEventListener('DOMContentLoaded', () => {
       const cards = document.querySelectorAll('.pillar-card');
       cards.forEach((card, i) => {
-        setTimeout(() => {
-          card.style.transition = 'opacity 0.6s ease, transform 0.6s ease, box-shadow 0.35s ease, border-color 0.35s ease';
-          card.style.transform = 'translateY(0)';
-          card.classList.add('visible');
-        }, 600 + i * 120);
+        setTimeout(() => card.classList.add('visible'), 500 + i * 120);
       });
     });
 
-    // ── Logout
-    document.getElementById('logoutBtn').addEventListener('click', () => {
-      firebase.auth().signOut().then(() => {
-        window.location.href = '/family-portal';
-      });
-    });
-
-    // ── Orb parallax
+    // Orb parallax
     if (window.innerWidth > 900) {
       document.addEventListener('mousemove', e => {
         const x = (e.clientX / window.innerWidth  - 0.5) * 16;
