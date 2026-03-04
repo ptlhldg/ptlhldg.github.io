@@ -16,21 +16,6 @@
     gtag('config', 'G-N3KFG5C1ZL');
   </script>
 
-  <!-- Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
-  <script>
-    firebase.initializeApp({
-      apiKey: "AIzaSyBKk0b2-Dr2IkiiSObJdxdKiNaHRCQMmzo",
-      authDomain: "patel-holdings.firebaseapp.com",
-      projectId: "patel-holdings",
-      storageBucket: "patel-holdings.firebasestorage.app",
-      messagingSenderId: "703106012824",
-      appId: "1:703106012824:web:9a51ca849e006fa41fa2ed",
-      measurementId: "G-N3KFG5C1ZL"
-    });
-  </script>
-
   <!-- Plotly -->
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
@@ -59,10 +44,8 @@
       color: var(--cream);
       min-height: 100vh;
       overflow-x: hidden;
-      opacity: 0;
-      transition: opacity 0.4s ease;
+      /* opacity gate removed — Cloudflare handles auth */
     }
-    body.ready { opacity: 1; }
     a { text-decoration: none; color: inherit; }
 
     /* ── BACKGROUND ── */
@@ -101,14 +84,6 @@
       box-shadow: 0 4px 24px rgba(0,0,0,0.4);
     }
     .topnav-left { display: flex; align-items: center; gap: 0.85rem; }
-    .brand-mark {
-      width: 32px; height: 32px; border-radius: 8px;
-      background: linear-gradient(135deg, var(--gold), var(--gold-muted));
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Cormorant Garamond', serif; font-size: 0.72rem; font-weight: 600;
-      color: var(--navy-deepest); flex-shrink: 0;
-      box-shadow: 0 2px 10px rgba(226,185,87,0.35);
-    }
     .brand-name {
       font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600;
       letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream);
@@ -124,14 +99,6 @@
     .nav-back:hover { color: var(--cream); }
     .nav-back svg { transition: transform 0.25s ease; }
     .nav-back:hover svg { transform: translateX(-3px); }
-    .logout-btn {
-      display: flex; align-items: center; gap: 0.4rem;
-      background: rgba(224,92,122,0.1); border: 1px solid rgba(224,92,122,0.2);
-      color: rgba(224,92,122,0.75); padding: 0.38rem 0.85rem; border-radius: 40px;
-      font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
-      cursor: pointer; transition: all 0.25s ease;
-    }
-    .logout-btn:hover { background: rgba(224,92,122,0.18); border-color: rgba(224,92,122,0.4); color: #f09090; }
 
     /* ── MAIN ── */
     main {
@@ -248,7 +215,6 @@
       color: rgba(237,232,224,0.38); margin-top: 0.2rem;
     }
 
-    /* Range buttons */
     .range-btns { display: flex; gap: 0.35rem; }
     .range-btn {
       padding: 0.3rem 0.65rem; border-radius: 6px;
@@ -265,7 +231,6 @@
       color: var(--gold);
     }
 
-    /* Legend */
     .chart-legend {
       display: flex; gap: 1.5rem; flex-wrap: wrap;
       margin-bottom: 1.25rem;
@@ -275,14 +240,9 @@
       font-size: 0.75rem; font-weight: 300;
       color: rgba(237,232,224,0.55);
     }
-    .legend-line {
-      width: 20px; height: 2px; border-radius: 2px; flex-shrink: 0;
-    }
+    .legend-line { width: 20px; height: 2px; border-radius: 2px; flex-shrink: 0; }
 
-    /* Plotly container */
-    .chart-wrap {
-      width: 100%; height: 420px; border-radius: 10px; overflow: hidden;
-    }
+    .chart-wrap { width: 100%; height: 420px; border-radius: 10px; overflow: hidden; }
 
     /* ── SECOND CHART ── */
     .chart-card-2 {
@@ -361,10 +321,8 @@
       .page-header { flex-direction: column; align-items: flex-start; }
       .chart-wrap { height: 260px; }
       .stats-row { grid-template-columns: repeat(2, 1fr); }
-      .compare-table th:nth-child(3),
-      .compare-table td:nth-child(3),
-      .compare-table th:nth-child(4),
-      .compare-table td:nth-child(4) { display: none; }
+      .compare-table th:nth-child(3), .compare-table td:nth-child(3),
+      .compare-table th:nth-child(4), .compare-table td:nth-child(4) { display: none; }
     }
   </style>
 </head>
@@ -378,8 +336,10 @@
   <!-- ── TOP NAV ── -->
   <nav class="topnav">
     <div class="topnav-left">
-      <img src="/favicon.jpg" alt="Patel Holdings" style="width:32px;height:32px;border-radius:8px;object-fit:cover;box-shadow:0 2px 14px rgba(226,185,87,0.45),0 0 0 1px rgba(226,185,87,0.18);flex-shrink:0;" />
-      <span class="brand-name">Patel Holdings</span>
+      <a href="/" style="display:flex;align-items:center;gap:0.85rem;text-decoration:none;">
+        <img src="/favicon.jpg" alt="Patel Holdings" style="width:32px;height:32px;border-radius:8px;object-fit:cover;box-shadow:0 2px 14px rgba(226,185,87,0.45),0 0 0 1px rgba(226,185,87,0.18);flex-shrink:0;" />
+        <span class="brand-name">Patel Holdings</span>
+      </a>
       <span class="nav-sep">/</span>
       <span class="nav-page">Performance</span>
     </div>
@@ -388,10 +348,6 @@
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         Dashboard
       </a>
-      <button class="logout-btn" id="logoutBtn">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-        Sign Out
-      </button>
     </div>
   </nav>
 
@@ -400,7 +356,7 @@
     <!-- Page Header -->
     <div class="page-header">
       <div>
-        <div class="page-eyebrow">Internal · Confidential</div>
+        <div class="page-eyebrow">Confidential · Family Portal</div>
         <h1 class="page-title">Fund <em>Performance</em></h1>
         <p class="page-subtitle">Cumulative returns vs. S&P 500 and NASDAQ 100 benchmarks.</p>
       </div>
@@ -459,7 +415,7 @@
       <div class="chart-wrap" id="mainChart"></div>
     </div>
 
-    <!-- Second Chart (hidden when "both" not selected) -->
+    <!-- Second Chart -->
     <div class="chart-card-2" id="secondChartCard" style="display:none; margin-bottom:2rem;">
       <div class="chart-header">
         <div>
@@ -540,7 +496,7 @@
     const ndx = [114.14,115.76,115.18,115.05,115.19,115.98,115.21,114.43,114.13,114.81,114.43,114.78,114.65,113.74,112.49,112.35,111.09,111.88,112.54,112.32,112.81,112.65,113.08,113.52,113.23,113.67,113.1,113.18,113.76,114.02,114.22,114.68,114.55,114.52,114.72,113.94,114.46,114.28,114.56,114.96,115.39,114.92,115.16,115.42,115.38,115.79,115.58,115.64,115.92,115.91,116.23];
 
     /* ── PLOTLY THEME ── */
-    const plotlyLayout = (title) => ({
+    const plotlyLayout = () => ({
       paper_bgcolor: 'rgba(0,0,0,0)',
       plot_bgcolor:  'rgba(0,0,0,0)',
       font: { family: 'DM Sans, sans-serif', color: 'rgba(237,232,224,0.6)', size: 11 },
@@ -559,7 +515,6 @@
         linecolor: 'rgba(255,255,255,0)',
         tickcolor: 'rgba(255,255,255,0)',
         tickfont: { size: 10, color: 'rgba(237,232,224,0.35)' },
-        ticksuffix: '',
         zeroline: false,
       },
       hovermode: 'x unified',
@@ -570,10 +525,7 @@
       },
     });
 
-    const plotlyConfig = {
-      responsive: true,
-      displayModeBar: false,
-    };
+    const plotlyConfig = { responsive: true, displayModeBar: false };
 
     /* ── FILTER BY RANGE ── */
     function filterRange(range) {
@@ -595,14 +547,14 @@
       };
     }
 
-    /* ── DRAW MAIN CHART ── */
+    /* ── STATE ── */
     let currentFund = 'core';
     let currentRange = 'all';
 
+    /* ── DRAW MAIN CHART ── */
     function drawMainChart(fund, range) {
       const idxs  = filterRange(range);
       const xData = idxs.map(i => dates[i]);
-
       const traces = [];
       if (fund === 'core' || fund === 'both') {
         traces.push({ ...makeTrace('Core Fund', coreFund, '#e2b957', 3), x: xData, y: idxs.map(i => coreFund[i]) });
@@ -612,10 +564,8 @@
       }
       traces.push({ ...makeTrace('S&P 500', spx, '#5c9ee0', 1.5, 'dot'), x: xData, y: idxs.map(i => spx[i]) });
       traces.push({ ...makeTrace('NASDAQ 100', ndx, '#c05ce0', 1.5, 'dot'), x: xData, y: idxs.map(i => ndx[i]) });
-
       const titleMap = { core: 'Core Fund vs. Benchmarks', kids: 'Kids Fund vs. Benchmarks', both: 'All Funds vs. Benchmarks' };
       document.getElementById('mainChartTitle').textContent = titleMap[fund];
-
       Plotly.react('mainChart', traces, plotlyLayout(), plotlyConfig);
     }
 
@@ -634,14 +584,12 @@
     function updateStats(fund) {
       const data = fund === 'kids' ? kidsFund : coreFund;
       const first = data[0], last = data[data.length - 1];
-      const ret = (((last - first) / first) * 100).toFixed(2);
+      const ret    = (((last - first) / first) * 100).toFixed(2);
       const spxRet = (((spx[spx.length-1] - spx[0]) / spx[0]) * 100).toFixed(2);
       const ndxRet = (((ndx[ndx.length-1] - ndx[0]) / ndx[0]) * 100).toFixed(2);
       const alpha  = (parseFloat(ret) - parseFloat(spxRet)).toFixed(2);
-
       const retEl   = document.getElementById('statFundReturn');
       const alphaEl = document.getElementById('statAlpha');
-
       retEl.textContent   = `${ret > 0 ? '+' : ''}${ret}%`;
       retEl.className     = `stat-val ${ret >= 0 ? 'positive' : 'negative'}`;
       document.getElementById('statFundLabel').textContent  = `${fund === 'kids' ? 'Kids' : 'Core'} Fund Return`;
@@ -649,7 +597,6 @@
       document.getElementById('statNdxReturn').textContent  = `+${ndxRet}%`;
       alphaEl.textContent = `${alpha >= 0 ? '+' : ''}${alpha}%`;
       alphaEl.className   = `stat-val ${alpha >= 0 ? 'positive' : 'negative'}`;
-      document.getElementById('statAlphaLabel').textContent = `vs. S&P 500 (Alpha)`;
     }
 
     /* ── FUND TABS ── */
@@ -658,7 +605,6 @@
         document.querySelectorAll('.fund-tab').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         currentFund = btn.dataset.fund;
-
         const secondCard = document.getElementById('secondChartCard');
         if (currentFund === 'both') {
           secondCard.style.display = 'block';
@@ -666,28 +612,15 @@
         } else {
           secondCard.style.display = 'none';
         }
-
         updateStats(currentFund === 'kids' ? 'kids' : 'core');
         drawMainChart(currentFund, currentRange);
-
-        // Update legend
         const legendEl = document.getElementById('mainLegend');
         if (currentFund === 'both') {
-          legendEl.innerHTML = `
-            <div class="legend-item"><div class="legend-line" style="background:#e2b957;"></div>Core Fund</div>
-            <div class="legend-item"><div class="legend-line" style="background:#5ce0a0;"></div>Kids Fund</div>
-            <div class="legend-item"><div class="legend-line" style="background:#5c9ee0;"></div>S&P 500</div>
-            <div class="legend-item"><div class="legend-line" style="background:#c05ce0;"></div>NASDAQ 100</div>`;
+          legendEl.innerHTML = `<div class="legend-item"><div class="legend-line" style="background:#e2b957;"></div>Core Fund</div><div class="legend-item"><div class="legend-line" style="background:#5ce0a0;"></div>Kids Fund</div><div class="legend-item"><div class="legend-line" style="background:#5c9ee0;"></div>S&P 500</div><div class="legend-item"><div class="legend-line" style="background:#c05ce0;"></div>NASDAQ 100</div>`;
         } else if (currentFund === 'kids') {
-          legendEl.innerHTML = `
-            <div class="legend-item"><div class="legend-line" style="background:#5ce0a0;"></div>Kids Fund</div>
-            <div class="legend-item"><div class="legend-line" style="background:#5c9ee0;"></div>S&P 500</div>
-            <div class="legend-item"><div class="legend-line" style="background:#c05ce0;"></div>NASDAQ 100</div>`;
+          legendEl.innerHTML = `<div class="legend-item"><div class="legend-line" style="background:#5ce0a0;"></div>Kids Fund</div><div class="legend-item"><div class="legend-line" style="background:#5c9ee0;"></div>S&P 500</div><div class="legend-item"><div class="legend-line" style="background:#c05ce0;"></div>NASDAQ 100</div>`;
         } else {
-          legendEl.innerHTML = `
-            <div class="legend-item"><div class="legend-line" style="background:#e2b957;"></div>Core Fund</div>
-            <div class="legend-item"><div class="legend-line" style="background:#5c9ee0;"></div>S&P 500</div>
-            <div class="legend-item"><div class="legend-line" style="background:#c05ce0;"></div>NASDAQ 100</div>`;
+          legendEl.innerHTML = `<div class="legend-item"><div class="legend-line" style="background:#e2b957;"></div>Core Fund</div><div class="legend-item"><div class="legend-line" style="background:#5c9ee0;"></div>S&P 500</div><div class="legend-item"><div class="legend-line" style="background:#c05ce0;"></div>NASDAQ 100</div>`;
         }
       });
     });
@@ -711,8 +644,11 @@
       });
     });
 
+    /* ── INIT — no Firebase needed, Cloudflare already authenticated the user ── */
+    document.addEventListener('DOMContentLoaded', () => {
       drawMainChart('core', 'all');
       updateStats('core');
+    });
 
     /* ── ORB PARALLAX ── */
     if (window.innerWidth > 900) {
