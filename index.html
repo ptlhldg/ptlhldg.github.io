@@ -13,7 +13,7 @@
   <link rel="canonical" href="https://patel-holdings.com/" />
   <link rel="icon" type="image/jpeg" href="/favicon.jpg" />
 
-  <!-- Open Graph (LinkedIn, WhatsApp, Facebook previews) -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://patel-holdings.com/" />
   <meta property="og:title" content="Patel Holdings LLC — Private Multigenerational Family Office" />
@@ -28,7 +28,7 @@
   <meta name="twitter:description" content="A private multigenerational family office managing $348M AUM across operating businesses, investment funds, real estate, and international holdings." />
   <meta name="twitter:image" content="https://patel-holdings.com/favicon.jpg" />
 
-  <!-- Schema.org Structured Data -->
+  <!-- Schema.org -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -39,11 +39,7 @@
     "description": "A private multigenerational family office managing diversified assets across operating businesses, investment funds, real estate, and international holdings.",
     "foundingDate": "2000",
     "areaServed": "Worldwide",
-    "numberOfEmployees": {
-      "@type": "QuantitativeValue",
-      "minValue": 10,
-      "maxValue": 50
-    },
+    "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 10, "maxValue": 50 },
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+1-646-992-5815",
@@ -52,49 +48,11 @@
       "availableLanguage": "English"
     },
     "address": [
-      {
-        "@type": "PostalAddress",
-        "streetAddress": "200 Park Ave",
-        "addressLocality": "New York",
-        "addressRegion": "NY",
-        "postalCode": "10166",
-        "addressCountry": "US"
-      },
-      {
-        "@type": "PostalAddress",
-        "streetAddress": "119 Spadina Ave",
-        "addressLocality": "Toronto",
-        "addressRegion": "ON",
-        "postalCode": "M5V 2L1",
-        "addressCountry": "CA"
-      },
-      {
-        "@type": "PostalAddress",
-        "streetAddress": "50 Jermyn St, St. James's",
-        "addressLocality": "London",
-        "postalCode": "SW1Y 6LX",
-        "addressCountry": "GB"
-      },
-      {
-        "@type": "PostalAddress",
-        "streetAddress": "Vithal Udyognagar, GIDC",
-        "addressLocality": "Anand",
-        "addressRegion": "Gujarat",
-        "postalCode": "388001",
-        "addressCountry": "IN"
-      }
-    ],
-    "sameAs": []
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Patel Holdings LLC",
-    "url": "https://patel-holdings.com/",
-    "alternateName": ["PH", "Patel Holdings", "PTL-HDLG"]
+      { "@type": "PostalAddress", "streetAddress": "200 Park Ave", "addressLocality": "New York", "addressRegion": "NY", "postalCode": "10166", "addressCountry": "US" },
+      { "@type": "PostalAddress", "streetAddress": "119 Spadina Ave", "addressLocality": "Toronto", "addressRegion": "ON", "postalCode": "M5V 2L1", "addressCountry": "CA" },
+      { "@type": "PostalAddress", "streetAddress": "50 Jermyn St, St. James's", "addressLocality": "London", "postalCode": "SW1Y 6LX", "addressCountry": "GB" },
+      { "@type": "PostalAddress", "streetAddress": "Vithal Udyognagar, GIDC", "addressLocality": "Anand", "addressRegion": "Gujarat", "postalCode": "388001", "addressCountry": "IN" }
+    ]
   }
   </script>
 
@@ -112,7 +70,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <style>
-    /* ── TOKENS ── */
     :root {
       --navy-deepest: #070e1c;
       --navy-deep:    #0d1b2e;
@@ -127,7 +84,6 @@
       --transition:   all 0.3s ease;
     }
 
-    /* ── RESET ── */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
 
@@ -141,7 +97,7 @@
 
     a { text-decoration: none; color: inherit; }
 
-    /* ── BACKGROUND LAYERS ── */
+    /* ── BACKGROUND ── */
     .bg-canvas {
       position: fixed; inset: 0; z-index: 0;
       background:
@@ -156,20 +112,18 @@
       50%  { filter: hue-rotate(4deg) brightness(1.04); }
       100% { filter: hue-rotate(-3deg) brightness(0.96); }
     }
-
     .orb {
       position: fixed; border-radius: 50%;
       filter: blur(90px); pointer-events: none; z-index: 0;
       animation: orbDrift 22s ease-in-out infinite alternate;
     }
-    .orb-1 { width: 520px; height: 520px; background: var(--gold);   opacity: 0.10; top: -120px; right: -120px; animation-duration: 24s; }
-    .orb-2 { width: 320px; height: 320px; background: #3355aa;        opacity: 0.12; bottom: 80px; left: -80px;  animation-duration: 18s; animation-delay: -6s; }
-    .orb-3 { width: 220px; height: 220px; background: var(--gold-muted); opacity: 0.07; top: 55%; left: 48%;     animation-duration: 28s; animation-delay: -12s; }
+    .orb-1 { width: 520px; height: 520px; background: var(--gold);       opacity: 0.10; top: -120px; right: -120px; animation-duration: 24s; }
+    .orb-2 { width: 320px; height: 320px; background: #3355aa;            opacity: 0.12; bottom: 80px; left: -80px;  animation-duration: 18s; animation-delay: -6s; }
+    .orb-3 { width: 220px; height: 220px; background: var(--gold-muted);  opacity: 0.07; top: 55%; left: 48%;        animation-duration: 28s; animation-delay: -12s; }
     @keyframes orbDrift {
       from { transform: translate(0, 0) scale(1); }
       to   { transform: translate(35px, 25px) scale(1.08); }
     }
-
     .grain {
       position: fixed; inset: 0; z-index: 1; opacity: 0.022; pointer-events: none;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
@@ -178,8 +132,7 @@
     /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      height: 68px;
-      padding: 0 2.5rem;
+      height: 68px; padding: 0 2.5rem;
       display: flex; align-items: center; justify-content: space-between;
       background: rgba(7,14,28,0.55);
       backdrop-filter: blur(32px) saturate(1.6);
@@ -189,32 +142,17 @@
       transition: background 0.4s ease;
     }
     nav.scrolled { background: rgba(7,14,28,0.82); }
-
     .nav-logo {
       display: flex; align-items: center; gap: 0.75rem;
       font-family: 'Cormorant Garamond', serif;
       font-weight: 600; font-size: 1.1rem;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--cream);
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream);
     }
-    .nav-logo-mark {
-      width: 30px; height: 30px; border-radius: 7px;
-      background: linear-gradient(135deg, var(--gold), var(--gold-muted));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.68rem; font-weight: 700;
-      color: var(--navy-deep); letter-spacing: 0;
-      box-shadow: 0 2px 14px rgba(226,185,87,0.4);
-      flex-shrink: 0;
-    }
-
-    .nav-links {
-      display: flex; gap: 2.5rem; list-style: none;
-    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
     .nav-links a {
       font-size: 0.78rem; font-weight: 400;
       letter-spacing: 0.12em; text-transform: uppercase;
-      color: rgba(237,232,224,0.65);
-      transition: color 0.3s ease;
+      color: rgba(237,232,224,0.65); transition: color 0.3s ease;
       position: relative; padding-bottom: 2px;
     }
     .nav-links a::after {
@@ -224,56 +162,40 @@
     }
     .nav-links a:hover { color: var(--cream); }
     .nav-links a:hover::after { width: 100%; }
-
     .nav-portal-btn {
       background: linear-gradient(135deg, rgba(226,185,87,0.14), rgba(226,185,87,0.07));
-      border: 1px solid rgba(226,185,87,0.32);
-      color: var(--gold);
-      padding: 0.45rem 1.15rem;
-      border-radius: 40px;
+      border: 1px solid rgba(226,185,87,0.32); color: var(--gold);
+      padding: 0.45rem 1.15rem; border-radius: 40px;
       font-size: 0.75rem; font-weight: 500;
       letter-spacing: 0.1em; text-transform: uppercase;
-      transition: var(--transition);
-      backdrop-filter: blur(10px);
-      cursor: pointer;
-      display: flex; align-items: center; gap: 0.4rem;
+      transition: var(--transition); backdrop-filter: blur(10px);
+      cursor: pointer; display: flex; align-items: center; gap: 0.4rem;
     }
     .nav-portal-btn:hover {
       background: linear-gradient(135deg, rgba(226,185,87,0.26), rgba(226,185,87,0.14));
-      box-shadow: 0 0 22px rgba(226,185,87,0.22);
-      transform: translateY(-1px);
+      box-shadow: 0 0 22px rgba(226,185,87,0.22); transform: translateY(-1px);
     }
-
-    /* Mobile hamburger */
     .hamburger {
-      display: none;
-      flex-direction: column; gap: 5px;
-      cursor: pointer; padding: 4px;
-      background: none; border: none;
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 4px; background: none; border: none;
     }
     .hamburger span {
       display: block; width: 22px; height: 1.5px;
-      background: var(--cream); border-radius: 2px;
-      transition: var(--transition);
+      background: var(--cream); border-radius: 2px; transition: var(--transition);
     }
     .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
     .mobile-menu {
-      display: none;
-      position: fixed; top: 68px; left: 0; right: 0; z-index: 99;
-      background: rgba(7,14,28,0.95);
-      backdrop-filter: blur(32px);
+      display: none; position: fixed; top: 68px; left: 0; right: 0; z-index: 99;
+      background: rgba(7,14,28,0.95); backdrop-filter: blur(32px);
       border-bottom: 1px solid rgba(255,255,255,0.07);
-      padding: 1.5rem 2rem;
-      flex-direction: column; gap: 1.25rem;
+      padding: 1.5rem 2rem; flex-direction: column; gap: 1.25rem;
     }
     .mobile-menu.open { display: flex; }
     .mobile-menu a {
-      font-size: 0.85rem; letter-spacing: 0.12em;
-      text-transform: uppercase; color: rgba(237,232,224,0.7);
-      padding: 0.5rem 0;
+      font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(237,232,224,0.7); padding: 0.5rem 0;
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
     .mobile-menu a:last-child { border-bottom: none; color: var(--gold); }
@@ -281,43 +203,35 @@
     /* ── HERO ── */
     .hero {
       position: relative; z-index: 2;
-      min-height: 100vh;
-      display: flex; flex-direction: column;
+      min-height: 100vh; display: flex; flex-direction: column;
       align-items: center; justify-content: center;
-      padding: 8rem 2rem 5rem;
-      text-align: center;
+      padding: 8rem 2rem 5rem; text-align: center;
     }
-
     .hero-eyebrow {
-      font-size: 0.7rem; letter-spacing: 0.3em;
-      text-transform: uppercase; color: var(--gold);
-      margin-bottom: 1.5rem;
+      font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.5rem;
       opacity: 0; animation: fadeUp 0.8s ease forwards 0.3s;
     }
     .hero-headline {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(3.8rem, 8.5vw, 7.5rem);
-      font-weight: 300; line-height: 1.04;
-      color: var(--cream); margin-bottom: 0.3rem;
+      font-weight: 300; line-height: 1.04; color: var(--cream); margin-bottom: 0.3rem;
       opacity: 0; animation: fadeUp 0.9s ease forwards 0.5s;
     }
     .hero-headline em {
-      font-style: italic;
-      color: transparent;
+      font-style: italic; color: transparent;
       -webkit-text-stroke: 1px rgba(237,232,224,0.45);
     }
     .hero-sub {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.3rem, 3vw, 2rem);
       font-weight: 300; font-style: italic;
-      color: rgba(237,232,224,0.5);
-      margin-bottom: 2.5rem;
+      color: rgba(237,232,224,0.5); margin-bottom: 2.5rem;
       opacity: 0; animation: fadeUp 0.9s ease forwards 0.7s;
     }
     .hero-body {
       max-width: 540px; font-size: 0.93rem; font-weight: 300;
-      color: rgba(237,232,224,0.52); line-height: 1.8;
-      margin-bottom: 3rem;
+      color: rgba(237,232,224,0.52); line-height: 1.8; margin-bottom: 3rem;
       opacity: 0; animation: fadeUp 0.9s ease forwards 0.9s;
     }
     .hero-cta {
@@ -328,45 +242,27 @@
     /* ── BUTTONS ── */
     .btn-primary {
       background: linear-gradient(135deg, var(--gold), var(--gold-muted));
-      color: var(--navy-deepest);
-      padding: 0.8rem 2.1rem; border-radius: 50px;
-      font-size: 0.78rem; font-weight: 500;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      border: none; cursor: pointer; display: inline-block;
-      transition: var(--transition);
+      color: var(--navy-deepest); padding: 0.8rem 2.1rem; border-radius: 50px;
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+      border: none; cursor: pointer; display: inline-block; transition: var(--transition);
       box-shadow: 0 4px 22px rgba(226,185,87,0.3);
     }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(226,185,87,0.45);
-    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(226,185,87,0.45); }
     .btn-ghost {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.15);
       color: var(--cream); padding: 0.8rem 2.1rem; border-radius: 50px;
-      font-size: 0.78rem; font-weight: 400;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      cursor: pointer; display: inline-block;
-      transition: var(--transition);
-      backdrop-filter: blur(10px);
+      font-size: 0.78rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase;
+      cursor: pointer; display: inline-block; transition: var(--transition); backdrop-filter: blur(10px);
     }
-    .btn-ghost:hover {
-      background: rgba(255,255,255,0.09);
-      border-color: rgba(255,255,255,0.28);
-      transform: translateY(-2px);
-    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.28); transform: translateY(-2px); }
 
-    /* ── SCROLL INDICATOR ── */
+    /* ── SCROLL HINT ── */
     .scroll-hint {
-      position: absolute; bottom: 2.5rem; left: 50%;
-      transform: translateX(-50%);
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
       display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
       opacity: 0; animation: fadeUp 1s ease forwards 1.6s;
     }
-    .scroll-hint span {
-      font-size: 0.62rem; letter-spacing: 0.2em;
-      text-transform: uppercase; color: rgba(237,232,224,0.3);
-    }
+    .scroll-hint span { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(237,232,224,0.3); }
     .scroll-line {
       width: 1px; height: 40px;
       background: linear-gradient(to bottom, rgba(226,185,87,0.5), transparent);
@@ -378,10 +274,7 @@
     }
 
     /* ── STATS BAND ── */
-    .stats-band {
-      position: relative; z-index: 2;
-      padding: 0 2rem 7rem;
-    }
+    .stats-band { position: relative; z-index: 2; padding: 0 2rem 7rem; }
     .stats-grid {
       max-width: 1100px; margin: 0 auto;
       display: grid; grid-template-columns: repeat(4, 1fr);
@@ -391,269 +284,124 @@
       box-shadow: 0 24px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
     }
     .stat-cell {
-      background: rgba(7,14,28,0.65);
-      backdrop-filter: blur(20px);
+      background: rgba(7,14,28,0.65); backdrop-filter: blur(20px);
       padding: 2.5rem 1.5rem; text-align: center;
-      position: relative; overflow: hidden;
-      transition: background 0.3s ease; cursor: default;
+      position: relative; overflow: hidden; transition: background 0.3s ease; cursor: default;
     }
     .stat-cell::before {
-      content: ''; position: absolute;
-      top: 0; left: 0; right: 0; height: 1px;
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
       background: linear-gradient(90deg, transparent, rgba(226,185,87,0.35), transparent);
       opacity: 0; transition: opacity 0.3s ease;
     }
     .stat-cell:hover { background: rgba(255,255,255,0.04); }
     .stat-cell:hover::before { opacity: 1; }
-    .stat-value {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.9rem; font-weight: 300;
-      color: var(--cream); line-height: 1; margin-bottom: 0.5rem;
-    }
+    .stat-value { font-family: 'Cormorant Garamond', serif; font-size: 2.9rem; font-weight: 300; color: var(--cream); line-height: 1; margin-bottom: 0.5rem; }
     .stat-value span { color: var(--gold); }
-    .stat-label {
-      font-size: 0.68rem; letter-spacing: 0.16em;
-      text-transform: uppercase; color: rgba(237,232,224,0.38);
-    }
+    .stat-label { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(237,232,224,0.38); }
 
     /* ── SECTIONS ── */
-    .section {
-      position: relative; z-index: 2;
-      max-width: 1200px; margin: 0 auto; padding: 5rem 2rem;
-    }
-    .section-label {
-      font-size: 0.68rem; letter-spacing: 0.3em;
-      text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
-    }
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 300; color: var(--cream); line-height: 1.2;
-      margin-bottom: 2.5rem;
-    }
+    .section { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 5rem 2rem; }
+    .section-label { font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; color: var(--cream); line-height: 1.2; margin-bottom: 2.5rem; }
 
     /* ── ABOUT + NEWS ── */
-    .two-col {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 4rem; align-items: start;
-    }
-    .prose p {
-      font-size: 0.93rem; font-weight: 300;
-      color: rgba(237,232,224,0.58); line-height: 1.88;
-      margin-bottom: 1.2rem;
-    }
-    .prose h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem; font-weight: 400;
-      color: var(--cream); margin: 2rem 0 0.6rem;
-    }
-
-    /* ── NEWS PANEL ── */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .prose p { font-size: 0.93rem; font-weight: 300; color: rgba(237,232,224,0.58); line-height: 1.88; margin-bottom: 1.2rem; }
+    .prose h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 400; color: var(--cream); margin: 2rem 0 0.6rem; }
     .news-panel {
-      background: rgba(255,255,255,0.03);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px; padding: 2rem;
+      background: rgba(255,255,255,0.03); backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 2rem;
       box-shadow: 0 16px 48px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.08);
     }
-    .news-panel-header {
-      font-size: 0.68rem; letter-spacing: 0.25em;
-      text-transform: uppercase; color: rgba(237,232,224,0.4);
-      margin-bottom: 1.5rem; padding-bottom: 0.75rem;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-    .news-item {
-      padding: 1.1rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      cursor: pointer; position: relative;
-      transition: padding-left 0.25s ease;
-    }
+    .news-panel-header { font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(237,232,224,0.4); margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .news-item { padding: 1.1rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); cursor: pointer; transition: padding-left 0.25s ease; }
     .news-item:last-child { border-bottom: none; padding-bottom: 0; }
     .news-item:hover { padding-left: 0.6rem; }
-    .news-date {
-      font-size: 0.66rem; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--gold);
-      margin-bottom: 0.35rem; opacity: 0.8;
-    }
-    .news-title {
-      font-size: 0.86rem; font-weight: 300;
-      color: rgba(237,232,224,0.72); line-height: 1.5;
-    }
-    .news-view-all {
-      display: inline-block; margin-top: 1.5rem;
-      font-size: 0.72rem; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--gold);
-      border-bottom: 1px solid rgba(226,185,87,0.3);
-      padding-bottom: 2px; transition: var(--transition);
-    }
-    .news-view-all:hover {
-      border-color: var(--gold);
-      letter-spacing: 0.18em;
-    }
+    .news-date { font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.35rem; opacity: 0.8; }
+    .news-title { font-size: 0.86rem; font-weight: 300; color: rgba(237,232,224,0.72); line-height: 1.5; }
+    .news-view-all { display: inline-block; margin-top: 1.5rem; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); border-bottom: 1px solid rgba(226,185,87,0.3); padding-bottom: 2px; transition: var(--transition); }
+    .news-view-all:hover { border-color: var(--gold); letter-spacing: 0.18em; }
 
     /* ── PORTFOLIO CARDS ── */
-    .portfolio-wrap {
-      position: relative; z-index: 2;
-      padding: 2rem 2rem 7rem;
-    }
-    .portfolio-header {
-      max-width: 1200px; margin: 0 auto 3rem;
-    }
-    .portfolio-grid {
-      max-width: 1200px; margin: 0 auto;
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
+    .portfolio-wrap { position: relative; z-index: 2; padding: 2rem 2rem 7rem; }
+    .portfolio-header { max-width: 1200px; margin: 0 auto 3rem; }
+    .portfolio-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
     .portfolio-card {
-      background: rgba(255,255,255,0.028);
-      backdrop-filter: blur(24px) saturate(1.4);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px; padding: 2rem;
+      background: rgba(255,255,255,0.028); backdrop-filter: blur(24px) saturate(1.4);
+      border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 2rem;
       position: relative; overflow: hidden;
       transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease;
-      cursor: pointer;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.07);
+      cursor: pointer; box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.07);
     }
     .portfolio-card::before {
-      content: ''; position: absolute;
-      top: 0; left: -100%; width: 100%; height: 100%;
+      content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
       background: linear-gradient(90deg, transparent, rgba(255,255,255,0.025), transparent);
       transition: left 0.6s ease;
     }
     .portfolio-card:hover::before { left: 100%; }
     .portfolio-card:hover {
-      transform: translateY(-7px);
-      border-color: rgba(226,185,87,0.2);
+      transform: translateY(-7px); border-color: rgba(226,185,87,0.2);
       box-shadow: 0 28px 64px rgba(0,0,0,0.48), 0 0 0 1px rgba(226,185,87,0.09), inset 0 1px 0 rgba(255,255,255,0.12);
     }
     .portfolio-card.highlight {
       background: linear-gradient(135deg, rgba(226,185,87,0.08), rgba(226,185,87,0.02));
       border-color: rgba(226,185,87,0.16);
     }
+
+    /* ── CARD ICON — SVG version ── */
     .card-icon {
       width: 44px; height: 44px; border-radius: 12px;
       background: linear-gradient(135deg, rgba(226,185,87,0.14), rgba(226,185,87,0.05));
       border: 1px solid rgba(226,185,87,0.18);
       display: flex; align-items: center; justify-content: center;
-      margin-bottom: 1.5rem; font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      color: var(--gold); /* SVG inherits this via currentColor */
     }
+
     .card-arrow {
       position: absolute; top: 2rem; right: 2rem;
       opacity: 0; transform: translate(-4px, 4px);
       transition: all 0.3s ease; color: var(--gold); font-size: 1rem;
     }
     .portfolio-card:hover .card-arrow { opacity: 1; transform: translate(0, 0); }
-    .card-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem; font-weight: 400;
-      color: var(--cream); margin-bottom: 0.7rem;
-    }
-    .card-desc {
-      font-size: 0.83rem; font-weight: 300;
-      color: rgba(237,232,224,0.5); line-height: 1.65; margin-bottom: 1.75rem;
-    }
-    .card-aum {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem; font-weight: 300; color: var(--gold);
-    }
+    .card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--cream); margin-bottom: 0.7rem; }
+    .card-desc { font-size: 0.83rem; font-weight: 300; color: rgba(237,232,224,0.5); line-height: 1.65; margin-bottom: 1.75rem; }
+
+    /* AUM label — now used as category tag, no dollar figure */
     .card-aum-label {
-      font-size: 0.65rem; letter-spacing: 0.14em;
-      text-transform: uppercase; color: rgba(237,232,224,0.28); margin-top: 0.2rem;
+      font-size: 0.65rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(237,232,224,0.28);
+      line-height: 1.7;
     }
 
     /* ── DIVIDER ── */
-    .gold-rule {
-      width: 60px; height: 1px; margin: 1.5rem 0;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    }
+    .gold-rule { width: 60px; height: 1px; margin: 1.5rem 0; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
     .gold-rule.centered { margin: 1.5rem auto; }
 
     /* ── LOCATIONS ── */
-    .locations-wrap {
-      position: relative; z-index: 2;
-      background: rgba(0,0,0,0.22);
-      backdrop-filter: blur(8px);
-      border-top: 1px solid rgba(255,255,255,0.05);
-      padding: 5rem 2rem 6rem;
-    }
+    .locations-wrap { position: relative; z-index: 2; background: rgba(0,0,0,0.22); backdrop-filter: blur(8px); border-top: 1px solid rgba(255,255,255,0.05); padding: 5rem 2rem 6rem; }
     .locations-inner { max-width: 1200px; margin: 0 auto; }
-    .locations-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 1.25rem; margin-top: 3rem;
-    }
-    .location-card {
-      background: rgba(255,255,255,0.025);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 14px; padding: 1.6rem;
-      transition: all 0.3s ease;
-    }
-    .location-card:hover {
-      background: rgba(255,255,255,0.05);
-      border-color: rgba(226,185,87,0.2);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.3);
-    }
-    .location-region {
-      font-size: 0.62rem; letter-spacing: 0.22em;
-      text-transform: uppercase; color: var(--gold);
-      margin-bottom: 0.5rem; opacity: 0.85;
-    }
-    .location-city {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem; font-weight: 400;
-      color: var(--cream); margin-bottom: 0.6rem;
-    }
-    .location-addr {
-      font-size: 0.77rem; font-weight: 300;
-      color: rgba(237,232,224,0.38); line-height: 1.6;
-    }
-    .location-phone {
-      font-size: 0.77rem; font-weight: 300;
-      color: rgba(237,232,224,0.38); margin-top: 0.5rem;
-    }
-    .location-phone a {
-      color: rgba(237,232,224,0.55);
-      transition: color 0.2s ease;
-    }
+    .locations-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-top: 3rem; }
+    .location-card { background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; padding: 1.6rem; transition: all 0.3s ease; }
+    .location-card:hover { background: rgba(255,255,255,0.05); border-color: rgba(226,185,87,0.2); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.3); }
+    .location-region { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; opacity: 0.85; }
+    .location-city { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 400; color: var(--cream); margin-bottom: 0.6rem; }
+    .location-addr { font-size: 0.77rem; font-weight: 300; color: rgba(237,232,224,0.38); line-height: 1.6; }
+    .location-phone { font-size: 0.77rem; font-weight: 300; color: rgba(237,232,224,0.38); margin-top: 0.5rem; }
+    .location-phone a { color: rgba(237,232,224,0.55); transition: color 0.2s ease; }
     .location-phone a:hover { color: var(--gold); }
 
     /* ── FOOTER ── */
-    footer {
-      position: relative; z-index: 2;
-      background: rgba(0,0,0,0.45);
-      border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 3rem 2rem;
-      display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
-    }
-    .footer-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem; font-weight: 400;
-      letter-spacing: 0.22em; text-transform: uppercase;
-      color: rgba(237,232,224,0.35);
-    }
-    .footer-links {
-      display: flex; gap: 2rem; list-style: none;
-    }
-    .footer-links a {
-      font-size: 0.7rem; letter-spacing: 0.12em;
-      text-transform: uppercase; color: rgba(237,232,224,0.28);
-      transition: color 0.2s ease;
-    }
+    footer { position: relative; z-index: 2; background: rgba(0,0,0,0.45); border-top: 1px solid rgba(255,255,255,0.06); padding: 3rem 2rem; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(237,232,224,0.35); }
+    .footer-links { display: flex; gap: 2rem; list-style: none; }
+    .footer-links a { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(237,232,224,0.28); transition: color 0.2s ease; }
     .footer-links a:hover { color: rgba(237,232,224,0.6); }
-    .footer-copy {
-      font-size: 0.68rem; letter-spacing: 0.08em;
-      color: rgba(237,232,224,0.2);
-    }
+    .footer-copy { font-size: 0.68rem; letter-spacing: 0.08em; color: rgba(237,232,224,0.2); }
 
     /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(22px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .reveal {
-      opacity: 0; transform: translateY(20px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
-    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* ── RESPONSIVE ── */
@@ -681,7 +429,6 @@
 </head>
 <body>
 
-  <!-- Background -->
   <div class="bg-canvas"></div>
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
@@ -708,7 +455,6 @@
     </button>
   </nav>
 
-  <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="#about">About</a>
     <a href="/investments">Investments</a>
@@ -722,7 +468,7 @@
     <h1 class="hero-headline">Patel <em>Holdings</em></h1>
     <p class="hero-sub">Multigenerational Wealth, Global Vision</p>
     <p class="hero-body">
-      A distinguished private family firm with a rich history of strategic investments, 
+      A distinguished private family firm with a rich history of strategic investments,
       operating businesses, and global ventures — built to endure across generations.
     </p>
     <div class="hero-cta">
@@ -771,10 +517,10 @@
       </div>
       <div class="reveal">
         <div class="news-panel">
-          <div class="news-panel-header">Family News & Updates</div>
+          <div class="news-panel-header">Family News &amp; Updates</div>
           <div class="news-item">
             <div class="news-date">October 10, 2025</div>
-            <div class="news-title">Retail & Beverage Portfolio Expanded with Acquisitions in the New York–New Jersey Metro Area</div>
+            <div class="news-title">Retail &amp; Beverage Portfolio Expanded with Acquisitions in the New York–New Jersey Metro Area</div>
           </div>
           <div class="news-item">
             <div class="news-date">April 7, 2025</div>
@@ -801,52 +547,90 @@
       <h2 class="section-title">Diversified Across<br>Five Pillars</h2>
     </div>
     <div class="portfolio-grid">
+
+      <!-- Operating Businesses -->
       <div class="portfolio-card reveal">
-        <div class="card-icon">🏢</div>
+        <div class="card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <path d="M9 3v18M15 3v18M3 9h18M3 15h18"/>
+          </svg>
+        </div>
         <div class="card-arrow">↗</div>
         <div class="card-title">Operating Businesses</div>
         <div class="card-desc">Motels, gas stations, liquor stores, franchise chains, and entertainment ventures across the US and Canada, diversified by geography and industry.</div>
-        <div class="card-aum">$97.5M</div>
-        <div class="card-aum-label">AUM · 28.0% of portfolio</div>
+        <div class="card-aum-label">Hospitality &nbsp;·&nbsp; Fuel &amp; Convenience &nbsp;·&nbsp; Retail</div>
       </div>
+
+      <!-- Growing Family Fund -->
       <div class="portfolio-card reveal">
-        <div class="card-icon">📈</div>
+        <div class="card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+            <polyline points="16 7 22 7 22 13"/>
+          </svg>
+        </div>
         <div class="card-arrow">↗</div>
         <div class="card-title">Growing Family Fund</div>
         <div class="card-desc">Primary equity fund with diversified exposure across asset classes, managed in-house with a long-term growth focus and generational time horizon.</div>
-        <div class="card-aum">$83.3M</div>
-        <div class="card-aum-label">AUM · 23.9% of portfolio</div>
+        <div class="card-aum-label">Equities &nbsp;·&nbsp; Fixed Income &nbsp;·&nbsp; REITs &nbsp;·&nbsp; Alternatives</div>
       </div>
+
+      <!-- Real Estate -->
       <div class="portfolio-card reveal">
-        <div class="card-icon">🏗️</div>
+        <div class="card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
+            <path d="M9 21V12h6v9"/>
+          </svg>
+        </div>
         <div class="card-arrow">↗</div>
         <div class="card-title">Real Estate Holdings</div>
         <div class="card-desc">Residential, multifamily, and hospitality assets in high-performing markets, allocated for consistent cash flow and long-term appreciation.</div>
-        <div class="card-aum">$67.6M</div>
-        <div class="card-aum-label">AUM · 19.4% of portfolio</div>
+        <div class="card-aum-label">Residential &nbsp;·&nbsp; Multifamily &nbsp;·&nbsp; Commercial &nbsp;·&nbsp; Hospitality</div>
       </div>
+
+      <!-- International -->
       <div class="portfolio-card reveal">
-        <div class="card-icon">🌐</div>
+        <div class="card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+        </div>
         <div class="card-arrow">↗</div>
         <div class="card-title">International Holdings</div>
         <div class="card-desc">Overseas assets across Canada, UK, India, France, and Australia — including land, real estate, and private businesses for global diversification.</div>
-        <div class="card-aum">$59.6M</div>
-        <div class="card-aum-label">AUM · 17.1% of portfolio</div>
+        <div class="card-aum-label">Canada &nbsp;·&nbsp; United Kingdom &nbsp;·&nbsp; India &nbsp;·&nbsp; France &nbsp;·&nbsp; Australia</div>
       </div>
+
+      <!-- Bright Future Fund -->
       <div class="portfolio-card reveal">
-        <div class="card-icon">✨</div>
+        <div class="card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
         <div class="card-arrow">↗</div>
         <div class="card-title">Bright Future Fund</div>
         <div class="card-desc">Next-generation investment vehicle designed for flexibility, liquidity, and innovation — seeding the foundation for the family's third generation of wealth.</div>
-        <div class="card-aum">$40.0M</div>
-        <div class="card-aum-label">AUM · 11.5% of portfolio</div>
+        <div class="card-aum-label">Next-Generation &nbsp;·&nbsp; Equities &nbsp;·&nbsp; Fixed Income &nbsp;·&nbsp; REITs</div>
       </div>
+
+      <!-- Family Portal -->
       <div class="portfolio-card highlight reveal">
-        <div class="card-icon" style="background: linear-gradient(135deg, rgba(226,185,87,0.22), rgba(226,185,87,0.08));">🔐</div>
+        <div class="card-icon" style="background: linear-gradient(135deg, rgba(226,185,87,0.22), rgba(226,185,87,0.08));">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            <circle cx="12" cy="16" r="1" fill="currentColor"/>
+          </svg>
+        </div>
         <div class="card-title" style="color: var(--gold);">Family Portal</div>
         <div class="card-desc">Authorized family members and stakeholders can access live performance data, equity positions, fund breakdowns, and private reports.</div>
         <a href="/family-portal" class="btn-primary" style="font-size: 0.72rem; padding: 0.65rem 1.5rem; display: inline-block; margin-top: 0.25rem;">Sign In →</a>
       </div>
+
     </div>
   </div>
 
@@ -895,17 +679,17 @@
       <li><a href="/contact">Contact</a></li>
       <li><a href="/family-portal">Portal</a></li>
     </ul>
-    <p class="footer-copy">© 2025 Patel Holdings LLC. All rights reserved. Private & Confidential.</p>
+    <p class="footer-copy">© 2025 Patel Holdings LLC. All rights reserved. Private &amp; Confidential.</p>
   </footer>
 
   <script>
-    // ── Scroll: darken nav
+    // Scroll: darken nav
     const nav = document.getElementById('mainNav');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 60);
     });
 
-    // ── Mobile menu
+    // Mobile menu
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
     hamburger.addEventListener('click', () => {
@@ -919,7 +703,7 @@
       });
     });
 
-    // ── Scroll reveal
+    // Scroll reveal
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
@@ -929,7 +713,7 @@
     }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    // ── Orb parallax (desktop only)
+    // Orb parallax (desktop only)
     if (window.innerWidth > 900) {
       document.addEventListener('mousemove', (e) => {
         const x = (e.clientX / window.innerWidth - 0.5) * 18;
