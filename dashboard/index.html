@@ -16,21 +16,6 @@
     gtag('config', 'G-N3KFG5C1ZL');
   </script>
 
-  <!-- Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
-  <script>
-    firebase.initializeApp({
-      apiKey: "AIzaSyBKk0b2-Dr2IkiiSObJdxdKiNaHRCQMmzo",
-      authDomain: "patel-holdings.firebaseapp.com",
-      projectId: "patel-holdings",
-      storageBucket: "patel-holdings.firebasestorage.app",
-      messagingSenderId: "703106012824",
-      appId: "1:703106012824:web:9a51ca849e006fa41fa2ed",
-      measurementId: "G-N3KFG5C1ZL"
-    });
-  </script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -52,17 +37,13 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
 
-    /* Hide until auth confirmed */
     body {
       font-family: 'DM Sans', sans-serif;
       background: var(--navy-deepest);
       color: var(--cream);
       min-height: 100vh;
       overflow-x: hidden;
-      opacity: 0;
-      transition: opacity 0.4s ease;
     }
-    body.ready { opacity: 1; }
 
     a { text-decoration: none; color: inherit; }
 
@@ -109,23 +90,12 @@
     .topnav-left {
       display: flex; align-items: center; gap: 0.85rem;
     }
-    .brand-mark {
-      width: 32px; height: 32px; border-radius: 8px;
-      background: linear-gradient(135deg, var(--gold), var(--gold-muted));
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.72rem; font-weight: 600;
-      color: var(--navy-deepest); flex-shrink: 0;
-      box-shadow: 0 2px 10px rgba(226,185,87,0.35);
-    }
     .brand-name {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1rem; font-weight: 600;
       letter-spacing: 0.16em; text-transform: uppercase;
       color: var(--cream);
     }
-
-    /* Breadcrumb separator */
     .nav-sep {
       color: rgba(237,232,224,0.2); font-size: 0.9rem; margin: 0 0.1rem;
     }
@@ -138,41 +108,15 @@
       display: flex; align-items: center; gap: 1.25rem;
     }
 
-    .user-chip {
-      display: flex; align-items: center; gap: 0.6rem;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.09);
-      border-radius: 40px; padding: 0.35rem 0.85rem 0.35rem 0.5rem;
+    /* nav links */
+    .nav-links-inline {
+      display: flex; gap: 2rem; list-style: none;
     }
-    .user-avatar {
-      width: 26px; height: 26px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--gold), var(--gold-muted));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.65rem; font-weight: 600;
-      color: var(--navy-deepest); flex-shrink: 0;
+    .nav-links-inline a {
+      font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(237,232,224,0.45); transition: color 0.25s ease;
     }
-    .user-email {
-      font-size: 0.75rem; font-weight: 300;
-      color: rgba(237,232,224,0.55);
-      max-width: 180px; overflow: hidden;
-      text-overflow: ellipsis; white-space: nowrap;
-    }
-
-    .logout-btn {
-      display: flex; align-items: center; gap: 0.4rem;
-      background: rgba(224,92,122,0.1);
-      border: 1px solid rgba(224,92,122,0.2);
-      color: rgba(224,92,122,0.75);
-      padding: 0.38rem 0.85rem; border-radius: 40px;
-      font-size: 0.72rem; font-weight: 400;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      cursor: pointer; transition: all 0.25s ease;
-    }
-    .logout-btn:hover {
-      background: rgba(224,92,122,0.18);
-      border-color: rgba(224,92,122,0.4);
-      color: #f09090;
-    }
+    .nav-links-inline a:hover { color: var(--cream); }
 
     /* ── MAIN LAYOUT ── */
     main {
@@ -206,11 +150,6 @@
       color: rgba(237,232,224,0.4);
       opacity: 0; animation: fadeUp 0.7s ease forwards 0.45s;
     }
-    #lastLogin {
-      font-size: 0.75rem; color: rgba(237,232,224,0.28);
-      margin-top: 0.35rem;
-      opacity: 0; animation: fadeUp 0.7s ease forwards 0.55s;
-    }
 
     /* ── QUICK STATS ROW ── */
     .quick-stats {
@@ -235,7 +174,6 @@
     }
     .qs-value .accent { color: var(--gold); }
     .qs-value .up   { color: var(--green); }
-    .qs-value .down { color: var(--red); }
     .qs-label {
       font-size: 0.64rem; letter-spacing: 0.15em;
       text-transform: uppercase; color: rgba(237,232,224,0.35);
@@ -277,8 +215,7 @@
       box-shadow: 0 24px 60px rgba(0,0,0,0.45), 0 0 0 1px rgba(226,185,87,0.08), inset 0 1px 0 rgba(255,255,255,0.12);
     }
     .dash-card.locked {
-      cursor: default;
-      opacity: 0.55;
+      cursor: default; opacity: 0.55;
     }
     .dash-card.locked:hover { transform: none; border-color: rgba(255,255,255,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
 
@@ -331,7 +268,7 @@
     .card-link svg { transition: transform 0.25s ease; }
     .card-link:hover svg { transform: translateX(3px); }
 
-    /* ── ACTIVITY / NEWS BAND ── */
+    /* ── LOWER GRID ── */
     .lower-grid {
       display: grid; grid-template-columns: 2fr 1fr;
       gap: 1.5rem;
@@ -368,8 +305,6 @@
       text-align: right; font-size: 0.75rem;
       color: rgba(237,232,224,0.35); padding-left: 1rem;
     }
-    .holdings-bar-wrap { margin-top: 0.3rem; height: 2px; background: rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden; }
-    .holdings-bar { height: 100%; border-radius: 2px; background: linear-gradient(90deg, var(--gold), var(--gold-muted)); transition: width 1.2s ease; }
 
     /* Quick links */
     .quick-links { display: flex; flex-direction: column; gap: 0.75rem; }
@@ -408,11 +343,11 @@
     @media (max-width: 640px) {
       main { padding: 5rem 1.25rem 3rem; }
       .topnav { padding: 0 1.25rem; }
-      .user-email { display: none; }
       .cards-primary { grid-template-columns: 1fr; }
       .quick-stats { grid-template-columns: repeat(2, 1fr); }
       .brand-name { display: none; }
       .nav-sep, .nav-page { display: none; }
+      .nav-links-inline { display: none; }
     }
   </style>
 </head>
@@ -426,20 +361,20 @@
   <!-- ── TOP NAV ── -->
   <nav class="topnav">
     <div class="topnav-left">
-      <img src="/favicon.jpg" alt="Patel Holdings" style="width:32px;height:32px;border-radius:8px;object-fit:cover;box-shadow:0 2px 14px rgba(226,185,87,0.45),0 0 0 1px rgba(226,185,87,0.18);flex-shrink:0;" />
-      <span class="brand-name">Patel Holdings</span>
+      <a href="/" style="display:flex;align-items:center;gap:0.85rem;text-decoration:none;">
+        <img src="/favicon.jpg" alt="Patel Holdings" style="width:32px;height:32px;border-radius:8px;object-fit:cover;box-shadow:0 2px 14px rgba(226,185,87,0.45),0 0 0 1px rgba(226,185,87,0.18);flex-shrink:0;" />
+        <span class="brand-name">Patel Holdings</span>
+      </a>
       <span class="nav-sep">/</span>
       <span class="nav-page">Dashboard</span>
     </div>
     <div class="topnav-right">
-      <div class="user-chip">
-        <div class="user-avatar" id="userAvatar">?</div>
-        <div class="user-email" id="userEmail">Loading...</div>
-      </div>
-      <button class="logout-btn" id="logoutBtn">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-        Sign Out
-      </button>
+      <ul class="nav-links-inline">
+        <li><a href="/fund-performance">Performance</a></li>
+        <li><a href="/current-holdings">Holdings</a></li>
+        <li><a href="/investments">Investments</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
     </div>
   </nav>
 
@@ -449,9 +384,8 @@
     <!-- Welcome -->
     <div class="welcome-band">
       <div class="welcome-eyebrow">Family Portal</div>
-      <h1 class="welcome-heading">Welcome back, <span id="displayName">—</span></h1>
+      <h1 class="welcome-heading">Welcome to <span>Patel Holdings</span></h1>
       <p class="welcome-sub">Your private overview of Patel Holdings financial data.</p>
-      <p id="lastLogin"></p>
     </div>
 
     <!-- Quick Stats -->
@@ -539,7 +473,7 @@
       <div class="glass-panel">
         <div class="panel-title">Portfolio Allocation Overview</div>
         <table class="holdings-table">
-          <tbody id="holdingsBody">
+          <tbody>
             <tr>
               <td>Operating Businesses</td>
               <td>$97.5M</td>
@@ -604,52 +538,6 @@
   </main>
 
   <script>
-    // ── Auth gate — redirect to login if not authenticated
-    firebase.auth().onAuthStateChanged(user => {
-      if (!user) {
-        window.location.href = '/family-portal';
-        return;
-      }
-
-      // Populate user info
-      const email = user.email || '';
-      const namePart = email.split('@')[0];           // e.g. "vasu.patel"
-      const parts = namePart.split('.');               // ["vasu", "patel"]
-      const firstName = parts[0] || '';
-      const lastName  = parts[1] || '';
-
-      // Initials: first letter of first + first letter of last
-      const initials = (firstName.charAt(0) + lastName.charAt(0)).toUpperCase();
-
-      // Display name: "Vasu Patel" (no dot, both capitalized)
-      const friendly = [firstName, lastName]
-        .filter(Boolean)
-        .map(w => w.charAt(0).toUpperCase() + w.slice(1))
-        .join(' ');
-
-      document.getElementById('userEmail').textContent  = email;
-      document.getElementById('userAvatar').textContent = initials;
-      document.getElementById('displayName').textContent = friendly;
-
-      // Last login time
-      const lastSignIn = user.metadata.lastSignInTime;
-      if (lastSignIn) {
-        const d = new Date(lastSignIn);
-        document.getElementById('lastLogin').textContent =
-          'Last sign-in: ' + d.toLocaleDateString('en-US', { weekday:'long', year:'numeric', month:'long', day:'numeric', hour:'2-digit', minute:'2-digit' });
-      }
-
-      // Show page
-      document.body.classList.add('ready');
-    });
-
-    // ── Logout
-    document.getElementById('logoutBtn').addEventListener('click', () => {
-      firebase.auth().signOut().then(() => {
-        window.location.href = '/family-portal';
-      });
-    });
-
     // ── Orb parallax
     if (window.innerWidth > 900) {
       document.addEventListener('mousemove', e => {
