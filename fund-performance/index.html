@@ -17,7 +17,7 @@
   </script>
 
   <!-- Plotly -->
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -644,11 +644,18 @@
       });
     });
 
-    /* ── INIT — no Firebase needed, Cloudflare already authenticated the user ── */
-    document.addEventListener('DOMContentLoaded', () => {
+    /* ── INIT — Cloudflare handles auth, draw charts immediately ── */
+    function init() {
+      const el = document.getElementById('mainChart');
+      if (!el) { setTimeout(init, 50); return; }
       drawMainChart('core', 'all');
       updateStats('core');
-    });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
 
     /* ── ORB PARALLAX ── */
     if (window.innerWidth > 900) {
