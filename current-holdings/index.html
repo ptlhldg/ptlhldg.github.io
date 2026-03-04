@@ -1006,16 +1006,6 @@
   </main>
 
   <script>
-    // ── Auth gate
-    firebase.auth().onAuthStateChanged(user => {
-      if (!user) { window.location.href = '/family-portal'; return; }
-      document.body.classList.add('ready');
-    });
-
-    // ── Logout
-    document.getElementById('logoutBtn').addEventListener('click', () => {
-      firebase.auth().signOut().then(() => { window.location.href = '/family-portal'; });
-    });
 
     // ── Tab switching
     function switchTab(id) {
