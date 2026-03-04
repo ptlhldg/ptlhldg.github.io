@@ -16,21 +16,6 @@
     gtag('config', 'G-N3KFG5C1ZL');
   </script>
 
-  <!-- Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
-  <script>
-    firebase.initializeApp({
-      apiKey: "AIzaSyBKk0b2-Dr2IkiiSObJdxdKiNaHRCQMmzo",
-      authDomain: "patel-holdings.firebaseapp.com",
-      projectId: "patel-holdings",
-      storageBucket: "patel-holdings.firebasestorage.app",
-      messagingSenderId: "703106012824",
-      appId: "1:703106012824:web:9a51ca849e006fa41fa2ed",
-      measurementId: "G-N3KFG5C1ZL"
-    });
-  </script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -53,10 +38,8 @@
       color: var(--cream);
       min-height: 100vh;
       overflow-x: hidden;
-      opacity: 0;
-      transition: opacity 0.4s ease;
+      /* opacity gate removed — Cloudflare handles auth */
     }
-    body.ready { opacity: 1; }
     a { text-decoration: none; color: inherit; }
 
     /* ── BACKGROUND ── */
@@ -90,14 +73,6 @@
       box-shadow: 0 4px 24px rgba(0,0,0,0.4);
     }
     .topnav-left { display: flex; align-items: center; gap: 0.85rem; }
-    .brand-mark {
-      width: 32px; height: 32px; border-radius: 8px;
-      background: linear-gradient(135deg, var(--gold), var(--gold-muted));
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Cormorant Garamond', serif; font-size: 0.72rem; font-weight: 600;
-      color: var(--navy-deepest); flex-shrink: 0;
-      box-shadow: 0 2px 10px rgba(226,185,87,0.35);
-    }
     .brand-name {
       font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600;
       letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream);
@@ -113,14 +88,6 @@
     .nav-back:hover { color: var(--cream); }
     .nav-back svg { transition: transform 0.25s ease; }
     .nav-back:hover svg { transform: translateX(-3px); }
-    .logout-btn {
-      display: flex; align-items: center; gap: 0.4rem;
-      background: rgba(224,92,122,0.1); border: 1px solid rgba(224,92,122,0.2);
-      color: rgba(224,92,122,0.75); padding: 0.38rem 0.85rem; border-radius: 40px;
-      font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
-      cursor: pointer; transition: all 0.25s ease;
-    }
-    .logout-btn:hover { background: rgba(224,92,122,0.18); border-color: rgba(224,92,122,0.4); color: #f09090; }
 
     /* ── MAIN ── */
     main {
@@ -205,9 +172,7 @@
       display: flex; align-items: center; gap: 0.75rem;
       font-size: 0.9rem; font-weight: 300; color: var(--cream);
     }
-    .td-dot {
-      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
-    }
+    .td-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
     .td-aum {
       text-align: right;
       font-family: 'Cormorant Garamond', serif;
@@ -219,18 +184,9 @@
       color: rgba(237,232,224,0.45);
     }
     .td-bar { text-align: right; padding-right: 1.5rem; }
-    .mini-bar-wrap {
-      display: flex; align-items: center; justify-content: flex-end; gap: 0.6rem;
-    }
-    .mini-bar-bg {
-      width: 80px; height: 4px; border-radius: 4px;
-      background: rgba(255,255,255,0.06); overflow: hidden;
-    }
-    .mini-bar-fill {
-      height: 100%; border-radius: 4px;
-      background: linear-gradient(90deg, var(--gold), var(--gold-muted));
-      transition: width 1.2s ease;
-    }
+    .mini-bar-wrap { display: flex; align-items: center; justify-content: flex-end; gap: 0.6rem; }
+    .mini-bar-bg { width: 80px; height: 4px; border-radius: 4px; background: rgba(255,255,255,0.06); overflow: hidden; }
+    .mini-bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--gold), var(--gold-muted)); }
     .total-label {
       font-size: 0.72rem; font-weight: 500;
       letter-spacing: 0.1em; text-transform: uppercase;
@@ -243,13 +199,8 @@
     }
 
     /* ── TABS ── */
-    .tabs-section {
-      opacity: 0; animation: fadeUp 0.6s ease forwards 0.5s;
-    }
-    .tab-bar {
-      display: flex; gap: 0.5rem; flex-wrap: wrap;
-      margin-bottom: 1.5rem;
-    }
+    .tabs-section { opacity: 0; animation: fadeUp 0.6s ease forwards 0.5s; }
+    .tab-bar { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
     .tab-btn {
       padding: 0.55rem 1.1rem; border-radius: 40px;
       font-size: 0.75rem; font-weight: 400;
@@ -260,14 +211,10 @@
       color: rgba(237,232,224,0.45);
       backdrop-filter: blur(10px);
     }
-    .tab-btn:hover {
-      background: rgba(255,255,255,0.07);
-      color: rgba(237,232,224,0.75);
-    }
+    .tab-btn:hover { background: rgba(255,255,255,0.07); color: rgba(237,232,224,0.75); }
     .tab-btn.active {
       background: linear-gradient(135deg, rgba(226,185,87,0.18), rgba(226,185,87,0.08));
-      border-color: rgba(226,185,87,0.35);
-      color: var(--gold);
+      border-color: rgba(226,185,87,0.35); color: var(--gold);
       box-shadow: 0 0 16px rgba(226,185,87,0.1);
     }
 
@@ -293,7 +240,6 @@
       padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
-    /* Text-only panels */
     .panel-prose p {
       font-size: 0.9rem; font-weight: 300;
       color: rgba(237,232,224,0.55); line-height: 1.85; margin-bottom: 1rem;
@@ -304,11 +250,8 @@
       margin: 1.5rem 0 0.5rem;
     }
 
-    /* Fund holdings display (for GFH / BFH) */
-    .fund-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
+    /* Fund holdings grid */
+    .fund-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
     .fund-bucket {
       background: rgba(255,255,255,0.025);
       border: 1px solid rgba(255,255,255,0.07);
@@ -319,51 +262,24 @@
       margin-bottom: 1.25rem; padding-bottom: 0.75rem;
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-    .bucket-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05rem; font-weight: 400; color: var(--cream);
-    }
-    .bucket-pct {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem; font-weight: 300; color: var(--gold);
-    }
+    .bucket-name { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 400; color: var(--cream); }
+    .bucket-pct { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 300; color: var(--gold); }
     .holding-row {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0.55rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
+      padding: 0.55rem 0; border-bottom: 1px solid rgba(255,255,255,0.04);
     }
     .holding-row:last-child { border-bottom: none; }
     .holding-left { display: flex; align-items: center; gap: 0.6rem; }
     .holding-ticker {
-      font-size: 0.8rem; font-weight: 500;
-      color: var(--cream); letter-spacing: 0.05em;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 0.2rem 0.45rem; border-radius: 5px;
-      min-width: 52px; text-align: center;
+      font-size: 0.8rem; font-weight: 500; color: var(--cream); letter-spacing: 0.05em;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
+      padding: 0.2rem 0.45rem; border-radius: 5px; min-width: 52px; text-align: center;
     }
-    .holding-sub {
-      display: flex; flex-direction: column; gap: 0.1rem;
-    }
-    .holding-category {
-      font-size: 0.72rem; font-weight: 300;
-      color: rgba(237,232,224,0.38);
-    }
-    .holding-pct-wrap {
-      display: flex; align-items: center; gap: 0.5rem;
-    }
-    .holding-pct {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem; font-weight: 300; color: var(--gold);
-    }
-    .h-bar-bg {
-      width: 48px; height: 3px; border-radius: 3px;
-      background: rgba(255,255,255,0.06); overflow: hidden;
-    }
-    .h-bar-fill {
-      height: 100%; border-radius: 3px;
-      background: linear-gradient(90deg, var(--gold), var(--gold-muted));
-    }
+    .holding-category { font-size: 0.72rem; font-weight: 300; color: rgba(237,232,224,0.38); }
+    .holding-pct-wrap { display: flex; align-items: center; gap: 0.5rem; }
+    .holding-pct { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 300; color: var(--gold); }
+    .h-bar-bg { width: 48px; height: 3px; border-radius: 3px; background: rgba(255,255,255,0.06); overflow: hidden; }
+    .h-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-muted)); }
 
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
@@ -372,16 +288,13 @@
     }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .fund-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 900px) { .fund-grid { grid-template-columns: 1fr; } }
     @media (max-width: 640px) {
       main { padding: 5rem 1.25rem 3rem; }
       .topnav { padding: 0 1.25rem; }
       .brand-name, .nav-sep, .nav-page { display: none; }
       .page-header { flex-direction: column; align-items: flex-start; }
-      .summary-table th:nth-child(4),
-      .summary-table td:nth-child(4) { display: none; }
+      .summary-table th:nth-child(4), .summary-table td:nth-child(4) { display: none; }
     }
   </style>
 </head>
@@ -395,8 +308,10 @@
   <!-- ── TOP NAV ── -->
   <nav class="topnav">
     <div class="topnav-left">
-      <img src="/favicon.jpg" alt="Patel Holdings" style="width:32px;height:32px;border-radius:8px;object-fit:cover;box-shadow:0 2px 14px rgba(226,185,87,0.45),0 0 0 1px rgba(226,185,87,0.18);flex-shrink:0;" />
-      <span class="brand-name">Patel Holdings</span>
+      <a href="/" style="display:flex;align-items:center;gap:0.85rem;text-decoration:none;">
+        <img src="/favicon.jpg" alt="Patel Holdings" style="width:32px;height:32px;border-radius:8px;object-fit:cover;box-shadow:0 2px 14px rgba(226,185,87,0.45),0 0 0 1px rgba(226,185,87,0.18);flex-shrink:0;" />
+        <span class="brand-name">Patel Holdings</span>
+      </a>
       <span class="nav-sep">/</span>
       <span class="nav-page">Holdings</span>
     </div>
@@ -405,10 +320,6 @@
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         Dashboard
       </a>
-      <button class="logout-btn" id="logoutBtn">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-        Sign Out
-      </button>
     </div>
   </nav>
 
@@ -417,7 +328,7 @@
     <!-- Page Header -->
     <div class="page-header">
       <div>
-        <div class="page-eyebrow">Internal · Confidential</div>
+        <div class="page-eyebrow">Confidential · Family Portal</div>
         <h1 class="page-title">Current <em>Holdings</em></h1>
         <p class="page-subtitle">Live AUM figures and full breakdown across all five pillars.</p>
       </div>
@@ -500,231 +411,36 @@
           <div class="panel-subtitle">$83,272,721 · 23.93% of total portfolio</div>
           <div class="fund-grid">
             <div class="fund-bucket">
-              <div class="bucket-header">
-                <div class="bucket-name">Equities</div>
-                <div class="bucket-pct">50%</div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">JPMV</div>
-                  <div class="holding-sub"><div class="holding-category">Large Cap · Dividends</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:100%;"></div></div>
-                  <div class="holding-pct">10%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">DGRO</div>
-                  <div class="holding-sub"><div class="holding-category">Large Cap · Dividends</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:100%;"></div></div>
-                  <div class="holding-pct">10%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">SCHD</div>
-                  <div class="holding-sub"><div class="holding-category">Large Cap · Dividends</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:50%;"></div></div>
-                  <div class="holding-pct">5%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">AAPL</div>
-                  <div class="holding-sub"><div class="holding-category">Blue Chip Tech</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:50%;"></div></div>
-                  <div class="holding-pct">5%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">MSFT</div>
-                  <div class="holding-sub"><div class="holding-category">Blue Chip Tech</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:50%;"></div></div>
-                  <div class="holding-pct">5%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">GOOG</div>
-                  <div class="holding-sub"><div class="holding-category">Blue Chip Tech</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:50%;"></div></div>
-                  <div class="holding-pct">5%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">NVDA</div>
-                  <div class="holding-sub"><div class="holding-category">Blue Chip Tech</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:50%;"></div></div>
-                  <div class="holding-pct">5%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">AMZN</div>
-                  <div class="holding-sub"><div class="holding-category">Blue Chip Tech</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:50%;"></div></div>
-                  <div class="holding-pct">5%</div>
-                </div>
-              </div>
+              <div class="bucket-header"><div class="bucket-name">Equities</div><div class="bucket-pct">50%</div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">JPMV</div><div class="holding-category">Large Cap · Dividends</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:100%;"></div></div><div class="holding-pct">10%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">DGRO</div><div class="holding-category">Large Cap · Dividends</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:100%;"></div></div><div class="holding-pct">10%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">SCHD</div><div class="holding-category">Large Cap · Dividends</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:50%;"></div></div><div class="holding-pct">5%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">AAPL</div><div class="holding-category">Blue Chip Tech</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:50%;"></div></div><div class="holding-pct">5%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">MSFT</div><div class="holding-category">Blue Chip Tech</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:50%;"></div></div><div class="holding-pct">5%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">GOOG</div><div class="holding-category">Blue Chip Tech</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:50%;"></div></div><div class="holding-pct">5%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">NVDA</div><div class="holding-category">Blue Chip Tech</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:50%;"></div></div><div class="holding-pct">5%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">AMZN</div><div class="holding-category">Blue Chip Tech</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:50%;"></div></div><div class="holding-pct">5%</div></div></div>
             </div>
-
             <div class="fund-bucket">
-              <div class="bucket-header">
-                <div class="bucket-name">Fixed Income</div>
-                <div class="bucket-pct">19%</div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">TLT</div>
-                  <div class="holding-sub"><div class="holding-category">Government Bonds</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:70%;"></div></div>
-                  <div class="holding-pct">7%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">IEF</div>
-                  <div class="holding-sub"><div class="holding-category">Government Bonds</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:80%;"></div></div>
-                  <div class="holding-pct">8%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">VCIT</div>
-                  <div class="holding-sub"><div class="holding-category">Corporate Bonds</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:20%;"></div></div>
-                  <div class="holding-pct">2%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">VCSH</div>
-                  <div class="holding-sub"><div class="holding-category">Corporate Bonds</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:20%;"></div></div>
-                  <div class="holding-pct">2%</div>
-                </div>
-              </div>
+              <div class="bucket-header"><div class="bucket-name">Fixed Income</div><div class="bucket-pct">19%</div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">TLT</div><div class="holding-category">Government Bonds</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:70%;"></div></div><div class="holding-pct">7%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">IEF</div><div class="holding-category">Government Bonds</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:80%;"></div></div><div class="holding-pct">8%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">VCIT</div><div class="holding-category">Corporate Bonds</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:20%;"></div></div><div class="holding-pct">2%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">VCSH</div><div class="holding-category">Corporate Bonds</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:20%;"></div></div><div class="holding-pct">2%</div></div></div>
             </div>
-
             <div class="fund-bucket">
-              <div class="bucket-header">
-                <div class="bucket-name">Real Assets</div>
-                <div class="bucket-pct">15%</div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">VNQ</div>
-                  <div class="holding-sub"><div class="holding-category">REITs</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:100%;"></div></div>
-                  <div class="holding-pct">10%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">VNQI</div>
-                  <div class="holding-sub"><div class="holding-category">Intl REITs</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:50%;"></div></div>
-                  <div class="holding-pct">5%</div>
-                </div>
-              </div>
+              <div class="bucket-header"><div class="bucket-name">Real Assets</div><div class="bucket-pct">15%</div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">VNQ</div><div class="holding-category">REITs</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:100%;"></div></div><div class="holding-pct">10%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">VNQI</div><div class="holding-category">Intl REITs</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:50%;"></div></div><div class="holding-pct">5%</div></div></div>
             </div>
-
             <div class="fund-bucket">
-              <div class="bucket-header">
-                <div class="bucket-name">Cash & Risk Mgmt</div>
-                <div class="bucket-pct">16%</div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">JPST</div>
-                  <div class="holding-sub"><div class="holding-category">Sweep Vehicle</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:90%;"></div></div>
-                  <div class="holding-pct">9%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">FTLS</div>
-                  <div class="holding-sub"><div class="holding-category">Alternatives</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:10%;"></div></div>
-                  <div class="holding-pct">1%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">QAI</div>
-                  <div class="holding-sub"><div class="holding-category">Alternatives</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:10%;"></div></div>
-                  <div class="holding-pct">1%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">VAMO</div>
-                  <div class="holding-sub"><div class="holding-category">Alternatives</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:10%;"></div></div>
-                  <div class="holding-pct">1%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">XRLV</div>
-                  <div class="holding-sub"><div class="holding-category">Alternatives</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:10%;"></div></div>
-                  <div class="holding-pct">1%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">MARB</div>
-                  <div class="holding-sub"><div class="holding-category">Alternatives</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:10%;"></div></div>
-                  <div class="holding-pct">1%</div>
-                </div>
-              </div>
+              <div class="bucket-header"><div class="bucket-name">Cash & Risk Mgmt</div><div class="bucket-pct">16%</div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">JPST</div><div class="holding-category">Sweep Vehicle</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:90%;"></div></div><div class="holding-pct">9%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">FTLS</div><div class="holding-category">Alternatives</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:10%;"></div></div><div class="holding-pct">1%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">QAI</div><div class="holding-category">Alternatives</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:10%;"></div></div><div class="holding-pct">1%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">VAMO</div><div class="holding-category">Alternatives</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:10%;"></div></div><div class="holding-pct">1%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">XRLV</div><div class="holding-category">Alternatives</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:10%;"></div></div><div class="holding-pct">1%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">MARB</div><div class="holding-category">Alternatives</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:10%;"></div></div><div class="holding-pct">1%</div></div></div>
             </div>
           </div>
         </div>
@@ -757,7 +473,7 @@
           <div class="panel-prose">
             <p>Real estate holdings are focused on wealth preservation and income generation through tangible, appreciating assets in high-performing markets. The portfolio spans residential, multifamily, commercial, and hospitality-adjacent properties developed in partnership with our affiliate real estate firm.</p>
             <h4>Residential & Multifamily</h4>
-            <p>Single-family and multifamily residential assets concentrated in growth markets across the US, selected for strong rental demand, low vacancy rates, and long-term appreciation potential. Properties are managed third-party for operational efficiency.</p>
+            <p>Single-family and multifamily residential assets concentrated in growth markets across the US, selected for strong rental demand, low vacancy rates, and long-term appreciation potential.</p>
             <h4>Commercial Real Estate</h4>
             <p>Retail strip centers, mixed-use properties, and light industrial assets generating stable, NNN-anchored cash flows. Focused on markets with strong employment bases and limited new supply.</p>
             <h4>Hospitality Properties</h4>
@@ -773,211 +489,34 @@
           <div class="panel-subtitle">$40,000,155 · 11.49% of total portfolio</div>
           <div class="fund-grid">
             <div class="fund-bucket">
-              <div class="bucket-header">
-                <div class="bucket-name">Equities</div>
-                <div class="bucket-pct">50%</div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">JPHF</div>
-                  <div class="holding-sub"><div class="holding-category">Large Cap · Dividends</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:100%;"></div></div>
-                  <div class="holding-pct">10%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">SCHD</div>
-                  <div class="holding-sub"><div class="holding-category">Large Cap · Dividends</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:100%;"></div></div>
-                  <div class="holding-pct">10%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">JPMB</div>
-                  <div class="holding-sub"><div class="holding-category">Large Cap · Dividends</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:50%;"></div></div>
-                  <div class="holding-pct">5%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">QQQ</div>
-                  <div class="holding-sub"><div class="holding-category">Blue Chip Tech</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:100%;"></div></div>
-                  <div class="holding-pct">15%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">VGT</div>
-                  <div class="holding-sub"><div class="holding-category">Blue Chip Tech</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:100%;"></div></div>
-                  <div class="holding-pct">10%</div>
-                </div>
-              </div>
+              <div class="bucket-header"><div class="bucket-name">Equities</div><div class="bucket-pct">50%</div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">JPHF</div><div class="holding-category">Large Cap · Dividends</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:100%;"></div></div><div class="holding-pct">10%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">SCHD</div><div class="holding-category">Large Cap · Dividends</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:100%;"></div></div><div class="holding-pct">10%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">JPMB</div><div class="holding-category">Large Cap · Dividends</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:50%;"></div></div><div class="holding-pct">5%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">QQQ</div><div class="holding-category">Blue Chip Tech</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:100%;"></div></div><div class="holding-pct">15%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">VGT</div><div class="holding-category">Blue Chip Tech</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:100%;"></div></div><div class="holding-pct">10%</div></div></div>
             </div>
-
             <div class="fund-bucket">
-              <div class="bucket-header">
-                <div class="bucket-name">Fixed Income</div>
-                <div class="bucket-pct">19%</div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">TLT</div>
-                  <div class="holding-sub"><div class="holding-category">Government Bonds</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:80%;"></div></div>
-                  <div class="holding-pct">8%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">IEF</div>
-                  <div class="holding-sub"><div class="holding-category">Government Bonds</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:70%;"></div></div>
-                  <div class="holding-pct">7%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">JIGB</div>
-                  <div class="holding-sub"><div class="holding-category">Corporate Bonds</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:20%;"></div></div>
-                  <div class="holding-pct">2%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">VCIT</div>
-                  <div class="holding-sub"><div class="holding-category">Corporate Bonds</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:20%;"></div></div>
-                  <div class="holding-pct">2%</div>
-                </div>
-              </div>
+              <div class="bucket-header"><div class="bucket-name">Fixed Income</div><div class="bucket-pct">19%</div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">TLT</div><div class="holding-category">Government Bonds</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:80%;"></div></div><div class="holding-pct">8%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">IEF</div><div class="holding-category">Government Bonds</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:70%;"></div></div><div class="holding-pct">7%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">JIGB</div><div class="holding-category">Corporate Bonds</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:20%;"></div></div><div class="holding-pct">2%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">VCIT</div><div class="holding-category">Corporate Bonds</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:20%;"></div></div><div class="holding-pct">2%</div></div></div>
             </div>
-
             <div class="fund-bucket">
-              <div class="bucket-header">
-                <div class="bucket-name">Real Assets</div>
-                <div class="bucket-pct">15%</div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">VNQ</div>
-                  <div class="holding-sub"><div class="holding-category">REITs</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:100%;"></div></div>
-                  <div class="holding-pct">10%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">JPRE</div>
-                  <div class="holding-sub"><div class="holding-category">REITs</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:50%;"></div></div>
-                  <div class="holding-pct">5%</div>
-                </div>
-              </div>
+              <div class="bucket-header"><div class="bucket-name">Real Assets</div><div class="bucket-pct">15%</div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">VNQ</div><div class="holding-category">REITs</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:100%;"></div></div><div class="holding-pct">10%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">JPRE</div><div class="holding-category">REITs</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:50%;"></div></div><div class="holding-pct">5%</div></div></div>
             </div>
-
             <div class="fund-bucket">
-              <div class="bucket-header">
-                <div class="bucket-name">Cash & Risk Mgmt</div>
-                <div class="bucket-pct">16%</div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">BIL</div>
-                  <div class="holding-sub"><div class="holding-category">Cash</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:40%;"></div></div>
-                  <div class="holding-pct">4%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">JPST</div>
-                  <div class="holding-sub"><div class="holding-category">Sweep Vehicle</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:70%;"></div></div>
-                  <div class="holding-pct">7%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">FTLS</div>
-                  <div class="holding-sub"><div class="holding-category">Alternatives</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:10%;"></div></div>
-                  <div class="holding-pct">1%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">QAI</div>
-                  <div class="holding-sub"><div class="holding-category">Alternatives</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:10%;"></div></div>
-                  <div class="holding-pct">1%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">VAMO</div>
-                  <div class="holding-sub"><div class="holding-category">Alternatives</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:10%;"></div></div>
-                  <div class="holding-pct">1%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">XRLV</div>
-                  <div class="holding-sub"><div class="holding-category">Alternatives</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:10%;"></div></div>
-                  <div class="holding-pct">1%</div>
-                </div>
-              </div>
-              <div class="holding-row">
-                <div class="holding-left">
-                  <div class="holding-ticker">MARB</div>
-                  <div class="holding-sub"><div class="holding-category">Alternatives</div></div>
-                </div>
-                <div class="holding-pct-wrap">
-                  <div class="h-bar-bg"><div class="h-bar-fill" style="width:10%;"></div></div>
-                  <div class="holding-pct">1%</div>
-                </div>
-              </div>
+              <div class="bucket-header"><div class="bucket-name">Cash & Risk Mgmt</div><div class="bucket-pct">16%</div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">BIL</div><div class="holding-category">Cash</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:40%;"></div></div><div class="holding-pct">4%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">JPST</div><div class="holding-category">Sweep Vehicle</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:70%;"></div></div><div class="holding-pct">7%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">FTLS</div><div class="holding-category">Alternatives</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:10%;"></div></div><div class="holding-pct">1%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">QAI</div><div class="holding-category">Alternatives</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:10%;"></div></div><div class="holding-pct">1%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">VAMO</div><div class="holding-category">Alternatives</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:10%;"></div></div><div class="holding-pct">1%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">XRLV</div><div class="holding-category">Alternatives</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:10%;"></div></div><div class="holding-pct">1%</div></div></div>
+              <div class="holding-row"><div class="holding-left"><div class="holding-ticker">MARB</div><div class="holding-category">Alternatives</div></div><div class="holding-pct-wrap"><div class="h-bar-bg"><div class="h-bar-fill" style="width:10%;"></div></div><div class="holding-pct">1%</div></div></div>
             </div>
           </div>
         </div>
@@ -989,11 +528,11 @@
           <div class="panel-title">International Holdings</div>
           <div class="panel-subtitle">$59,627,583 · 17.13% of total portfolio</div>
           <div class="panel-prose">
-            <p>International holdings are maintained for global diversification and to capture emerging market opportunities across multiple geographies and currencies. This allocation supports the family's long-term vision for global impact and expands exposure to different economies beyond the North American core.</p>
+            <p>International holdings are maintained for global diversification and to capture emerging market opportunities across multiple geographies and currencies.</p>
             <h4>Canada</h4>
-            <p>Land holdings and real estate investments in key Canadian metropolitan areas, supplementing the North American operating business footprint and providing currency and asset diversification.</p>
+            <p>Land holdings and real estate investments in key Canadian metropolitan areas, supplementing the North American operating business footprint.</p>
             <h4>United Kingdom</h4>
-            <p>Private business interests in London and surrounding regions, including the registered office at 50 Jermyn St, St. James's, London. Focused on service and financial-adjacent business ventures.</p>
+            <p>Private business interests in London and surrounding regions, including the registered office at 50 Jermyn St, St. James's. Focused on service and financial-adjacent business ventures.</p>
             <h4>India</h4>
             <p>Operating ventures and land holdings in Gujarat, managed through local partners. Includes the Anand operations center in Vithal Udyognagar GIDC, with exposure to India's growing domestic economy.</p>
             <h4>France & Australia</h4>
@@ -1006,8 +545,7 @@
   </main>
 
   <script>
-
-    // ── Tab switching
+    // Tab switching
     function switchTab(id) {
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
       document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
@@ -1020,7 +558,7 @@
       btn.addEventListener('click', () => switchTab(btn.dataset.tab));
     });
 
-    // ── Orb parallax
+    // Orb parallax
     if (window.innerWidth > 900) {
       document.addEventListener('mousemove', e => {
         const x = (e.clientX / window.innerWidth  - 0.5) * 16;
