@@ -6,7 +6,7 @@
 
   <!-- Primary Meta -->
   <title>Patel Holdings LLC — Private Multigenerational Family Office</title>
-  <meta name="description" content="Patel Holdings LLC is a private multigenerational family office managing $348M AUM across operating businesses, investment funds, real estate, and international holdings with offices in New York, Toronto, London, and India." />
+  <meta name="description" content="Patel Holdings LLC is a private multigenerational family office managing substantial assets across operating businesses, investment funds, real estate, and international holdings with offices in New York, Toronto, London, and India." />
   <meta name="keywords" content="Patel Holdings, family office, private investment, multigenerational wealth, real estate, operating businesses, New York family office, alternative investments" />
   <meta name="author" content="Patel Holdings LLC" />
   <meta name="robots" content="index, follow" />
@@ -17,7 +17,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://patel-holdings.com/" />
   <meta property="og:title" content="Patel Holdings LLC — Private Multigenerational Family Office" />
-  <meta property="og:description" content="A private multigenerational family office managing $348M AUM across five pillars: operating businesses, investment funds, real estate, international holdings, and next-generation wealth vehicles." />
+  <meta property="og:description" content="A private multigenerational family office deploying substantial capital across five pillars: operating businesses, investment funds, real estate, international holdings, and next-generation wealth vehicles." />
   <meta property="og:image" content="https://patel-holdings.com/favicon.jpg" />
   <meta property="og:site_name" content="Patel Holdings LLC" />
   <meta property="og:locale" content="en_US" />
@@ -25,7 +25,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Patel Holdings LLC — Private Multigenerational Family Office" />
-  <meta name="twitter:description" content="A private multigenerational family office managing $348M AUM across operating businesses, investment funds, real estate, and international holdings." />
+  <meta name="twitter:description" content="A private multigenerational family office deploying substantial capital across operating businesses, investment funds, real estate, and international holdings." />
   <meta name="twitter:image" content="https://patel-holdings.com/favicon.jpg" />
 
   <!-- Schema.org -->
@@ -299,6 +299,26 @@
     .stat-value span { color: var(--gold); }
     .stat-label { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(237,232,224,0.38); }
 
+    /* AUM cell — private / confidential variant */
+    .stat-cell.stat-private .stat-value {
+      font-size: 1.55rem;
+      font-style: italic;
+      letter-spacing: 0.06em;
+      color: rgba(237,232,224,0.55);
+      line-height: 1.25;
+    }
+    .stat-cell.stat-private .stat-value em {
+      color: var(--gold);
+      font-style: inherit;
+    }
+    .stat-cell.stat-private .stat-sublabel {
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(226,185,87,0.35);
+      margin-top: 0.35rem;
+    }
+
     /* ── SECTIONS ── */
     .section { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 5rem 2rem; }
     .section-label { font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
@@ -348,14 +368,13 @@
       border-color: rgba(226,185,87,0.16);
     }
 
-    /* ── CARD ICON — SVG version ── */
     .card-icon {
       width: 44px; height: 44px; border-radius: 12px;
       background: linear-gradient(135deg, rgba(226,185,87,0.14), rgba(226,185,87,0.05));
       border: 1px solid rgba(226,185,87,0.18);
       display: flex; align-items: center; justify-content: center;
       margin-bottom: 1.5rem;
-      color: var(--gold); /* SVG inherits this via currentColor */
+      color: var(--gold);
     }
 
     .card-arrow {
@@ -366,8 +385,6 @@
     .portfolio-card:hover .card-arrow { opacity: 1; transform: translate(0, 0); }
     .card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--cream); margin-bottom: 0.7rem; }
     .card-desc { font-size: 0.83rem; font-weight: 300; color: rgba(237,232,224,0.5); line-height: 1.65; margin-bottom: 1.75rem; }
-
-    /* AUM label — now used as category tag, no dollar figure */
     .card-aum-label {
       font-size: 0.65rem; letter-spacing: 0.1em;
       text-transform: uppercase; color: rgba(237,232,224,0.28);
@@ -484,10 +501,13 @@
   <!-- ── STATS ── -->
   <div class="stats-band">
     <div class="stats-grid">
-      <div class="stat-cell reveal">
-        <div class="stat-value"><span>$</span>348M</div>
-        <div class="stat-label">Assets Under Management</div>
+
+      <!-- REVISED: AUM cell — no figure, alludes to scale via positioning language -->
+      <div class="stat-cell stat-private reveal">
+        <div class="stat-value"><em>Substantial</em><br>Capital Base</div>
+        <div class="stat-sublabel">Assets — Not Publicly Disclosed</div>
       </div>
+
       <div class="stat-cell reveal">
         <div class="stat-value">25<span>+</span></div>
         <div class="stat-label">Years of Excellence</div>
@@ -509,7 +529,7 @@
       <div class="prose reveal">
         <div class="section-label">Who We Are</div>
         <h2 class="section-title">A Legacy Built on<br>Disciplined Capital</h2>
-        <p>Patel Holdings is a private multigenerational family firm diversifying wealth across investment funds, operating businesses, real estate, and global ventures. Our approach centers on capital preservation and long-term compounding.</p>
+        <p>Patel Holdings is a private multigenerational family firm deploying substantial capital across investment funds, operating businesses, real estate, and global ventures. Our approach centers on capital preservation and long-term compounding.</p>
         <h3>Investment Philosophy</h3>
         <p>We focus on diversified asset allocation across traditional and alternative investments, with particular emphasis on real estate, hospitality, and emerging markets. Every decision is made through a generational lens — not a quarterly one.</p>
         <h3>Our Vision</h3>
@@ -669,7 +689,7 @@
     </div>
   </div>
 
-  <!-- ── FOOTER ── -->
+
   <footer>
     <div class="footer-logo">Patel Holdings LLC</div>
     <div class="gold-rule centered"></div>
