@@ -3,12 +3,118 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard — Patel Holdings</title>
+
+  <!-- Primary Meta -->
+  <title>Contact — Patel Holdings LLC | New York, Toronto, London, Anand</title>
+  <meta name="description" content="Contact Patel Holdings LLC. Family office headquarters in New York with offices in Toronto, London, and Anand, India. Inquiries welcome from qualified business partners and investment counterparties." />
+  <meta name="keywords" content="Patel Holdings contact, family office contact, New York family office, private investment contact, Patel Holdings LLC offices" />
+  <meta name="author" content="Patel Holdings LLC" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://patel-holdings.com/contact" />
   <link rel="icon" type="image/jpeg" href="/favicon.jpg" />
-  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://patel-holdings.com/contact" />
+  <meta property="og:title" content="Contact Patel Holdings LLC" />
+  <meta property="og:description" content="Get in touch with Patel Holdings LLC. Offices in New York, Toronto, London, and Anand. We welcome inquiries from qualified business partners and investment counterparties." />
+  <meta property="og:image" content="https://patel-holdings.com/favicon.jpg" />
+  <meta property="og:site_name" content="Patel Holdings LLC" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Contact Patel Holdings LLC" />
+  <meta name="twitter:description" content="Get in touch with Patel Holdings LLC. Offices in New York, Toronto, London, and Anand, India." />
+  <meta name="twitter:image" content="https://patel-holdings.com/favicon.jpg" />
+
+  <!-- Schema.org: Contact Page + Local Business Locations -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Patel Holdings LLC",
+    "url": "https://patel-holdings.com/contact",
+    "description": "Contact page for Patel Holdings LLC, a private multigenerational family office.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Patel Holdings LLC",
+      "url": "https://patel-holdings.com",
+      "logo": "https://patel-holdings.com/favicon.jpg"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Patel Holdings LLC — New York",
+      "url": "https://patel-holdings.com",
+      "telephone": "+1-646-992-5815",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "200 Park Ave",
+        "addressLocality": "New York",
+        "addressRegion": "NY",
+        "postalCode": "10166",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 40.7548,
+        "longitude": -73.9774
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Patel Holdings LLC — Toronto",
+      "url": "https://patel-holdings.com",
+      "telephone": "+1-416-203-7575",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "119 Spadina Ave",
+        "addressLocality": "Toronto",
+        "addressRegion": "ON",
+        "postalCode": "M5V 2L1",
+        "addressCountry": "CA"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Patel Holdings LLC — London",
+      "url": "https://patel-holdings.com",
+      "telephone": "+44-20-7437-1521",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "50 Jermyn St, St. James's",
+        "addressLocality": "London",
+        "postalCode": "SW1Y 6LX",
+        "addressCountry": "GB"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Patel Holdings LLC — Anand",
+      "url": "https://patel-holdings.com",
+      "telephone": "+91-97284-84865",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Vithal Udyognagar, GIDC",
+        "addressLocality": "Anand",
+        "addressRegion": "Gujarat",
+        "postalCode": "388001",
+        "addressCountry": "IN"
+      }
+    }
+  ]
+  </script>
 
   <!-- Google Analytics -->
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-N3KFG5C1ZL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -25,16 +131,11 @@
     :root {
       --navy-deepest: #070e1c;
       --navy-deep:    #0d1b2e;
-      --navy-mid:     #13274f;
-      --navy-light:   #1e3a6e;
       --gold:         #e2b957;
       --gold-muted:   #c9a23e;
-      --gold-pale:    #f5e4b3;
       --cream:        #ede8e0;
-      --green:        #5ce0a0;
-      --red:          #e05c7a;
-      --blue:         #5c9ee0;
-      --purple:       #c05ce0;
+      --success:      #5ce0a0;
+      --error:        #e05c7a;
     }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -46,11 +147,7 @@
       color: var(--cream);
       min-height: 100vh;
       overflow-x: hidden;
-      opacity: 0;
-      transition: opacity 0.4s ease;
     }
-    body.ready { opacity: 1; }
-
     a { text-decoration: none; color: inherit; }
     ::selection { background: rgba(226,185,87,0.25); color: var(--cream); }
 
@@ -74,499 +171,379 @@
     }
     .orb-1 { width: 500px; height: 500px; background: var(--gold);  opacity: 0.08; top: -150px; right: -100px; animation: orbDrift 24s ease-in-out infinite alternate; }
     .orb-2 { width: 350px; height: 350px; background: #2244aa;       opacity: 0.10; bottom: 50px; left: -80px;   animation: orbDrift 19s ease-in-out infinite alternate-reverse; }
-    @keyframes orbDrift {
-      from { transform: translate(0,0); }
-      to   { transform: translate(28px, 20px); }
-    }
+    @keyframes orbDrift { from { transform:translate(0,0); } to { transform:translate(28px,20px); } }
     .grain {
       position: fixed; inset: 0; z-index: 1; opacity: 0.02; pointer-events: none;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
-    /* ── TOP NAV ── */
-    .topnav {
+    /* ── NAV ── */
+    nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      height: 64px; padding: 0 2.5rem;
+      height: 68px; padding: 0 2.5rem;
       display: flex; align-items: center; justify-content: space-between;
-      background: rgba(7,14,28,0.7);
-      backdrop-filter: blur(32px) saturate(1.5);
-      -webkit-backdrop-filter: blur(32px) saturate(1.5);
+      background: rgba(7,14,28,0.55);
+      backdrop-filter: blur(32px) saturate(1.6);
       border-bottom: 1px solid rgba(255,255,255,0.07);
-      box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+      box-shadow: 0 4px 28px rgba(0,0,0,0.4);
+      transition: background 0.4s ease;
     }
-
-    .topnav-left { display: flex; align-items: center; gap: 0.85rem; }
-    .brand-mark {
-      width: 32px; height: 32px; border-radius: 8px;
+    nav.scrolled { background: rgba(7,14,28,0.85); }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.75rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600; font-size: 1.1rem;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream);
+    }
+    .nav-logo-mark {
+      width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0;
       background: linear-gradient(135deg, rgba(226,185,87,0.16), rgba(19,39,79,0.6));
       border: 1px solid rgba(226,185,87,0.32);
       display: flex; align-items: center; justify-content: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.72rem; font-style: italic;
-      color: var(--gold); flex-shrink: 0;
-      box-shadow: 0 2px 10px rgba(226,185,87,0.25);
+      font-size: 0.72rem; font-style: italic; font-weight: 400; color: var(--gold);
+      box-shadow: 0 2px 14px rgba(226,185,87,0.25);
     }
-    .brand-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem; font-weight: 600;
-      letter-spacing: 0.16em; text-transform: uppercase;
-      color: var(--cream);
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.78rem; font-weight: 400;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(237,232,224,0.65); transition: color 0.3s ease;
+      position: relative; padding-bottom: 2px;
     }
-    .nav-sep { color: rgba(237,232,224,0.2); font-size: 0.9rem; margin: 0 0.1rem; }
-    .nav-page {
-      font-size: 0.75rem; letter-spacing: 0.1em;
-      text-transform: uppercase; color: rgba(237,232,224,0.35);
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -2px; left: 0;
+      width: 0; height: 1px; background: var(--gold); transition: width 0.3s ease;
     }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-portal-btn {
+      background: linear-gradient(135deg, rgba(226,185,87,0.14), rgba(226,185,87,0.07));
+      border: 1px solid rgba(226,185,87,0.32); color: var(--gold);
+      padding: 0.45rem 1.15rem; border-radius: 40px;
+      font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+    .nav-portal-btn:hover {
+      background: linear-gradient(135deg, rgba(226,185,87,0.26), rgba(226,185,87,0.14));
+      box-shadow: 0 0 22px rgba(226,185,87,0.22); transform: translateY(-1px);
+    }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 4px; background: none; border: none;
+    }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--cream); border-radius: 2px; transition: all 0.3s ease; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+    .mobile-menu {
+      display: none; position: fixed; top: 68px; left: 0; right: 0; z-index: 99;
+      background: rgba(7,14,28,0.97); backdrop-filter: blur(32px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 1.5rem 2rem; flex-direction: column; gap: 1.25rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(237,232,224,0.7); padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .mobile-menu a:last-child { border-bottom: none; color: var(--gold); }
 
-    .topnav-right { display: flex; align-items: center; gap: 1.25rem; }
-
-    .user-chip {
-      display: flex; align-items: center; gap: 0.6rem;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.09);
-      border-radius: 40px; padding: 0.35rem 0.85rem 0.35rem 0.5rem;
-    }
-    .user-avatar {
-      width: 26px; height: 26px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--gold), var(--gold-muted));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.65rem; font-weight: 600;
-      color: var(--navy-deepest); flex-shrink: 0;
-    }
-    .user-email {
-      font-size: 0.75rem; font-weight: 300;
-      color: rgba(237,232,224,0.55);
-      max-width: 180px; overflow: hidden;
-      text-overflow: ellipsis; white-space: nowrap;
-    }
-
-    .logout-btn {
-      display: flex; align-items: center; gap: 0.4rem;
-      background: rgba(224,92,122,0.1);
-      border: 1px solid rgba(224,92,122,0.2);
-      color: rgba(224,92,122,0.75);
-      padding: 0.38rem 0.85rem; border-radius: 40px;
-      font-size: 0.72rem; font-weight: 400;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      cursor: pointer; transition: all 0.25s ease;
-    }
-    .logout-btn:hover {
-      background: rgba(224,92,122,0.18);
-      border-color: rgba(224,92,122,0.4);
-      color: #f09090;
-    }
-
-    /* ── MAIN LAYOUT ── */
+    /* ── MAIN ── */
     main {
       position: relative; z-index: 2;
-      padding: 5.5rem 2.5rem 4rem;
+      padding: 7rem 2.5rem 5rem;
       max-width: 1280px; margin: 0 auto;
     }
 
-    /* ── WELCOME BAND ── */
-    .welcome-band {
-      padding: 3rem 0 3.5rem;
+    /* ── PAGE HEADER ── */
+    .page-header {
+      padding: 2rem 0 3.5rem;
       border-bottom: 1px solid rgba(255,255,255,0.06);
-      margin-bottom: 3rem;
-      display: flex; align-items: flex-end; justify-content: space-between;
-      flex-wrap: wrap; gap: 1.5rem;
+      margin-bottom: 4rem;
+      opacity: 0; animation: fadeUp 0.6s ease forwards 0.1s;
     }
-    .welcome-eyebrow {
-      font-size: 0.68rem; letter-spacing: 0.28em;
-      text-transform: uppercase; color: var(--gold);
-      margin-bottom: 0.75rem; opacity: 0;
-      animation: fadeUp 0.7s ease forwards 0.15s;
+    .page-eyebrow {
+      font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.75rem;
     }
-    .welcome-heading {
+    .page-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 300; color: var(--cream);
-      line-height: 1.15; margin-bottom: 0.75rem;
-      opacity: 0; animation: fadeUp 0.7s ease forwards 0.3s;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 300; color: var(--cream); line-height: 1.1;
     }
-    .welcome-heading span { color: var(--gold); font-style: italic; }
-    .welcome-sub {
+    .page-title em { font-style: italic; color: rgba(237,232,224,0.4); }
+    .page-subtitle {
+      font-size: 0.9rem; font-weight: 300;
+      color: rgba(237,232,224,0.45); margin-top: 1rem;
+      max-width: 500px; line-height: 1.7;
+    }
+
+    /* ── TWO COL ── */
+    .two-col {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: start;
+      margin-bottom: 5rem;
+    }
+
+    /* ── CONTACT FORM ── */
+    .form-card {
+      background: rgba(255,255,255,0.025);
+      backdrop-filter: blur(24px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px; padding: 2.5rem;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.07);
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.25s;
+    }
+    .form-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem; font-weight: 400; color: var(--cream);
+      margin-bottom: 0.4rem;
+    }
+    .form-card-sub {
+      font-size: 0.8rem; font-weight: 300;
+      color: rgba(237,232,224,0.38); margin-bottom: 2rem;
+      padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .form-group { margin-bottom: 1.25rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    label {
+      display: block; font-size: 0.68rem; letter-spacing: 0.16em;
+      text-transform: uppercase; color: rgba(237,232,224,0.4);
+      margin-bottom: 0.55rem;
+    }
+    label .req { color: var(--gold); margin-left: 2px; }
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 10px;
+      padding: 0.8rem 1rem;
+      font-family: 'DM Sans', sans-serif;
       font-size: 0.88rem; font-weight: 300;
-      color: rgba(237,232,224,0.4);
-      opacity: 0; animation: fadeUp 0.7s ease forwards 0.45s;
+      color: var(--cream); outline: none;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      appearance: none;
     }
-    #lastLogin {
-      font-size: 0.75rem; color: rgba(237,232,224,0.28);
-      margin-top: 0.35rem;
-      opacity: 0; animation: fadeUp 0.7s ease forwards 0.55s;
-      display: flex; align-items: center; gap: 0.4rem;
+    input::placeholder, textarea::placeholder { color: rgba(237,232,224,0.18); }
+    input:focus, select:focus, textarea:focus {
+      border-color: rgba(226,185,87,0.4);
+      background: rgba(255,255,255,0.07);
+      box-shadow: 0 0 0 3px rgba(226,185,87,0.07);
     }
-    .session-card {
-      opacity: 0; animation: fadeUp 0.7s ease forwards 0.6s;
-      background: rgba(255,255,255,0.025);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 14px; padding: 1rem 1.4rem;
-      display: flex; align-items: center; gap: 0.85rem;
-    }
-    .session-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--green); box-shadow: 0 0 10px rgba(92,224,160,0.6);
-      animation: pulseDot 2.4s ease-in-out infinite; flex-shrink: 0;
-    }
-    @keyframes pulseDot {
-      0%,100% { box-shadow: 0 0 0 0 rgba(92,224,160,0.35); }
-      50%     { box-shadow: 0 0 0 5px rgba(92,224,160,0); }
-    }
-    .session-text { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(237,232,224,0.4); line-height: 1.6; }
-    .session-text strong { color: rgba(92,224,160,0.85); font-weight: 500; }
+    input.invalid, select.invalid, textarea.invalid { border-color: rgba(224,92,122,0.45); }
+    select option { background: #0d1b2e; color: var(--cream); }
+    textarea { resize: vertical; min-height: 130px; line-height: 1.6; }
 
-    /* ── QUICK STATS ROW ── */
-    .quick-stats {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 1px; border-radius: 14px; overflow: hidden;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      margin-bottom: 3rem;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08);
-      opacity: 0; animation: fadeUp 0.7s ease forwards 0.6s;
-    }
-    .qs-cell {
-      background: rgba(7,14,28,0.6);
-      backdrop-filter: blur(20px); padding: 1.6rem 1.5rem;
-      text-align: center; transition: background 0.3s ease;
-    }
-    .qs-cell:hover { background: rgba(255,255,255,0.04); }
-    .qs-value {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.9rem; font-weight: 300;
-      color: var(--cream); line-height: 1; margin-bottom: 0.4rem;
-    }
-    .qs-value .accent { color: var(--gold); }
-    .qs-value .up   { color: var(--green); }
-    .qs-value .down { color: var(--red); }
-    .qs-label {
-      font-size: 0.64rem; letter-spacing: 0.15em;
-      text-transform: uppercase; color: rgba(237,232,224,0.35);
+    .select-wrap { position: relative; }
+    .select-wrap::after {
+      content: ''; position: absolute; right: 1rem; top: 50%;
+      transform: translateY(-50%);
+      width: 0; height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid rgba(237,232,224,0.3);
+      pointer-events: none;
     }
 
-    /* ── SECTION HEADING ── */
-    .section-label {
-      font-size: 0.68rem; letter-spacing: 0.28em;
-      text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem;
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-muted));
+      color: var(--navy-deepest);
+      padding: 0.9rem; border: none; border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      cursor: pointer; transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(226,185,87,0.28);
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      position: relative; overflow: hidden; margin-top: 0.5rem;
+    }
+    .submit-btn::before {
+      content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      transition: left 0.5s ease;
+    }
+    .submit-btn:hover::before { left: 100%; }
+    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(226,185,87,0.42); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    .form-msg {
+      display: none; border-radius: 10px; padding: 0.9rem 1rem;
+      font-size: 0.8rem; font-weight: 300; line-height: 1.5;
+      margin-bottom: 1.25rem; align-items: center; gap: 0.6rem;
+    }
+    .form-msg.show { display: flex; }
+    .form-msg.success {
+      background: rgba(92,224,160,0.08); border: 1px solid rgba(92,224,160,0.22);
+      color: #80f0b8;
+    }
+    .form-msg.error {
+      background: rgba(224,92,122,0.08); border: 1px solid rgba(224,92,122,0.22);
+      color: #f09090;
     }
 
-    /* ── DASHBOARD CARDS ── */
-    .cards-primary {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem; margin-bottom: 3.5rem;
-      opacity: 0; animation: fadeUp 0.75s ease forwards 0.75s;
+    /* ── INFO PANEL ── */
+    .info-panel {
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.4s;
+    }
+    .info-section { margin-bottom: 2.5rem; }
+    .info-label {
+      font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1rem;
+    }
+    .info-body {
+      font-size: 0.88rem; font-weight: 300;
+      color: rgba(237,232,224,0.5); line-height: 1.8;
     }
 
-    .dash-card {
-      background: rgba(255,255,255,0.028);
-      backdrop-filter: blur(24px) saturate(1.4);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px; padding: 2rem;
-      position: relative; overflow: hidden;
-      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.07);
-      display: flex; flex-direction: column;
-    }
-    .dash-card::before {
-      content: ''; position: absolute;
-      top: 0; left: -100%; width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.025), transparent);
-      transition: left 0.6s ease;
-    }
-    .dash-card:hover::before { left: 100%; }
-    .dash-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(226,185,87,0.18);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.45), 0 0 0 1px rgba(226,185,87,0.08), inset 0 1px 0 rgba(255,255,255,0.12);
-    }
-    .dash-card.locked { cursor: default; opacity: 0.55; }
-    .dash-card.locked:hover { transform: none; border-color: rgba(255,255,255,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
-
-    .card-header {
-      display: flex; align-items: flex-start;
-      justify-content: space-between; margin-bottom: 1.5rem;
-    }
-    .card-icon {
-      width: 46px; height: 46px; border-radius: 13px;
-      background: linear-gradient(135deg, rgba(226,185,87,0.14), rgba(226,185,87,0.05));
-      border: 1px solid rgba(226,185,87,0.18);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--gold); flex-shrink: 0;
-    }
-    .card-badge {
-      font-size: 0.6rem; letter-spacing: 0.14em;
-      text-transform: uppercase; padding: 0.25rem 0.6rem;
-      border-radius: 20px;
-    }
-    .badge-live {
-      background: rgba(92,224,160,0.12);
-      border: 1px solid rgba(92,224,160,0.25);
-      color: var(--green);
-    }
-    .badge-soon {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      color: rgba(237,232,224,0.3);
-    }
-
-    .card-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem; font-weight: 400;
-      color: var(--cream); margin-bottom: 0.6rem;
-    }
-    .card-desc {
-      font-size: 0.83rem; font-weight: 300;
-      color: rgba(237,232,224,0.48); line-height: 1.65;
-      flex: 1; margin-bottom: 1.75rem;
-    }
-
-    .card-link {
-      display: inline-flex; align-items: center; gap: 0.45rem;
-      font-size: 0.75rem; font-weight: 400;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--gold); transition: gap 0.25s ease;
-      margin-top: auto;
-    }
-    .card-link:hover { gap: 0.7rem; }
-    .card-link svg { transition: transform 0.25s ease; }
-    .card-link:hover svg { transform: translateX(3px); }
-
-    /* ── FAMILY OFFICE MODULES ── */
-    .modules-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem; margin-bottom: 3.5rem;
-      opacity: 0; animation: fadeUp 0.75s ease forwards 0.85s;
-    }
-    .module-panel {
-      background: rgba(255,255,255,0.025);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 18px; padding: 1.75rem;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.07);
-      display: flex; flex-direction: column;
-    }
-    .module-header {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 1.25rem; padding-bottom: 0.85rem;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .module-title {
-      font-size: 0.68rem; letter-spacing: 0.22em;
-      text-transform: uppercase; color: rgba(237,232,224,0.4);
-      display: flex; align-items: center; gap: 0.55rem;
-    }
-    .module-title svg { color: var(--gold); }
-    .module-count {
-      font-size: 0.62rem; letter-spacing: 0.1em;
-      padding: 0.2rem 0.55rem; border-radius: 20px;
-      background: rgba(226,185,87,0.1); border: 1px solid rgba(226,185,87,0.2);
-      color: var(--gold);
-    }
-
-    .doc-list { display: flex; flex-direction: column; flex: 1; }
-    .doc-item {
-      display: flex; align-items: center; gap: 0.85rem;
-      padding: 0.8rem 0.6rem; border-radius: 10px;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-      transition: all 0.25s ease; cursor: pointer;
-    }
-    .doc-item:last-child { border-bottom: none; }
-    .doc-item:hover { background: rgba(255,255,255,0.035); transform: translateX(3px); }
-    .doc-icon {
-      width: 34px; height: 34px; border-radius: 9px; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.55rem; font-weight: 600; letter-spacing: 0.03em;
-    }
-    .doc-icon.pdf  { background: rgba(224,92,122,0.12); border: 1px solid rgba(224,92,122,0.25); color: #f09090; }
-    .doc-icon.doc  { background: rgba(92,158,224,0.12); border: 1px solid rgba(92,158,224,0.25); color: #90bff0; }
-    .doc-icon.xls  { background: rgba(92,224,160,0.12); border: 1px solid rgba(92,224,160,0.25); color: #80f0b8; }
-    .doc-info { flex: 1; min-width: 0; }
-    .doc-name {
-      font-size: 0.82rem; font-weight: 400; color: rgba(237,232,224,0.75);
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-      margin-bottom: 0.2rem;
-    }
-    .doc-meta { font-size: 0.68rem; color: rgba(237,232,224,0.3); }
-    .doc-dl { color: rgba(237,232,224,0.25); flex-shrink: 0; transition: color 0.2s ease; }
-    .doc-item:hover .doc-dl { color: var(--gold); }
-
-    .comm-item { padding: 0.85rem 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.04); }
-    .comm-item:last-child { border-bottom: none; }
-    .comm-tag {
-      display: inline-block; font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase;
-      padding: 0.18rem 0.5rem; border-radius: 20px; margin-bottom: 0.4rem;
-    }
-    .comm-tag.board { background: rgba(226,185,87,0.1); border: 1px solid rgba(226,185,87,0.22); color: var(--gold); }
-    .comm-tag.ic    { background: rgba(92,158,224,0.1); border: 1px solid rgba(92,158,224,0.22); color: #90bff0; }
-    .comm-tag.admin { background: rgba(192,92,224,0.1); border: 1px solid rgba(192,92,224,0.22); color: #d090f0; }
-    .comm-title { font-size: 0.82rem; font-weight: 300; color: rgba(237,232,224,0.7); line-height: 1.5; }
-    .comm-date { font-size: 0.66rem; color: rgba(237,232,224,0.28); margin-top: 0.3rem; }
-
-    .vote-item {
-      padding: 0.85rem 0.6rem;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-      display: flex; align-items: center; gap: 0.85rem;
-    }
-    .vote-item:last-child { border-bottom: none; }
-    .vote-info { flex: 1; min-width: 0; }
-    .vote-name { font-size: 0.82rem; font-weight: 400; color: rgba(237,232,224,0.75); margin-bottom: 0.2rem; }
-    .vote-meta { font-size: 0.68rem; color: rgba(237,232,224,0.3); }
-    .vote-status {
-      font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 0.28rem 0.65rem; border-radius: 20px; flex-shrink: 0;
-    }
-    .vote-status.open { background: rgba(226,185,87,0.1); border: 1px solid rgba(226,185,87,0.25); color: var(--gold); }
-    .vote-status.done { background: rgba(92,224,160,0.1); border: 1px solid rgba(92,224,160,0.25); color: var(--green); }
-
-    .module-foot {
-      margin-top: 1rem; padding-top: 0.85rem;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
-      color: rgba(226,185,87,0.55);
-      display: flex; align-items: center; gap: 0.4rem;
-      cursor: pointer; transition: color 0.2s ease;
-    }
-    .module-foot:hover { color: var(--gold); }
-
-    /* ── AUM HISTORY ── */
-    .aum-section { margin-bottom: 3.5rem; opacity: 0; animation: fadeUp 0.75s ease forwards 1.0s; }
-    .aum-panel {
-      background: rgba(255,255,255,0.025);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 18px; padding: 1.75rem;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.07);
-    }
-    .aum-header {
-      display: flex; align-items: baseline; justify-content: space-between;
-      flex-wrap: wrap; gap: 0.5rem;
-      margin-bottom: 1.5rem; padding-bottom: 0.85rem;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .aum-panel-title {
-      font-size: 0.68rem; letter-spacing: 0.22em;
-      text-transform: uppercase; color: rgba(237,232,224,0.4);
-      display: flex; align-items: center; gap: 0.55rem;
-    }
-    .aum-panel-title svg { color: var(--gold); }
-    .aum-growth { font-size: 0.75rem; color: rgba(92,224,160,0.8); font-weight: 400; }
-    .aum-body { display: grid; grid-template-columns: 3fr 2fr; gap: 2rem; }
-    #aumChart { width: 100%; height: 300px; }
-    .aum-table-wrap { max-height: 300px; overflow-y: auto; border-radius: 10px; }
-    .aum-table-wrap::-webkit-scrollbar { width: 6px; }
-    .aum-table-wrap::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); }
-    .aum-table-wrap::-webkit-scrollbar-thumb { background: rgba(226,185,87,0.2); border-radius: 3px; }
-    .aum-table { width: 100%; border-collapse: collapse; }
-    .aum-table th {
-      position: sticky; top: 0; z-index: 1;
-      font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase;
-      color: rgba(237,232,224,0.35); font-weight: 400;
-      text-align: left; padding: 0.6rem 0.5rem;
-      background: #0e1a2e;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-    .aum-table th:last-child, .aum-table td:last-child { text-align: right; }
-    .aum-table td {
-      padding: 0.6rem 0.5rem; font-size: 0.8rem;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-      font-variant-numeric: tabular-nums;
-    }
-    .aum-table td:first-child { color: rgba(237,232,224,0.5); }
-    .aum-table td:last-child { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; color: var(--cream); }
-    .aum-table tr.latest td { background: rgba(226,185,87,0.06); }
-    .aum-table tr.latest td:first-child span.latest-badge {
-      font-size: 0.55rem; letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--gold); margin-left: 0.5rem;
-      padding: 0.1rem 0.4rem; border: 1px solid rgba(226,185,87,0.3); border-radius: 20px;
-    }
-
-    /* ── ACTIVITY / NEWS BAND ── */
-    .lower-grid {
-      display: grid; grid-template-columns: 2fr 1fr;
-      gap: 1.5rem;
-      opacity: 0; animation: fadeUp 0.75s ease forwards 0.95s;
-    }
-
-    .glass-panel {
-      background: rgba(255,255,255,0.025);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 18px; padding: 1.75rem;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.07);
-    }
-
-    .panel-title {
-      font-size: 0.68rem; letter-spacing: 0.22em;
-      text-transform: uppercase; color: rgba(237,232,224,0.35);
-      margin-bottom: 1.25rem; padding-bottom: 0.75rem;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .holdings-table { width: 100%; border-collapse: collapse; }
-    .holdings-table tr { border-bottom: 1px solid rgba(255,255,255,0.04); }
-    .holdings-table tr:last-child { border-bottom: none; }
-    .holdings-table td { padding: 0.85rem 0; font-size: 0.84rem; }
-    .holdings-table td:first-child { color: rgba(237,232,224,0.7); font-weight: 300; }
-    .holdings-table td:nth-child(2) {
-      text-align: right;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem; color: var(--cream);
-    }
-    .holdings-table td:last-child {
-      text-align: right; font-size: 0.75rem;
-      color: rgba(237,232,224,0.35); padding-left: 1rem;
-    }
-    .td-name { display: flex; align-items: center; gap: 0.55rem; }
-    .td-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-
-    .quick-links { display: flex; flex-direction: column; gap: 0.75rem; }
-    .quick-link-item {
+    .contact-rows { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem; }
+    .contact-row {
       display: flex; align-items: center; gap: 0.75rem;
-      padding: 0.85rem 1rem; border-radius: 10px;
+      padding: 0.9rem 1.1rem; border-radius: 12px;
       background: rgba(255,255,255,0.025);
-      border: 1px solid rgba(255,255,255,0.06);
-      transition: all 0.25s ease; cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.07);
+      transition: all 0.25s ease;
     }
-    .quick-link-item:hover {
-      background: rgba(255,255,255,0.055);
-      border-color: rgba(226,185,87,0.18);
-      transform: translateX(3px);
+    .contact-row:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(226,185,87,0.18); transform: translateX(3px);
     }
-    .ql-icon {
-      width: 32px; height: 32px; border-radius: 8px;
+    .contact-icon {
+      width: 34px; height: 34px; border-radius: 9px; flex-shrink: 0;
       background: rgba(226,185,87,0.1); border: 1px solid rgba(226,185,87,0.15);
       display: flex; align-items: center; justify-content: center;
-      color: var(--gold); flex-shrink: 0;
+      color: var(--gold);
     }
-    .ql-text { font-size: 0.82rem; font-weight: 300; color: rgba(237,232,224,0.65); }
+    .contact-row-label {
+      font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(237,232,224,0.35); margin-bottom: 0.15rem;
+    }
+    .contact-row-value {
+      font-size: 0.84rem; font-weight: 300; color: rgba(237,232,224,0.7);
+    }
+    .contact-row-value a { color: rgba(237,232,224,0.7); transition: color 0.2s ease; }
+    .contact-row-value a:hover { color: var(--gold); }
+    .contact-row-time { margin-left: auto; font-size: 0.7rem; color: rgba(237,232,224,0.28); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+    /* ── LOCATIONS GRID ── */
+    .locations-section {
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.55s;
+      margin-bottom: 2rem;
+    }
+    .section-label {
+      font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.5rem;
+    }
+    .locations-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem;
+    }
+    .location-card {
+      background: rgba(255,255,255,0.025);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px; overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+    .location-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(226,185,87,0.2);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.4);
+    }
+    .location-map-wrap { width: 100%; height: 160px; overflow: hidden; }
+    .location-map-wrap iframe { width: 100%; height: 100%; border: 0; display: block; filter: grayscale(0.3) invert(0.85) hue-rotate(180deg) brightness(0.85) contrast(0.9); }
+    .location-body { padding: 1.25rem; }
+    .location-region {
+      font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.35rem; opacity: 0.85;
+    }
+    .location-city {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem; font-weight: 400; color: var(--cream); margin-bottom: 0.5rem;
+    }
+    .location-addr {
+      font-size: 0.76rem; font-weight: 300;
+      color: rgba(237,232,224,0.38); line-height: 1.55; margin-bottom: 0.6rem;
+    }
+    .location-phone a {
+      font-size: 0.78rem; font-weight: 300;
+      color: rgba(237,232,224,0.45); transition: color 0.2s ease;
+    }
+    .location-phone a:hover { color: var(--gold); }
+    .location-status {
+      margin-top: 0.85rem; padding-top: 0.7rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.68rem; letter-spacing: 0.06em;
+      display: flex; align-items: center; gap: 0.4rem;
+      font-variant-numeric: tabular-nums;
+    }
+    .status-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+    .location-status.open .status-dot { background: var(--success); box-shadow: 0 0 6px rgba(92,224,160,0.6); }
+    .location-status.closed .status-dot { background: rgba(237,232,224,0.25); }
+    .location-status.open { color: rgba(92,224,160,0.8); }
+    .location-status.closed { color: rgba(237,232,224,0.3); }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative; z-index: 2;
+      background: rgba(0,0,0,0.45);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 3rem 2.5rem;
+      display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem; font-weight: 400;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(237,232,224,0.35);
+    }
+    .gold-rule { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+    .footer-links { display: flex; gap: 2rem; list-style: none; flex-wrap: wrap; justify-content: center; }
+    .footer-links a {
+      font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(237,232,224,0.28); transition: color 0.2s ease;
+    }
+    .footer-links a:hover { color: rgba(237,232,224,0.6); }
+    .footer-copy { font-size: 0.68rem; letter-spacing: 0.08em; color: rgba(237,232,224,0.2); }
 
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
     }
+    .reveal {
+      opacity: 0; transform: translateY(18px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: 0.001s !important; animation-iteration-count: 1 !important; transition-duration: 0.001s !important; }
+      .reveal { opacity: 1; transform: none; }
     }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 1024px) {
-      .cards-primary { grid-template-columns: repeat(2, 1fr); }
-      .modules-grid  { grid-template-columns: 1fr; }
-      .lower-grid    { grid-template-columns: 1fr; }
-      .aum-body      { grid-template-columns: 1fr; }
-      .quick-stats   { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 1024px) { .locations-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 860px) {
+      .two-col { grid-template-columns: 1fr; gap: 2.5rem; }
+      .locations-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 640px) {
-      main { padding: 5rem 1.25rem 3rem; }
-      .topnav { padding: 0 1.25rem; }
-      .user-email { display: none; }
-      .cards-primary { grid-template-columns: 1fr; }
-      .quick-stats { grid-template-columns: repeat(2, 1fr); }
-      .brand-name { display: none; }
-      .nav-sep, .nav-page { display: none; }
-      .welcome-band { flex-direction: column; align-items: flex-start; }
+      main { padding: 5.5rem 1.25rem 3rem; }
+      nav { padding: 0 1.25rem; }
+      .nav-links, .nav-portal-btn { display: none; }
+      .hamburger { display: flex; }
+      .form-row { grid-template-columns: 1fr; }
+      .locations-grid { grid-template-columns: 1fr; }
+      .form-card { padding: 1.75rem; }
     }
   </style>
 </head>
@@ -577,471 +554,347 @@
   <div class="orb orb-2"></div>
   <div class="grain"></div>
 
-  <!-- ── TOP NAV ── -->
-  <nav class="topnav">
-    <div class="topnav-left">
-      <span class="brand-mark">PH</span>
-      <span class="brand-name">Patel Holdings</span>
-      <span class="nav-sep">/</span>
-      <span class="nav-page">Dashboard</span>
-    </div>
-    <div class="topnav-right">
-      <div class="user-chip">
-        <div class="user-avatar" id="userAvatar">FM</div>
-        <div class="user-email" id="userEmail">Family Member</div>
-      </div>
-      <button class="logout-btn" id="logoutBtn">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-        Sign Out
-      </button>
-    </div>
+  <!-- ── NAV ── -->
+  <nav id="mainNav">
+    <a href="/" class="nav-logo">
+      <span class="nav-logo-mark">PH</span>
+      Patel Holdings
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/#about">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+    <a href="/family-portal" class="nav-portal-btn">Family Portal</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
-  <!-- ── MAIN ── -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/">Home</a>
+    <a href="/#about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/family-portal">Family Portal →</a>
+  </div>
+
   <main>
 
-    <!-- Welcome -->
-    <div class="welcome-band">
-      <div>
-        <div class="welcome-eyebrow">Family Portal</div>
-        <h1 class="welcome-heading">Welcome back, <span id="displayName">Family Member</span></h1>
-        <p class="welcome-sub">Your private overview of Patel Holdings financial data.</p>
-        <p id="lastLogin">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <span id="lastLoginText">First visit this device</span>
-        </p>
-      </div>
-      <div class="session-card">
-        <div class="session-dot"></div>
-        <div class="session-text"><strong>Secure Session</strong><br>Cloudflare Access · Logged</div>
-      </div>
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="page-eyebrow">Get In Touch</div>
+      <h1 class="page-title">Contact <em>Us</em></h1>
+      <p class="page-subtitle">We welcome inquiries from prospective partners, business contacts, and stakeholders. All correspondence is handled with strict confidentiality.</p>
     </div>
 
-    <!-- Quick Stats -->
-    <div class="quick-stats">
-      <div class="qs-cell">
-        <div class="qs-value"><span class="accent">$</span>422M</div>
-        <div class="qs-label">Total AUM</div>
-      </div>
-      <div class="qs-cell">
-        <div class="qs-value"><span class="up">+25%</span></div>
-        <div class="qs-label">YoY Growth</div>
-      </div>
-      <div class="qs-cell">
-        <div class="qs-value">5</div>
-        <div class="qs-label">Active Portfolios</div>
-      </div>
-      <div class="qs-cell">
-        <div class="qs-value">4</div>
-        <div class="qs-label">Global Offices</div>
-      </div>
-    </div>
+    <!-- Two Col: Form + Info -->
+    <div class="two-col">
 
-    <!-- Primary Cards -->
-    <div class="section-label">Quick Access</div>
-    <div class="cards-primary">
+      <!-- Contact Form -->
+      <div class="form-card">
+        <div class="form-card-title">Send a Message</div>
+        <div class="form-card-sub">We'll respond within two business days.</div>
 
-      <a href="/fund-performance" class="dash-card">
-        <div class="card-header">
-          <div class="card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-          </div>
-          <span class="card-badge badge-live">Live</span>
+        <div class="form-msg success" id="successMsg">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Your email draft has been opened in your mail app — just press send.
         </div>
-        <div class="card-title">Fund Performance</div>
-        <div class="card-desc">Interactive benchmark comparisons for Patel Holdings LLC against VOO (S&amp;P 500), QQQM, and QQQ. Includes 1M, 3M, 6M, YTD, and full-period views.</div>
-        <div class="card-link">
-          View Charts
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        <div class="form-msg error" id="errorMsg">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span id="errorText">Something went wrong. Please try again.</span>
         </div>
-      </a>
 
-      <div class="dash-card locked">
-        <div class="card-header">
-          <div class="card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9l4-6z"/><path d="M2 9h20M9 3l3 6 3-6M12 9l0 12"/></svg>
-          </div>
-          <span class="card-badge badge-soon">Coming Soon</span>
-        </div>
-        <div class="card-title">Your Equity</div>
-        <div class="card-desc">Individual equity position tracking, ownership percentages, and personal allocation summaries across all Patel Holdings entities.</div>
-        <div class="card-link" style="color: rgba(237,232,224,0.25); pointer-events:none;">
-          In Development
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-        </div>
-      </div>
-
-      <a href="/current-holdings" class="dash-card">
-        <div class="card-header">
-          <div class="card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg>
-          </div>
-          <span class="card-badge badge-live">Live</span>
-        </div>
-        <div class="card-title">Current Holdings</div>
-        <div class="card-desc">Complete AUM breakdown across all five pillars — Operating Businesses, Investment Funds, Real Estate, International Holdings, and Bright Future Fund.</div>
-        <div class="card-link">
-          View Holdings
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </div>
-      </a>
-
-      <a href="/investments" class="dash-card">
-        <div class="card-header">
-          <div class="card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          </div>
-          <span class="card-badge badge-live">Live</span>
-        </div>
-        <div class="card-title">Investment Overview</div>
-        <div class="card-desc">Full portfolio structure across all five pillars with allocation percentages, AUM figures, and the complete organizational hierarchy of Patel Holdings LLC.</div>
-        <div class="card-link">
-          View Portfolio
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </div>
-      </a>
-
-    </div>
-
-    <!-- Family Office Modules -->
-    <div class="section-label">Family Office</div>
-    <div class="modules-grid">
-
-      <!-- Document Vault -->
-      <div class="module-panel">
-        <div class="module-header">
-          <div class="module-title">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Document Vault
-          </div>
-          <span class="module-count">5 New</span>
-        </div>
-        <div class="doc-list">
-          <div class="doc-item">
-            <div class="doc-icon pdf">PDF</div>
-            <div class="doc-info">
-              <div class="doc-name">Q1 2026 Capital Allocation Framework — Board Proposal</div>
-              <div class="doc-meta">Board Materials · Mar 20, 2026</div>
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name<span class="req">*</span></label>
+              <input type="text" id="firstName" name="firstName" placeholder="John" required />
             </div>
-            <svg class="doc-dl" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          </div>
-          <div class="doc-item">
-            <div class="doc-icon pdf">PDF</div>
-            <div class="doc-info">
-              <div class="doc-name">Houston MSA Multifamily Acquisition — Closing Memorandum</div>
-              <div class="doc-meta">Real Estate · Feb 20, 2026</div>
+            <div class="form-group">
+              <label for="lastName">Last Name<span class="req">*</span></label>
+              <input type="text" id="lastName" name="lastName" placeholder="Smith" required />
             </div>
-            <svg class="doc-dl" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           </div>
-          <div class="doc-item">
-            <div class="doc-icon xls">XLS</div>
-            <div class="doc-info">
-              <div class="doc-name">FY2025 Consolidated AUM Workbook — All Pillars</div>
-              <div class="doc-meta">Finance · Jan 30, 2026</div>
+          <div class="form-group">
+            <label for="email">Email Address<span class="req">*</span></label>
+            <input type="email" id="email" name="email" placeholder="john@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="organization">Organization</label>
+            <input type="text" id="organization" name="organization" placeholder="Company or firm name (optional)" />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject<span class="req">*</span></label>
+            <div class="select-wrap">
+              <select id="subject" name="subject" required>
+                <option value="" disabled selected>Select a subject</option>
+                <option value="Business Partnership">Business Partnership</option>
+                <option value="Investment Inquiry">Investment Inquiry</option>
+                <option value="Real Estate">Real Estate</option>
+                <option value="Family Office Services">Family Office Services</option>
+                <option value="Media & Press">Media &amp; Press</option>
+                <option value="Other">Other</option>
+              </select>
             </div>
-            <svg class="doc-dl" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           </div>
-          <div class="doc-item">
-            <div class="doc-icon doc">DOC</div>
-            <div class="doc-info">
-              <div class="doc-name">Alabama CRE Market Entry — IC Review Pack</div>
-              <div class="doc-meta">Investment Committee · Nov 17, 2025</div>
-            </div>
-            <svg class="doc-dl" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <div class="form-group">
+            <label for="message">Message<span class="req">*</span></label>
+            <textarea id="message" name="message" placeholder="Please describe your inquiry in detail..." required></textarea>
           </div>
-          <div class="doc-item">
-            <div class="doc-icon pdf">PDF</div>
-            <div class="doc-info">
-              <div class="doc-name">NY–NJ Retail &amp; Beverage Acquisitions — Portfolio Update</div>
-              <div class="doc-meta">Operating Businesses · Oct 10, 2025</div>
-            </div>
-            <svg class="doc-dl" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          </div>
-        </div>
-        <div class="module-foot">
-          Browse Full Vault
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </div>
+          <button type="submit" class="submit-btn" id="submitBtn">
+            <span class="btn-label">Send Message</span>
+          </button>
+        </form>
       </div>
 
-      <!-- Communications -->
-      <div class="module-panel">
-        <div class="module-header">
-          <div class="module-title">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            Communications
-          </div>
-          <span class="module-count">3 Unread</span>
+      <!-- Info Panel -->
+      <div class="info-panel">
+        <div class="info-section">
+          <div class="info-label">About Inquiries</div>
+          <p class="info-body">Patel Holdings welcomes inquiries from qualified business partners, real estate professionals, and investment counterparties. We maintain strict confidentiality on all correspondence and respond to every substantive inquiry.</p>
         </div>
-        <div class="doc-list">
-          <div class="comm-item">
-            <span class="comm-tag board">Board</span>
-            <div class="comm-title">Q3 2026 board meeting — date poll and pre-read distribution</div>
-            <div class="comm-date">Jul 14, 2026 · From: Board Secretary</div>
-          </div>
-          <div class="comm-item">
-            <span class="comm-tag ic">Investment Committee</span>
-            <div class="comm-title">Revised allocation framework — member comments due Friday</div>
-            <div class="comm-date">Jul 9, 2026 · From: IC Chair</div>
-          </div>
-          <div class="comm-item">
-            <span class="comm-tag admin">Admin</span>
-            <div class="comm-title">Portal security upgrade — Cloudflare Access policies updated</div>
-            <div class="comm-date">Jun 28, 2026 · From: IT Administrator</div>
-          </div>
-        </div>
-        <div class="module-foot">
-          All Communications
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </div>
-      </div>
 
-      <!-- Proxy Votes -->
-      <div class="module-panel">
-        <div class="module-header">
-          <div class="module-title">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-            Proxy Votes
-          </div>
-          <span class="module-count">2 Open</span>
-        </div>
-        <div class="doc-list">
-          <div class="vote-item">
-            <div class="vote-info">
-              <div class="vote-name">AAPL — 2026 Annual Meeting</div>
-              <div class="vote-meta">9 proposals · Deadline Aug 02, 2026</div>
+        <div class="info-section">
+          <div class="info-label">Direct Contact</div>
+          <div class="contact-rows">
+            <div class="contact-row">
+              <div class="contact-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.66 2.64a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.44-1.23a2 2 0 0 1 2.11-.45c.85.32 1.74.54 2.64.66A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <div class="contact-row-label">Americas HQ — New York</div>
+                <div class="contact-row-value"><a href="tel:+16469925815">+1 (646) 992-5815</a></div>
+              </div>
+              <div class="contact-row-time" data-tz="America/New_York">—</div>
             </div>
-            <span class="vote-status open">Open</span>
-          </div>
-          <div class="vote-item">
-            <div class="vote-info">
-              <div class="vote-name">MSFT — 2026 Annual Meeting</div>
-              <div class="vote-meta">7 proposals · Deadline Aug 19, 2026</div>
+            <div class="contact-row">
+              <div class="contact-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.66 2.64a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.44-1.23a2 2 0 0 1 2.11-.45c.85.32 1.74.54 2.64.66A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <div class="contact-row-label">Toronto</div>
+                <div class="contact-row-value"><a href="tel:+14162037575">+1 (416) 203-7575</a></div>
+              </div>
+              <div class="contact-row-time" data-tz="America/Toronto">—</div>
             </div>
-            <span class="vote-status open">Open</span>
-          </div>
-          <div class="vote-item">
-            <div class="vote-info">
-              <div class="vote-name">NVDA — 2026 Annual Meeting</div>
-              <div class="vote-meta">6 proposals · Voted Jun 24, 2026</div>
+            <div class="contact-row">
+              <div class="contact-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.66 2.64a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.44-1.23a2 2 0 0 1 2.11-.45c.85.32 1.74.54 2.64.66A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <div class="contact-row-label">London</div>
+                <div class="contact-row-value"><a href="tel:+442074371521">+44 20 7437 1521</a></div>
+              </div>
+              <div class="contact-row-time" data-tz="Europe/London">—</div>
             </div>
-            <span class="vote-status done">Submitted</span>
-          </div>
-          <div class="vote-item">
-            <div class="vote-info">
-              <div class="vote-name">GOOG — 2026 Annual Meeting</div>
-              <div class="vote-meta">11 proposals · Voted Jun 05, 2026</div>
+            <div class="contact-row">
+              <div class="contact-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.66 2.64a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.44-1.23a2 2 0 0 1 2.11-.45c.85.32 1.74.54 2.64.66A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <div class="contact-row-label">Anand, India</div>
+                <div class="contact-row-value"><a href="tel:+919728484865">+91 97284 84865</a></div>
+              </div>
+              <div class="contact-row-time" data-tz="Asia/Kolkata">—</div>
             </div>
-            <span class="vote-status done">Submitted</span>
-          </div>
-        </div>
-        <div class="module-foot">
-          Voting History
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- AUM History -->
-    <div class="section-label">AUM History</div>
-    <div class="aum-section">
-      <div class="aum-panel">
-        <div class="aum-header">
-          <div class="aum-panel-title">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 14l4-5 3 3 5-7"/></svg>
-            Total AUM Growth
-          </div>
-          <div class="aum-growth">+64.1% since Nov 2023 &nbsp;·&nbsp; 11 recorded checkpoints</div>
-        </div>
-        <div class="aum-body">
-          <div id="aumChart"></div>
-          <div class="aum-table-wrap">
-            <table class="aum-table">
-              <thead><tr><th>Date</th><th>AUM</th></tr></thead>
-              <tbody id="aumTableBody"></tbody>
-            </table>
+            <a href="/family-portal" class="contact-row">
+              <div class="contact-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </div>
+              <div>
+                <div class="contact-row-label">Family Portal Access</div>
+                <div class="contact-row-value">Sign in to the portal →</div>
+              </div>
+            </a>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Lower Grid -->
-    <div class="lower-grid">
-
-      <!-- Holdings Summary -->
-      <div class="glass-panel">
-        <div class="panel-title">Portfolio Allocation Overview</div>
-        <table class="holdings-table">
-          <tbody id="holdingsBody">
-            <tr>
-              <td><div class="td-name"><div class="td-dot" style="background:#e2b957;"></div>Operating Businesses</div></td>
-              <td>$108.5M</td>
-              <td>25.7%</td>
-            </tr>
-            <tr>
-              <td><div class="td-name"><div class="td-dot" style="background:#5ce0a0;"></div>Growing Family Fund</div></td>
-              <td>$103.0M</td>
-              <td>24.4%</td>
-            </tr>
-            <tr>
-              <td><div class="td-name"><div class="td-dot" style="background:#5c9ee0;"></div>Real Estate Holdings</div></td>
-              <td>$74.2M</td>
-              <td>17.6%</td>
-            </tr>
-            <tr>
-              <td><div class="td-name"><div class="td-dot" style="background:#c05ce0;"></div>International Holdings</div></td>
-              <td>$68.5M</td>
-              <td>16.2%</td>
-            </tr>
-            <tr>
-              <td><div class="td-name"><div class="td-dot" style="background:#e07a5c;"></div>Bright Future Fund</div></td>
-              <td>$68.3M</td>
-              <td>16.2%</td>
-            </tr>
-          </tbody>
-        </table>
-        <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.05); display:flex; justify-content:space-between; align-items:center;">
-          <span style="font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(237,232,224,0.3);">Total AUM</span>
-          <span style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:300; color:var(--gold);">$422.5M</span>
+    <!-- Locations -->
+    <div class="locations-section">
+      <div class="section-label">Our Global Offices</div>
+      <div class="locations-grid">
+        <div class="location-card reveal">
+          <div class="location-map-wrap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2826098398325!2d-73.97745868459468!3d40.75479794332881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259022878eeb5%3A0xc7c2621da4e29cbe!2s200%20Park%20Ave%2C%20New%20York%2C%20NY%2010166!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" loading="lazy" allowfullscreen title="New York Office"></iframe>
+          </div>
+          <div class="location-body">
+            <div class="location-region">Americas</div>
+            <div class="location-city">New York</div>
+            <div class="location-addr">200 Park Ave, New York, NY 10166</div>
+            <div class="location-phone"><a href="tel:+16469925815">+1 (646) 992-5815</a></div>
+            <div class="location-status" data-tz="America/New_York"><span class="status-dot"></span><span class="status-text">—</span></div>
+          </div>
+        </div>
+        <div class="location-card reveal">
+          <div class="location-map-wrap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2887.2744577078478!2d-79.39854368451425!3d43.64770897912161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34dc84945e01%3A0x5344cdca7988f0eb!2s119%20Spadina%20Ave%2C%20Toronto%2C%20ON%20M5V%202L1%2C%20Canada!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" loading="lazy" allowfullscreen title="Toronto Office"></iframe>
+          </div>
+          <div class="location-body">
+            <div class="location-region">Americas</div>
+            <div class="location-city">Toronto</div>
+            <div class="location-addr">119 Spadina Ave, ON M5V 2L1, Canada</div>
+            <div class="location-phone"><a href="tel:+14162037575">+1 (416) 203-7575</a></div>
+            <div class="location-status" data-tz="America/Toronto"><span class="status-dot"></span><span class="status-text">—</span></div>
+          </div>
+        </div>
+        <div class="location-card reveal">
+          <div class="location-map-wrap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.5454830871254!2d-0.13848368423118567!3d51.50845397963502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604d6db28ffe9%3A0x46308d2d7f1d0f4f!2s50%20Jermyn%20St%2C%20St.%20James&#39;s%2C%20London%20SW1Y%206LX%2C%20UK!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" loading="lazy" allowfullscreen title="London Office"></iframe>
+          </div>
+          <div class="location-body">
+            <div class="location-region">Europe</div>
+            <div class="location-city">London</div>
+            <div class="location-addr">50 Jermyn St, St. James's, SW1Y 6LX</div>
+            <div class="location-phone"><a href="tel:+442074371521">+44 20 7437 1521</a></div>
+            <div class="location-status" data-tz="Europe/London"><span class="status-dot"></span><span class="status-text">—</span></div>
+          </div>
+        </div>
+        <div class="location-card reveal">
+          <div class="location-map-wrap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.332465879523!2d72.92224731496808!3d22.553080685190466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e4e7eaaaaaaab%3A0xe0eafe5fc5ca83ab!2sVithal%20Udyognagar%2C%20Anand%2C%20Gujarat%20388001!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus" loading="lazy" allowfullscreen title="Anand Office"></iframe>
+          </div>
+          <div class="location-body">
+            <div class="location-region">Asia-Pacific</div>
+            <div class="location-city">Anand</div>
+            <div class="location-addr">Vithal Udyognagar, GIDC, Gujarat 388001</div>
+            <div class="location-phone"><a href="tel:+919728484865">+91 97284 84865</a></div>
+            <div class="location-status" data-tz="Asia/Kolkata"><span class="status-dot"></span><span class="status-text">—</span></div>
+          </div>
         </div>
       </div>
-
-      <!-- Quick Links -->
-      <div class="glass-panel">
-        <div class="panel-title">Quick Links</div>
-        <div class="quick-links">
-          <a href="/fund-performance" class="quick-link-item">
-            <div class="ql-icon">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-            </div>
-            <div class="ql-text">Fund Performance Charts</div>
-          </a>
-          <a href="/current-holdings" class="quick-link-item">
-            <div class="ql-icon">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg>
-            </div>
-            <div class="ql-text">Current Holdings</div>
-          </a>
-          <a href="/investments" class="quick-link-item">
-            <div class="ql-icon">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            </div>
-            <div class="ql-text">Investment Overview</div>
-          </a>
-          <a href="/contact" class="quick-link-item">
-            <div class="ql-icon">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <div class="ql-text">Contact &amp; Offices</div>
-          </a>
-          <a href="/" class="quick-link-item">
-            <div class="ql-icon">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            </div>
-            <div class="ql-text">Public Site</div>
-          </a>
-        </div>
-      </div>
-
     </div>
   </main>
 
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-logo">Patel Holdings LLC</div>
+    <div class="gold-rule"></div>
+    <ul class="footer-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li><a href="/family-portal">Portal</a></li>
+    </ul>
+    <p class="footer-copy">© 2026 Patel Holdings LLC. All rights reserved. Private &amp; Confidential.</p>
+  </footer>
+
   <script>
-    document.body.classList.add('ready');
+    // ── CONFIG: address that receives inquiries (iCloud custom-domain mail) ──
+    const CONTACT_EMAIL = 'info@patel-holdings.com';
 
-    // ── Last-login tracking (per device) ──
-    (function trackLogin() {
-      try {
-        const prev = localStorage.getItem('ph_last_login');
-        const text = document.getElementById('lastLoginText');
-        if (prev) {
-          const d = new Date(parseInt(prev, 10));
-          text.textContent = 'Last sign-in: ' + d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) +
-            ' · ' + d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
-        } else {
-          text.textContent = 'First sign-in recorded on this device';
-        }
-        localStorage.setItem('ph_last_login', Date.now().toString());
-      } catch (e) { /* storage unavailable */ }
-    })();
+    // ── Nav scroll
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
 
-    // ── AUM history data (newest first in table, oldest first on chart) ──
-    const AUM_HISTORY = [
-      { date: '11/9/2023',  d: '2023-11-09', v: 257500000 },
-      { date: '1/26/2024',  d: '2024-01-26', v: 277775000 },
-      { date: '2/2/2024',   d: '2024-02-02', v: 279980571 },
-      { date: '3/4/2024',   d: '2024-03-04', v: 288902970 },
-      { date: '4/18/2024',  d: '2024-04-18', v: 292384575 },
-      { date: '5/6/2024',   d: '2024-05-06', v: 299919076 },
-      { date: '7/3/2024',   d: '2024-07-03', v: 304401903 },
-      { date: '9/19/2024',  d: '2024-09-19', v: 320943295 },
-      { date: '1/8/2025',   d: '2025-01-08', v: 348039396 },
-      { date: '10/13/2025', d: '2025-10-13', v: 414753627 },
-      { date: '7/18/2026',  d: '2026-07-18', v: 422451689 },
-    ];
-    const fmtUsd = v => '$' + v.toLocaleString('en-US');
-
-    // Table (newest first, latest row highlighted)
-    document.getElementById('aumTableBody').innerHTML = [...AUM_HISTORY].reverse().map((p, i) => `
-      <tr class="${i === 0 ? 'latest' : ''}">
-        <td>${p.date}${i === 0 ? '<span class="latest-badge">Latest</span>' : ''}</td>
-        <td>${fmtUsd(p.v)}</td>
-      </tr>`).join('');
-
-    // Chart (gold area line, brand theme)
-    (function renderAumChart() {
-      if (typeof Plotly === 'undefined') return;
-      const xs = AUM_HISTORY.map(p => p.d);
-      const ys = AUM_HISTORY.map(p => p.v);
-      const trace = {
-        x: xs, y: ys, type: 'scatter', mode: 'lines+markers',
-        name: 'Total AUM',
-        line: { color: '#e2b957', width: 2.5, shape: 'spline', smoothing: 0.6 },
-        marker: { size: 6, color: '#e2b957', line: { color: '#070e1c', width: 1.5 } },
-        fill: 'tozeroy',
-        fillcolor: 'rgba(226,185,87,0.08)',
-        hovertemplate: '%{x|%b %d, %Y}<br>$%{y:,.0f}<extra></extra>'
-      };
-      const layout = {
-        paper_bgcolor: 'rgba(0,0,0,0)',
-        plot_bgcolor: 'rgba(0,0,0,0)',
-        margin: { l: 58, r: 16, t: 10, b: 38 },
-        font: { family: 'DM Sans, sans-serif', color: 'rgba(237,232,224,0.55)', size: 11 },
-        xaxis: { gridcolor: 'rgba(255,255,255,0.05)', zeroline: false, tickformat: '%b %Y' },
-        yaxis: {
-          gridcolor: 'rgba(255,255,255,0.05)', zeroline: false,
-          tickprefix: '$',
-          tickvals: [250e6, 300e6, 350e6, 400e6, 450e6],
-          ticktext: ['$250M', '$300M', '$350M', '$400M', '$450M'],
-          range: [230e6, 460e6]
-        },
-        hoverlabel: { bgcolor: '#13274f', bordercolor: 'rgba(226,185,87,0.4)', font: { color: '#ede8e0', family: 'DM Sans, sans-serif' } },
-        showlegend: false
-      };
-      Plotly.newPlot('aumChart', [trace], layout, { displayModeBar: false, responsive: true });
-    })();
-
-    // ── Logout
-    document.getElementById('logoutBtn').addEventListener('click', () => {
-      window.location.href = '/family-portal';
+    // ── Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
     });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    }));
 
-    // ── Module placeholders (wire to backend when available)
-    document.querySelectorAll('.module-foot, .doc-item, .vote-status.open').forEach(el => {
-      el.addEventListener('click', () => {
-        el.style.opacity = '0.6';
-        setTimeout(() => el.style.opacity = '', 250);
+    // ── Form submit → opens a prefilled email to the family office ──
+    const form       = document.getElementById('contactForm');
+    const successMsg = document.getElementById('successMsg');
+    const errorMsg   = document.getElementById('errorMsg');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      successMsg.classList.remove('show');
+      errorMsg.classList.remove('show');
+
+      const firstName = document.getElementById('firstName');
+      const lastName  = document.getElementById('lastName');
+      const email     = document.getElementById('email');
+      const org       = document.getElementById('organization');
+      const subject   = document.getElementById('subject');
+      const message   = document.getElementById('message');
+
+      // Validate
+      let valid = true;
+      [firstName, lastName, email, subject, message].forEach(f => {
+        const bad = !f.value.trim() || (f === email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.value.trim()));
+        f.classList.toggle('invalid', bad);
+        if (bad) valid = false;
       });
+      if (!valid) {
+        document.getElementById('errorText').textContent = 'Please complete all required fields with a valid email address.';
+        errorMsg.classList.add('show');
+        return;
+      }
+
+      const subjectLine = `[Website] ${subject.value} — ${firstName.value.trim()} ${lastName.value.trim()}`;
+      const bodyLines = [
+        `Name: ${firstName.value.trim()} ${lastName.value.trim()}`,
+        `Email: ${email.value.trim()}`,
+        org.value.trim() ? `Organization: ${org.value.trim()}` : null,
+        `Subject: ${subject.value}`,
+        '',
+        message.value.trim(),
+        '',
+        '— Sent via patel-holdings.com contact form'
+      ].filter(l => l !== null).join('\n');
+
+      window.location.href =
+        `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subjectLine)}&body=${encodeURIComponent(bodyLines)}`;
+
+      successMsg.classList.add('show');
+      successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
+
+    // Clear invalid highlight on input
+    form.querySelectorAll('input, select, textarea').forEach(f => {
+      f.addEventListener('input', () => f.classList.remove('invalid'));
+    });
+
+    // ── Live local times + open/closed status (9:00–17:00 local, Mon–Fri) ──
+    function updateTimes() {
+      const now = new Date();
+      document.querySelectorAll('[data-tz]').forEach(el => {
+        const tz = el.dataset.tz;
+        try {
+          const timeStr = now.toLocaleTimeString('en-US', { timeZone: tz, hour: 'numeric', minute: '2-digit' });
+          if (el.classList.contains('contact-row-time')) {
+            el.textContent = timeStr;
+          } else if (el.classList.contains('location-status')) {
+            const parts = new Intl.DateTimeFormat('en-US', { timeZone: tz, hour: 'numeric', hour12: false, weekday: 'short' }).formatToParts(now);
+            const hour = parseInt(parts.find(p => p.type === 'hour').value, 10) % 24;
+            const weekday = parts.find(p => p.type === 'weekday').value;
+            const isWeekday = !['Sat', 'Sun'].includes(weekday);
+            const isOpen = isWeekday && hour >= 9 && hour < 17;
+            el.classList.toggle('open', isOpen);
+            el.classList.toggle('closed', !isOpen);
+            el.querySelector('.status-text').textContent = `${timeStr} local · ${isOpen ? 'Open' : 'Closed'}`;
+          }
+        } catch (err) { /* ignore */ }
+      });
+    }
+    updateTimes();
+    setInterval(updateTimes, 30000);
+
+    // ── Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((el, i) => {
+        if (el.isIntersecting) {
+          setTimeout(() => el.target.classList.add('visible'), i * 100);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
     // ── Orb parallax
     if (window.innerWidth > 900) {
       document.addEventListener('mousemove', e => {
         const x = (e.clientX / window.innerWidth  - 0.5) * 16;
         const y = (e.clientY / window.innerHeight - 0.5) * 16;
-        document.querySelector('.orb-1').style.transform = `translate(${x * 0.6}px,${y * 0.6}px)`;
-        document.querySelector('.orb-2').style.transform = `translate(${-x * 0.4}px,${-y * 0.4}px)`;
+        document.querySelector('.orb-1').style.transform = `translate(${x*0.6}px,${y*0.6}px)`;
+        document.querySelector('.orb-2').style.transform = `translate(${-x*0.4}px,${-y*0.4}px)`;
       });
     }
   </script>
