@@ -16,8 +16,6 @@
     gtag('config', 'G-N3KFG5C1ZL');
   </script>
 
-
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -44,7 +42,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
     /* ── BACKGROUND ── */
@@ -64,6 +62,7 @@
     .orb {
       position: fixed; border-radius: 50%;
       filter: blur(100px); pointer-events: none; z-index: 0;
+      will-change: transform;
     }
     .orb-1 { width: 600px; height: 600px; background: var(--gold);   opacity: 0.07; top: -200px; right: -150px; animation: orbDrift 24s ease-in-out infinite alternate; }
     .orb-2 { width: 400px; height: 400px; background: #2244aa;        opacity: 0.10; bottom: -100px; left: -100px; animation: orbDrift 19s ease-in-out infinite alternate-reverse; }
@@ -106,13 +105,14 @@
 
     .brand-mark {
       width: 52px; height: 52px; border-radius: 14px;
-      background: linear-gradient(135deg, var(--gold), var(--gold-muted));
+      background: linear-gradient(135deg, rgba(226,185,87,0.16), rgba(19,39,79,0.6));
+      border: 1px solid rgba(226,185,87,0.32);
       display: flex; align-items: center; justify-content: center;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem; font-weight: 600;
-      color: var(--navy-deepest); letter-spacing: 0.05em;
+      font-size: 1.15rem; font-style: italic;
+      color: var(--gold); letter-spacing: 0.05em;
       margin-bottom: 2.5rem;
-      box-shadow: 0 4px 24px rgba(226,185,87,0.35);
+      box-shadow: 0 4px 24px rgba(226,185,87,0.22);
     }
 
     .left-headline {
@@ -147,7 +147,7 @@
       color: rgba(237,232,224,0.5);
     }
 
-    /* ── RIGHT PANEL (login) ── */
+    /* ── RIGHT PANEL (access) ── */
     .right-panel {
       display: flex; flex-direction: column;
       justify-content: center; align-items: center;
@@ -156,12 +156,29 @@
 
     .login-card {
       width: 100%; max-width: 400px;
+      display: flex; flex-direction: column;
+      align-items: center; text-align: center;
+      opacity: 0; animation: fadeUp 0.8s ease forwards 0.35s;
+    }
+
+    .shield-tile {
+      width: 64px; height: 64px; border-radius: 18px;
+      background: linear-gradient(135deg, rgba(226,185,87,0.15), rgba(226,185,87,0.05));
+      border: 1px solid rgba(226,185,87,0.25);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.75rem;
+      box-shadow: 0 0 28px rgba(226,185,87,0.12);
+      animation: shieldGlow 3.5s ease-in-out infinite;
+    }
+    @keyframes shieldGlow {
+      0%, 100% { box-shadow: 0 0 28px rgba(226,185,87,0.12); }
+      50%      { box-shadow: 0 0 40px rgba(226,185,87,0.22); }
     }
 
     .login-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.9rem; font-weight: 400;
-      color: var(--cream); margin-bottom: 0.5rem;
+      color: var(--cream); margin-bottom: 0.75rem;
     }
     .login-subtitle {
       font-size: 0.83rem; font-weight: 300;
@@ -169,76 +186,6 @@
       line-height: 1.6;
     }
 
-    /* ── FORM ── */
-    .form-group { margin-bottom: 1.4rem; position: relative; }
-
-    label {
-      display: block; font-size: 0.7rem;
-      letter-spacing: 0.16em; text-transform: uppercase;
-      color: rgba(237,232,224,0.45); margin-bottom: 0.6rem;
-    }
-
-    .input-wrap { position: relative; }
-    .input-icon {
-      position: absolute; left: 1rem; top: 50%;
-      transform: translateY(-50%);
-      color: rgba(237,232,224,0.25); pointer-events: none;
-      transition: color 0.3s ease;
-    }
-
-    input[type="email"],
-    input[type="password"] {
-      width: 100%;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 10px;
-      padding: 0.85rem 1rem 0.85rem 2.75rem;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.92rem; font-weight: 300;
-      color: var(--cream);
-      transition: all 0.3s ease;
-      outline: none;
-      backdrop-filter: blur(10px);
-    }
-    input[type="email"]::placeholder,
-    input[type="password"]::placeholder {
-      color: rgba(237,232,224,0.2);
-    }
-    input[type="email"]:focus,
-    input[type="password"]:focus {
-      border-color: rgba(226,185,87,0.45);
-      background: rgba(255,255,255,0.07);
-      box-shadow: 0 0 0 3px rgba(226,185,87,0.08), 0 4px 16px rgba(0,0,0,0.2);
-    }
-    input[type="email"]:focus ~ .input-icon,
-    input[type="password"]:focus ~ .input-icon {
-      color: rgba(226,185,87,0.6);
-    }
-
-    /* Password toggle */
-    .pw-toggle {
-      position: absolute; right: 1rem; top: 50%;
-      transform: translateY(-50%);
-      background: none; border: none; cursor: pointer;
-      color: rgba(237,232,224,0.25);
-      transition: color 0.2s ease; padding: 0;
-    }
-    .pw-toggle:hover { color: rgba(237,232,224,0.6); }
-
-    /* Error message */
-    .error-msg {
-      display: none;
-      background: rgba(224,92,92,0.1);
-      border: 1px solid rgba(224,92,92,0.25);
-      border-radius: 8px;
-      padding: 0.75rem 1rem;
-      font-size: 0.8rem; font-weight: 300;
-      color: #f09090; margin-bottom: 1.25rem;
-      line-height: 1.5;
-    }
-    .error-msg.show { display: flex; align-items: center; gap: 0.5rem; }
-
-    /* Submit button */
     .submit-btn {
       width: 100%;
       background: linear-gradient(135deg, var(--gold), var(--gold-muted));
@@ -251,8 +198,10 @@
       cursor: pointer;
       transition: all 0.3s ease;
       box-shadow: 0 4px 20px rgba(226,185,87,0.28);
-      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      display: flex; align-items: center; justify-content: center; gap: 0.6rem;
       position: relative; overflow: hidden;
+      text-decoration: none;
+      margin-bottom: 2rem;
     }
     .submit-btn::before {
       content: ''; position: absolute;
@@ -266,25 +215,15 @@
       box-shadow: 0 8px 30px rgba(226,185,87,0.42);
     }
     .submit-btn:active { transform: translateY(0); }
-    .submit-btn:disabled {
-      opacity: 0.6; cursor: not-allowed; transform: none;
-    }
 
-    /* Spinner */
-    .spinner {
-      width: 16px; height: 16px;
-      border: 2px solid rgba(15,36,66,0.3);
-      border-top-color: var(--navy-deepest);
-      border-radius: 50%;
-      animation: spin 0.7s linear infinite;
-      display: none;
+    .gold-rule {
+      width: 40px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 0 1.5rem;
     }
-    .submit-btn.loading .btn-text { display: none; }
-    .submit-btn.loading .spinner { display: block; }
-    @keyframes spin { to { transform: rotate(360deg); } }
 
     .login-note {
-      text-align: center; margin-top: 1.75rem;
+      text-align: center;
       font-size: 0.75rem; font-weight: 300;
       color: rgba(237,232,224,0.25); line-height: 1.6;
     }
@@ -294,17 +233,9 @@
     }
     .login-note a:hover { color: var(--gold); }
 
-    /* ── DIVIDER ── */
-    .gold-rule {
-      width: 40px; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      margin: 2rem 0;
-    }
-
-    /* ── SECURITY BADGE ── */
     .security-badge {
       display: flex; align-items: center; gap: 0.5rem;
-      margin-top: 2rem;
+      margin-top: 1.5rem;
       padding: 0.6rem 0.9rem;
       background: rgba(255,255,255,0.025);
       border: 1px solid rgba(255,255,255,0.07);
@@ -328,16 +259,14 @@
     .left-panel > *:nth-child(4) { animation-delay: 0.5s; }
     .left-panel > *:nth-child(5) { animation-delay: 0.6s; }
 
-    .login-card {
-      opacity: 0; animation: fadeUp 0.8s ease forwards 0.35s;
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.001s !important; animation-iteration-count: 1 !important; transition-duration: 0.001s !important; }
     }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
       .page { grid-template-columns: 1fr; }
-      .left-panel {
-        display: none;
-      }
+      .left-panel { display: none; }
       .right-panel {
         padding: 3rem 2rem;
         min-height: 100vh;
@@ -364,7 +293,7 @@
         Back to Site
       </a>
 
-      <img src="/favicon.jpg" alt="Patel Holdings" style="width:32px;height:32px;border-radius:8px;object-fit:cover;box-shadow:0 2px 14px rgba(226,185,87,0.45),0 0 0 1px rgba(226,185,87,0.18);flex-shrink:0;" />
+      <div class="brand-mark">PH</div>
 
       <h1 class="left-headline">Your Family<br><em>Portal</em></h1>
 
@@ -375,11 +304,15 @@
       <div class="left-features">
         <div class="feature-row">
           <div class="feature-dot"></div>
-          <div class="feature-text">Live fund performance & benchmark comparisons</div>
+          <div class="feature-text">Live fund performance &amp; benchmark comparisons</div>
         </div>
         <div class="feature-row">
           <div class="feature-dot"></div>
           <div class="feature-text">Real-time AUM and holdings breakdown</div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-dot"></div>
+          <div class="feature-text">Documents, communications &amp; proxy voting</div>
         </div>
         <div class="feature-row">
           <div class="feature-dot"></div>
@@ -394,33 +327,33 @@
 
     <!-- ── RIGHT PANEL ── -->
     <div class="right-panel">
-      <div class="login-card" style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:0;">
+      <div class="login-card">
 
-        <div style="width:64px; height:64px; border-radius:18px; background:linear-gradient(135deg,rgba(226,185,87,0.15),rgba(226,185,87,0.05)); border:1px solid rgba(226,185,87,0.25); display:flex; align-items:center; justify-content:center; margin-bottom:1.75rem; box-shadow:0 0 28px rgba(226,185,87,0.12);">
+        <div class="shield-tile">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(226,185,87,0.9)" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
 
-        <div class="login-title" style="margin-bottom:0.75rem;">Secure Access</div>
+        <div class="login-title">Secure Access</div>
 
-        <p class="login-subtitle" style="margin-bottom:2.5rem;">
+        <p class="login-subtitle">
           Authorized family members only.<br>
           A one-time code will be sent to your<br>registered email address.
         </p>
 
-        <a href="/dashboard" class="submit-btn" style="text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.6rem; width:100%; padding:0.9rem; margin-bottom:2rem;">
+        <a href="/dashboard" class="submit-btn">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
           Access Family Portal
         </a>
 
         <div class="gold-rule"></div>
 
-        <p class="login-note" style="margin-top:1.5rem;">
+        <p class="login-note">
           Don't have access?
           <a href="/contact">Contact the administrator</a>
           to request authorization.
         </p>
 
-        <div class="security-badge" style="margin-top:1.5rem;">
+        <div class="security-badge">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           Zero Trust · Cloudflare Access · All sessions logged
         </div>
@@ -432,12 +365,14 @@
 
   <script>
     // ── Orb parallax
-    document.addEventListener('mousemove', (e) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 15;
-      const y = (e.clientY / window.innerHeight - 0.5) * 15;
-      document.querySelector('.orb-1').style.transform = `translate(${x * 0.6}px, ${y * 0.6}px)`;
-      document.querySelector('.orb-2').style.transform = `translate(${-x * 0.4}px, ${-y * 0.4}px)`;
-    });
+    if (window.innerWidth > 900) {
+      document.addEventListener('mousemove', (e) => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 15;
+        const y = (e.clientY / window.innerHeight - 0.5) * 15;
+        document.querySelector('.orb-1').style.transform = `translate(${x * 0.6}px, ${y * 0.6}px)`;
+        document.querySelector('.orb-2').style.transform = `translate(${-x * 0.4}px, ${-y * 0.4}px)`;
+      });
+    }
   </script>
 </body>
 </html>
